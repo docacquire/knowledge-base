@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base Home</title>
+     <link rel="stylesheet" href="style.css"></link>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            width: 100%;
+            background-color: #f9fafb;
+            color: #1f2937;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 1rem;
+        }
+
+        .main-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            text-align: center;
+            color: #002b49;
+            margin-bottom: 3rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-circle {
+            /* background-color: #e0f2fe; */
+            background-color: #e6eaed;
+            /* color: #007bff; */
+            color: #002b49;
+            border-radius: 9999px;
+            padding: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .icon-circle svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            stroke-width: 1.5;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            color: #4b5563;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .card-link {
+            color: #002b49;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            margin-top: 0.75rem;
+            transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+        }
+
+        .card-link:hover {
+            color: #ff7c74;
+            text-decoration: underline;
+        }
+
+        .card-link svg {
+            width: 1rem;
+            height: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="main-title">Knowledge Base</h1>
+
+        <div class="card-grid">
+            <!-- Card 1: DocAcquire API Guide -->
+            <a href="docacquire-api-guide.html" class="card">
+                <div class="icon-circle">
+                    <!-- Icon for API Guide -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                    </svg>
+                </div>
+                <h2 class="card-title">DocAcquire API Guide</h2>
+                <p class="card-description">A comprehensive guide to integrating with the DocAcquire API.</p>
+                <span class="card-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </span>
+            </a>
+
+            
+        </div>
+    </div>
+</body>
+</html>

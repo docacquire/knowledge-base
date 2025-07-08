@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocAcquire API Guide</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            /* min-height: 100vh; */
+            /* display: flex; */
+        }
+
+        /* Utility classes */
+        .hidden {
+            display: none;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 220px;
+            background-color: #fff;
+            padding: 20px;
+            border-right: 1px solid #e2e8f0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 20;
+        }
+
+        /* Hide scrollbar for sidebar */
+        .sidebar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sidebar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .sidebar-open {
+            transform: translateX(0%);
+        }
+
+         /* .sidebar>:first-child {
+            text-decoration: none;
+        } */
+        .sidebar .breadcrumb{
+            font-size: 12px;
+            margin-bottom: 20px;
+         }
+
+        .sidebar .breadcrumb .breadcrumb-link a{
+            text-decoration: none;
+            color: #4d6b80;
+        }
+
+        .sidebar .breadcrumb .breadcrumb-link a:hover{
+            text-decoration: underline;
+        }
+
+        .sidebar .breadcrumb .breadcrumb-current{
+            color: #002b49;
+            font-weight: bold;
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #002b49;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 6px;
+        }
+
+        .sidebar ul li a {
+            display: block;
+            padding: 7px 14px;
+            border-radius: 6px;
+            color: #374151;
+            transition: background-color 0.2s, color 0.2s;
+            text-decoration: none;
+            /* font-size: 0.9rem; */
+            font-size: 13px;
+        }
+
+        .sidebar ul li a:hover {
+            /* background-color: #eff6ff;  */
+            background-color: #e6eaed;
+            /* color: #1d4ed8;  */
+            color: #002b49;
+        }
+
+        .sidebar ul li a.active {
+            /* background-color: #dbeafe;  */
+            background-color: #ccd5db;
+            /* color: #1e40af;  */
+            color: #002b49;
+            font-weight: 600;
+            /* font-semibold */
+        }
+
+        /* Mobile sidebar toggle button */
+        .sidebar-toggle {
+            display: block; /* block by default for mobile */
+            position: fixed;
+            top: 12px; 
+            left: 12px; 
+            z-index: 30; 
+            padding: 6px; 
+            background-color: #002b49; 
+            color: #fff; 
+            border-radius: 6px; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+            border: none;
+            cursor: pointer;
+        }
+
+        .sidebar-toggle svg {
+            height: 20px; 
+            width: 20px; 
+        }
+
+        /* Main content area */
+        .main-content {
+            flex-grow: 1; /* flex-grow */
+            padding: 24px; 
+            overflow-y: auto; 
+            margin-left: 0; 
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            /* Adjusted from 2.25rem */
+            font-weight: 800;
+            /* font-extrabold */
+            color: #002b49;
+            margin-bottom: 12px;
+            /* Adjusted from 16px */
+        }
+
+        .main-content .meta {
+            font-size: 0.8rem;
+            /* Adjusted from 0.875rem */
+            color: #6b7280;
+            /* text-gray-500 */
+            margin-bottom: 24px;
+            /* Adjusted from 32px */
+        }
+
+        /* Intro box */
+        .intro-box {
+            /* background-color: #eff6ff; */
+            background-color: #e6eaed;
+            /* border-left: 4px solid #3b82f6; */
+            border-left: 4px solid #002b49;
+            padding: 20px;
+            /* Adjusted from 24px */
+            border-radius: 8px;
+            /* rounded-lg */
+            margin-bottom: 24px;
+            /* Adjusted from 32px */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            /* shadow-sm */
+        }
+
+        .intro-box p {
+            color: #1e40af;
+            /* text-blue-800 */
+            font-size: 1rem;
+            /* Adjusted from 1.125rem */
+        }
+
+        /* Headings */
+        .main-content h2 {
+            font-size: 1.6rem;
+            /* Adjusted from 1.875rem */
+            font-weight: 700;
+            /* font-bold */
+            /* color: #1d4ed8; */
+            color: #33556d;
+            margin-bottom: 16px;
+            /* Adjusted from 20px */
+        }
+
+        .main-content h3 {
+            font-size: 1.3rem;
+            /* Adjusted from 1.5rem */
+            font-weight: 600;
+            /* font-semibold */
+            /* color: #2563eb;  */
+            color: #4d6b80;
+            margin-bottom: 10px;
+            /* Adjusted from 12px */
+        }
+
+        .main-content h4 {
+            font-size: 1.1rem;
+            /* Adjusted from 1.25rem */
+            font-weight: 500;
+            /* font-medium */
+            /* color: #3b82f6;  */
+            color: #668092;
+            margin-bottom: 6px;
+            /* Adjusted from 8px */
+        }
+
+        /* Paragraphs */
+        .main-content p {
+            /* color: #374151;  */
+            color: #5c5c5c;
+            margin-bottom: 12px;
+            /* Adjusted from 16px */
+            max-width: 700px;
+            /* Adjusted from 768px */
+            font-size: 0.95rem;
+            /* Adjusted */
+            line-height: 1.6;
+            /* Added for better readability */
+        }
+
+        /* Code blocks and info boxes */
+        .code-block {
+            background-color: #f3f4f6;
+            /* bg-gray-100 */
+            padding: 14px;
+            /* Adjusted from 16px */
+            border-radius: 6px;
+            /* rounded-md */
+            font-family: monospace;
+            /* font-mono */
+            font-size: 0.85rem;
+            /* Adjusted from 0.875rem */
+            color: #2d3748;
+            /* text-gray-800 */
+            margin-bottom: 20px;
+            /* Adjusted from 24px */
+            max-width: 700px;
+            /* Adjusted from 768px */
+        }
+
+        .code-inline {
+            background-color: #e5e7eb;
+            padding: 1px 6px;
+            border-radius: 4px;
+        }
+
+        /* Styling for the <pre> tag within .code-block for JSON */
+        .code-block pre {
+            /* background-color: #282c34; */
+            background-color: #00223a;
+            /* Dark background for code, similar to Rossum */
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 10px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            color: #abb2bf;
+            line-height: 1.5;
+        }
+
+        /* Basic JSON syntax highlighting simulation */
+        .code-block pre .token.string {
+            color: #98c379;
+        }
+
+        .code-block pre .token.number {
+            color: #d19a66;
+        }
+
+        .code-block pre .token.boolean {
+            color: #56b6c2;
+        }
+
+        .code-block pre .token.property {
+            color: #e06c75;
+        }
+
+        .code-block pre .token.punctuation {
+            color: #abb2bf;
+        }
+
+        /* Ensure code inside the first child of .code-block (often for paths/endpoints) wraps */
+        .code-block>:first-child code {
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        /* Lists */
+        .main-content ul,
+        .main-content ol {
+            list-style-position: outside;
+            /* Changed from inside to outside */
+            margin-left: 20px;
+            /* Adjusted from 14px */
+            color: #374151;
+            /* text-gray-700 */
+            margin-bottom: 16px;
+            /* Adjusted from 12px */
+            max-width: 700px;
+            /* Adjusted from 768px */
+            font-size: 0.95rem;
+            /* Adjusted */
+            line-height: 1.8;
+            /* Increased line height for lists */
+        }
+
+        .main-content ul li,
+        .main-content ol li {
+            margin-bottom: 8px;
+            /* Added margin between list items */
+        }
+
+        .main-content ol {
+            list-style-type: decimal;
+        }
+
+        .main-content ul {
+            list-style-type: disc;
+        }
+
+        .main-content ul li strong {
+            color: #4d6b80;
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            display: flex;
+            /* flex */
+            justify-content: space-between;
+            /* justify-between */
+            max-width: 700px;
+            /* Adjusted from 768px */
+            margin-top: 24px;
+            /* Adjusted from 32px */
+        }
+
+        .nav-buttons a {
+            /* color: #2563eb; */
+            color: #4d6b80;
+            text-decoration: none;
+            /* hover:underline */
+            font-weight: 500;
+            /* font-medium */
+            font-size: 1rem;
+            /* Adjusted from 1.125rem */
+            display: flex;
+            /* flex */
+            align-items: center;
+            /* items-center */
+            gap: 6px;
+            /* Adjusted from 8px */
+        }
+
+        .nav-buttons a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-buttons .next-link {
+            justify-content: flex-end;
+            /* justify-end */
+        }
+
+        .nav-buttons svg {
+            height: 18px;
+            /* Adjusted from 20px */
+            width: 18px;
+            /* Adjusted from 20px */
+        }
+
+        /* Feedback section */
+        .feedback {
+            display: none;
+            margin-top: 24px;
+            /* Adjusted from 32px */
+            padding: 16px;
+            /* Adjusted from 20px */
+            background-color: #fff;
+            /* bg-white */
+            border: 1px solid #e5e7eb;
+            /* border border-gray-200 */
+            border-radius: 8px;
+            /* rounded-lg */
+            /* display: flex; */
+            align-items: center;
+            /* items-center */
+            gap: 12px;
+            /* Adjusted from 16px */
+            max-width: 700px;
+            /* Adjusted from 768px */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            /* shadow-sm */
+        }
+
+        .feedback span {
+            color: #4b5563;
+            /* text-gray-600 */
+            font-size: 0.9rem;
+            /* Adjusted from 1rem */
+        }
+
+        .feedback button {
+            background-color: #f3f4f6;
+            /* bg-gray-100 */
+            color: #1d4ed8;
+            /* text-blue-700 */
+            padding: 6px 12px;
+            /* Adjusted from 8px 16px */
+            border-radius: 6px;
+            /* rounded-md */
+            border: 1px solid #d1d5db;
+            /* border border-gray-300 */
+            transition: background-color 0.2s, color 0.2s;
+            /* transition-colors duration-200 */
+            cursor: pointer;
+            font-size: 0.9rem;
+            /* Adjusted */
+        }
+
+        .feedback button:hover {
+            background-color: #dbeafe;
+            /* hover:bg-blue-100 */
+            color: #1d4ed8;
+            /* hover:text-blue-700 */
+        }
+
+        /* Tables */
+        .main-content table {
+            width: 100%;
+            /* w-full */
+            text-align: left;
+            /* text-left */
+            table-layout: auto;
+            /* table-auto */
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            /* Adjusted */
+        }
+
+        .main-content table thead tr {
+            background-color: #e5e7eb;
+            /* bg-gray-200 */
+        }
+
+        .main-content table th,
+        .main-content table td {
+            padding: 6px;
+        }
+
+        .main-content table tbody tr td {
+            border-top: 1px solid #d1d5db;
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar {
+                transform: translateX(0%);
+                width: 270px;
+            }
+
+            .sidebar-toggle {
+                display: none;
+            }
+
+            .main-content {
+                margin-left: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar for navigation -->
+    <div id="sidebar" class="sidebar">
+        
+        <div class="breadcrumb">
+            <span class="breadcrumb-link">
+                <a href="index.html">Documentation</a>
+            </span>
+            <span>&nbsp; / &nbsp;</span> 
+            <span class="breadcrumb-current">API Guide</span>
+        </div>
+
+        <ul>
+            <li>
+                <a href="#step1">Authentication</a>
+            </li>
+            <li>
+                <a href="#step2">Retrieve Document Types</a>
+            </li>
+            <li>
+                <a href="#step3">Document Processing</a>
+            </li>
+            <li>
+                <a href="#step4">Document Verification Process</a>
+            </li>
+            <li>
+                <a href="#step5">Retrieve Verified Documents</a>
+            </li>
+            <li>
+                <a href="#step6">Mark Documents as Exported</a>
+            </li>
+            <li>
+                <a href="#step7">Best Practices</a>
+            </li>
+            <li>
+                <a href="#step8">Conclusion</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Mobile sidebar toggle button -->
+    <button id="sidebarToggle" class="sidebar-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+        </svg>
+    </button>
+
+    <!-- Main content area -->
+    <div class="main-content" id="main-content">
+        <h1>Automation Engineer's Guide to the DocAcquire API</h1>
+        <div class="meta">Updated on Jul 08, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 08, 2025</div>
+
+        <!-- Content for Step 1 -->
+        <div id="step1" class="page">
+            <div class="intro-box">
+                <!-- <p>In this guide, you will find steps for using the DocAcquire API effectively. Browse the topics on the left to learn more.</p> -->
+                <p>In this guide, you will find steps for using the DocAcquire API effectively. Browse the topics on the
+                    left to learn more. This guide assumes that you have already set up your document type, added the
+                    required fields, and completed the necessary configuration beforehand.</p>
+            </div>
+            <h2>1. Authentication</h2>
+            <p>The first step in using the DocAcquire API is to authenticate using OAuth2 to obtain an access token,
+                which is required for all subsequent API requests. The access token expires after 3 hours.</p>
+
+            <h3>Obtaining an Access Token</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/oauth/token</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p><strong>Payload:</strong></p>
+                <pre><code>{
+    "username": "<span class="token string">"joebloggs@xyz.com"</span>",
+    "password": "<span class="token string">"YourPassword"</span>"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>{
+    "accessToken": "<span class="token string">"token here"</span>",
+    "validTo": <span class="token number">157679999</span>,
+    "refreshToken": "<span class="token string">"refresh token here"</span>"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <pre><code><span class="token string">"Invalid credentials."</span></code></pre>
+            </div>
+
+            <h3>Refreshing an Access Token</h3>
+            <p>When the access token expires, use the refresh token to obtain a new one. Check for expiration by:
+            <ol>
+                <li>Verifying the <code>validTo</code> property in the token response.</li>
+                <li>Checking for a <code>"token-expired": "true"</code> header in API responses.</li>
+            </ol>
+            <p class="mt-2">The refresh token expires after 24 hours.</p>
+            </p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/oauth/refresh</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p><strong>Payload:</strong></p>
+                <pre><code>{
+    "accessToken": "<span class="token string">"token here"</span>",
+    "validTo": <span class="token number">157679999</span>,
+    "refreshToken": "<span class="token string">"refresh token here"</span>"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>{
+    "accessToken": "<span class="token string">"new token here"</span>",
+    "validTo": <span class="token number">157679999</span>,
+    "refreshToken": "<span class="token string">"new refresh token here"</span>"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <pre><code><span class="token string">"Invalid credentials."</span></code></pre>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="nav-buttons">
+                <div></div> <!-- Placeholder for previous button on first page -->
+                <a href="#step2" class="next-link">
+                    Next: Step 2
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Feedback section -->
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 2 -->
+        <div id="step2" class="page hidden">
+            <h2>2. Retrieve Document Types</h2>
+            <p>After authentication, retrieve the list of document types to identify the IDs needed for document
+                classification and data extraction in later steps.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/DocumentTypes</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>[
+    {
+        <span class="token property">"Id"</span>: <span class="token string">"100"</span>,
+        <span class="token property">"Name"</span>: <span class="token string">"Invoice"</span>,
+        <span class="token property">"StandardDocumentType"</span>: <span class="token string">"1"</span>
+    },
+    {
+        <span class="token property">"Id"</span>: <span class="token string">"102"</span>,
+        <span class="token property">"Name"</span>: <span class="token string">"Contract"</span>,
+        <span class="token property">"StandardDocumentType"</span>: <span class="token string">"7"</span>
+    }
+]</code></pre>
+            </div>
+            <div class="nav-buttons">
+                <a href="#step1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Step 1
+                </a>
+                <a href="#step3">
+                    Next: Step 3
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 3 -->
+        <div id="step3" class="page hidden">
+            <h2>3. Document Processing</h2>
+            <p>After retrieving document type IDs, you can upload and process documents using the DocAcquire API. The
+                API supports two processing modes: synchronous and asynchronous. The primary difference is that
+                synchronous processing is designed for lightweight documents (up to 5 pages) with immediate results,
+                while asynchronous processing is suited for heavy documents (up to 2000 pages, depending on
+                subscription) or batch processing, with results retrieved later.</p>
+
+            <h3>Synchronous Processing</h3>
+            <p>Synchronous processing involves uploading a document to the API, where the server immediately processes
+                it—performing tasks like splitting, classification, and data extraction—and returns the extracted data
+                (fields, tables, and metadata) within the same request cycle. The client waits for the processing to
+                complete, making it suitable for scenarios where instant results are needed for small documents.</p>
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li><strong>Immediate Results:</strong> The response is returned in real-time, typically within seconds,
+                    depending on document complexity.</li>
+                <li><strong>Lightweight Documents:</strong> Limited to documents with a maximum of 5 pages.</li>
+                <li><strong>Single Request Cycle:</strong> The entire process (upload, processing, and result retrieval)
+                    occurs in one API call.</li>
+            </ul>
+            <h4>Use Cases:</h4>
+            <ul>
+                <li>Processing small documents, such as single invoices or short contracts.</li>
+                <li>Quick validation of lightweight documents where immediate feedback is required.</li>
+            </ul>
+            <h4>Limitations:</h4>
+            <ul>
+                <li>Maximum of 5 pages per document.</li>
+                <li>Not suitable for batch or large file processing.</li>
+            </ul>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/ExtractSync</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre><code>const formData = new FormData();
+formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice.pdf"</span>);
+let headers = new HttpHeaders();
+headers = headers.set(<span class="token string">"Accept"</span>, <span class="token string">"application/json"</span>);
+headers = headers.set(<span class="token string">"enctype"</span>, <span class="token string">"multipart/form-data"</span>);
+headers = headers.set(<span class="token string">"Authorization"</span>, <span class="token string">"Bearer {AUTH TOKEN}"</span>);
+headers = headers.set(<span class="token string">"docTypeIds"</span>, <span class="token string">"[100,200]"</span>);
+
+var request = new XMLHttpRequest();
+request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Response:</strong> (200) Includes extracted fields, tables, and document
+                    metadata.</p>
+                <p class="mt-2"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre><code>{
+    <span class="token property">"Result"</span>: <span class="token string">"success"</span>,
+    <span class="token property">"Documents"</span>: [
+        {
+            <span class="token property">"Id"</span>: <span class="token boolean">null</span>,
+            <span class="token property">"MasterId"</span>: <span class="token boolean">null</span>,
+            <span class="token property">"Name"</span>: <span class="token string">"Page (2-2) invoice test.pdf"</span>,
+            <span class="token property">"DocumentType"</span>: <span class="token string">"invoice"</span>,
+            <span class="token property">"Fields"</span>: [
+                { <span class="token property">"Id"</span>: <span class="token number">16510</span>, <span class="token property">"Name"</span>: <span class="token string">"invoice no."</span>, <span class="token property">"Value"</span>: <span class="token string">"INVOICE #200"</span> },
+                { <span class="token property">"Id"</span>: <span class="token number">18513</span>, <span class="token property">"Name"</span>: <span class="token string">"total"</span>, <span class="token property">"Value"</span>: <span class="token string">"90000"</span> }
+            ],
+            <span class="token property">"Tables"</span>: [
+                {
+                    <span class="token property">"Name"</span>: <span class="token string">"line items"</span>,
+                    <span class="token property">"Rows"</span>: [
+                        {
+                            <span class="token property">"Cells"</span>: [
+                                { <span class="token property">"Name"</span>: <span class="token string">"qty"</span>, <span class="token property">"Id"</span>: <span class="token number">5796</span>, <span class="token property">"Value"</span>: <span class="token string">"200"</span> },
+                                { <span class="token property">"Name"</span>: <span class="token string">"description"</span>, <span class="token property">"Id"</span>: <span class="token number">7796</span>, <span class="token property">"Value"</span>: <span class="token string">"Decorative clay pottery (LG)"</span> },
+                                { <span class="token property">"Name"</span>: <span class="token string">"unit price"</span>, <span class="token property">"Id"</span>: <span class="token number">7797</span>, <span class="token property">"Value"</span>: <span class="token string">"900"</span> },
+                                { <span class="token property">"Name"</span>: <span class="token string">"amount"</span>, <span class="token property">"Id"</span>: <span class="token number">7798</span>, <span class="token property">"Value"</span>: <span class="token string">"9000"</span> }
+                            ],
+                            <span class="token property">"RowNo"</span>: <span class="token number">1</span>,
+                            <span class="token property">"IsHeader"</span>: <span class="token boolean">false</span>
+                        }
+                    ]
+                }
+            ],
+            <span class="token property">"Result"</span>: <span class="token number">1</span>,
+            <span class="token property">"ResultString"</span>: <span class="token string">"success"</span>
+        },
+        // ... more documents if applicable
+    ]
+}</code></pre>
+            </div>
+
+            <h3>Asynchronous Processing</h3>
+            <p>Asynchronous processing allows the client to upload one or more documents, receiving an immediate
+                acknowledgment (e.g., a document ID). The server queues the documents for processing in the background,
+                performing tasks like splitting, classification, and data extraction. The client must later query a
+                separate endpoint (using the document ID) to retrieve the results, making it ideal for handling large
+                documents or multiple files without requiring the client to wait.</p>
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li><strong>Background Processing:</strong> Processing occurs on the server after the initial upload,
+                    freeing the client to perform other tasks.</li>
+                <li><strong>Heavy Documents and Batch Processing:</strong> Supports documents up to 2000 pages (based on
+                    subscription) and batch uploads of up to 10 documents at once.</li>
+                <li><strong>Two-Step Process:</strong> Upload documents to receive a document ID, then poll or use a
+                    callback to retrieve results later.</li>
+            </ul>
+            <h4>Use Cases:</h4>
+            <ul>
+                <li>Processing large documents, such as multi-page reports or contracts.</li>
+                <li>Batch processing multiple documents simultaneously.</li>
+                <li>Background workflows or bulk automation where immediate results are not required.</li>
+            </ul>
+            <h4>Advantages:</h4>
+            <ul>
+                <li>No page limit (up to 2000 pages based on subscription).</li>
+                <li>Supports uploading multiple files at once.</li>
+            </ul>
+
+            <h4>Upload Single Document</h4>
+            <p>The client sends a POST request with a single document file to the <code
+                    class="code-inline">/api/v4/Document/UploadSingle</code> endpoint. The server acknowledges the
+                upload and queues the document for background processing. The client can later query the status or
+                retrieve results using the provided document ID.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre><code>const formData = new FormData();
+formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice.pdf"</span>);
+let headers = new HttpHeaders();
+headers = headers.set(<span class="token string">"Accept"</span>, <span class="token string">"application/json"</span>);
+headers = headers.set(<span class="token string">"enctype"</span>, <span class="token string">"multipart/form-data"</span>);
+headers = headers.set(<span class="token string">"Authorization"</span>, <span class="token string">"Bearer {AUTH TOKEN}"</span>);
+headers = headers.set(<span class="token string">"docTypeIds"</span>, <span class="token string">"[100,200]"</span>);
+
+var request = new XMLHttpRequest();
+request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
+    <span class="token property">"Message"</span>: <span class="token string">"Uploaded successfully"</span>,
+    <span class="token property">"FailureLevel"</span>: <span class="token number">0</span>,
+    <span class="token property">"DocumentId"</span>: <span class="token number">1005</span>,
+    <span class="token property">"MasterId"</span>: <span class="token string">"35951a9e-ded6-4620-9c97-de69a327577f"</span> 
+}</code></pre>
+            </div>
+
+            <h4>Upload Single Document in Base64</h4>
+            <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to
+                the <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code> endpoint. The server decodes
+                the Base64 string, acknowledges the upload, and queues the document for processing. The client retrieves
+                results later using the document ID.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
+DocumentTypeList: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <pre><code>{
+    <span class="token property">"Filename"</span>: <span class="token string">"invoice.pdf"</span>,
+    <span class="token property">"Content"</span>: <span class="token string">"&lt;&lt;BASE64 STRING HERE&gt;&gt;"</span>,
+    <span class="token property">"TaskId"</span>: <span class="token number">0</span>, <span class="token comment">//optional</span>
+    <span class="token property">"DocumentTypeList"</span>: [<span class="token number">100</span>, <span class="token number">200</span>] <span class="token comment">//optional</span>
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
+    <span class="token property">"Message"</span>: <span class="token string">"Uploaded successfully"</span>,
+    <span class="token property">"FailureLevel"</span>: <span class="token number">0</span>,
+    <span class="token property">"DocumentId"</span>: <span class="token number">1005</span>,
+    <span class="token property">"MasterId"</span>: <span class="token string">"35951a9e-ded6-4620-9c97-de69a327577f"</span>
+}</code></pre>
+            </div>
+
+            <h4>Upload Multiple Documents</h4>
+            <p>The client sends a POST request with up to 10 documents to the <code
+                    class="code-inline">/api/v4/Document/UploadMultiple</code> endpoint. The server acknowledges the
+                upload and processes each document in the background. The client retrieves results for each document
+                using the respective document IDs.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadMultiple</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre><code>const formData = new FormData();
+formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice1.pdf"</span>);
+formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice2.pdf"</span>);
+let headers = new HttpHeaders();
+headers = headers.set(<span class="token string">"Accept"</span>, <span class="token string">"application/json"</span>);
+headers = headers.set(<span class="token string">"enctype"</span>, <span class="token string">"multipart/form-data"</span>);
+headers = headers.set(<span class="token string">"Authorization"</span>, <span class="token string">"Bearer {AUTH TOKEN}"</span>);
+headers = headers.set(<span class="token string">"docTypeIds"</span>, <span class="token string">"[1000,2000]"</span>);
+
+var request = new XMLHttpRequest();
+request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
+    <span class="token property">"Message"</span>: <span class="token string">"Uploaded successfully"</span>,
+    <span class="token property">"FailureLevel"</span>: <span class="token number">0</span>,
+    <span class="token property">"DocumentIdList"</span>: [<span class="token number">1005</span>,<span class="token number">1006</span>, <span class="token punctuation">...</span>],
+    <span class="token property">"MasterIdList"</span>: [<span class="token string">"35951a9e-ded6-4620-9c97-de69a327577f"</span>, <span class="token string">"12345abc-def6-7890-ghij-klmnopqrstuv"</span>, <span class="token punctuation">...</span>]
+}</code></pre>
+            </div>
+
+            <h3>Choosing Between Synchronous and Asynchronous</h3>
+            <div class="code-block">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Synchronous</th>
+                            <th>Asynchronous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Max Pages</td>
+                            <td>5</td>
+                            <td>Up to 2000 (based on subscription)</td>
+                        </tr>
+                        <tr>
+                            <td>Batch Document Processing</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Large Documents</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="#step2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Step 2
+                </a>
+                <a href="#step4">
+                    Next: Step 4
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 4 -->
+        <div id="step4" class="page hidden">
+            <h2>4. Document Verification Process</h2>
+            <p>Based on the review method configured during document type setup, the following steps apply to verify
+                documents before data extraction:</p>
+            <ul>
+                <li><strong>Manual Review:</strong> If configured for manual review, you must manually review and mark
+                    documents as verified before extracting data via APIs.</li>
+                <li><strong>Skip Review:</strong> If set to skip review, documents are automatically verified and moved
+                    to the Reviewed stage, enabling immediate data extraction via APIs.</li>
+                <li><strong>Auto Review:</strong> If configured for auto review, extracted fields undergo automated
+                    validation checks. If all checks pass, documents are moved to the Reviewed stage, and data can be
+                    extracted directly via APIs.</li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#step3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Step 3
+                </a>
+                <a href="#step5">
+                    Next: Step 5
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 5 -->
+        <div id="step5" class="page hidden">
+            <h2>5. Retrieve Verified Documents</h2>
+            <p>After documents are verified, retrieve verified (human or system-verified) documents using document type
+                or ID, in standard or flattened formats.</p>
+
+            <h3>By Document Type</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code
+                        class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code
+                        class="code-inline">DocumentTypeId : Id of the Document Type</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre><code>{
+    <span class="token property">"Result"</span>: <span class="token string">"success"</span>,
+    <span class="token property">"Documents"</span>: [
+        {
+            <span class="token property">"Id"</span>: <span class="token number">100</span>,
+            <span class="token property">"MasterId"</span>: <span class="token string">"33213a9e-ded6-4323-9c97-de69a327577z"</span>,
+            <span class="token property">"Name"</span>: <span class="token string">"Page (2 - 2) - invoice test.pdf"</span>,
+            <span class="token property">"DocumentType"</span>: <span class="token string">"invoice"</span>,
+            <span class="token property">"Fields"</span>: [
+                { <span class="token property">"Id"</span>: <span class="token number">16510</span>, <span class="token property">"Name"</span>: <span class="token string">"invoice no."</span>, <span class="token property">"Value"</span>: <span class="token string">"INVOICE #200"</span> },
+                { <span class="token property">"Id"</span>: <span class="token number">18513</span>, <span class="token property">"Name"</span>: <span class="token string">"total"</span>, <span class="token property">"Value"</span>: <span class="token string">"90000"</span> }
+            ],
+            <span class="token property">"Tables"</span>: [
+                {
+                    <span class="token property">"Name"</span>: <span class="token string">"line items"</span>,
+                    <span class="token property">"Rows"</span>: [
+                        {
+                            <span class="token property">"Cells"</span>: [
+                                { <span class="token property">"Name"</span>: <span class="token string">"qty"</span>, <span class="token property">"Id"</span>: <span class="token number">5796</span>, <span class="token property">"Value"</span>: <span class="token string">"200"</span> },
+                                { <span class="token property">"Name"</span>: <span class="token string">"description"</span>, <span class="token property">"Id"</span>: <span class="token number">7796</span>, <span class="token property">"Value"</span>: <span class="token string">"Decorative clay pottery (LG)"</span> },
+                                { <span class="token property">"Name"</span>: <span class="token string">"unit price"</span>, <span class="token property">"Id"</span>: <span class="token number">7797</span>, <span class="token property">"Value"</span>: <span class="token string">"900"</span> },
+                                { <span class="token property">"Name"</span>: <span class="token string">"amount"</span>, <span class="token property">"Id"</span>: <span class="token number">7798</span>, <span class="token property">"Value"</span>: <span class="token string">"9000"</span> }
+                            ],
+                            <span class="token property">"RowNo"</span>: <span class="token number">1</span>,
+                            <span class="token property">"IsHeader"</span>: <span class="token boolean">false</span>
+                        }
+                    ]
+                }
+            ],
+            <span class="token property">"Result"</span>: <span class="token number">1</span>,
+            <span class="token property">"ResultString"</span>: <span class="token string">"success"</span>
+        },
+        <span class="token comment">// ... more documents</span>
+    ]
+}</code></pre>
+            </div>
+
+            <h3>By Document Type (Flattened)</h3>
+            <p>Returns verified documents in a simplified key/value pair format without additional metadata like
+                confidence scores.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code
+                        class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code
+                        class="code-inline">DocumentTypeId: Id of the Document Type</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>[
+    {
+        <span class="token property">"Id"</span>: <span class="token number">432</span>,
+        <span class="token property">"MasterId"</span>: <span class="token string">"1233a9e-ded6-4323-9c97-de69a327577y"</span>,
+        <span class="token property">"CustomerName"</span>: <span class="token string">"DASHER TECHNOLOGIES INC"</span>,
+        <span class="token property">"TotalTax"</span>: <span class="token string">"$606.42"</span>,
+        <span class="token property">"Amount"</span>: <span class="token string">"$2,196.00"</span>
+    },
+    {
+        <span class="token property">"Id"</span>: <span class="token number">433</span>,
+        <span class="token property">"MasterId"</span>: <span class="token string">"87adca9e-ded6-4323-9c97-de69a327577x"</span>,
+        <span class="token property">"CustomerName"</span>: <span class="token string">"ABC INC"</span>,
+        <span class="token property">"TotalTax"</span>: <span class="token string">"$450.51"</span>,
+        <span class="token property">"Amount"</span>: <span class="token string">"$5,065.96"</span>
+    }
+]</code></pre>
+            </div>
+
+            <h3>By Document ID</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/{DocumentId}</code>
+                </p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code
+                        class="code-inline">DocumentId : Id of the Document</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre><code>{
+    <span class="token property">"Id"</span>: <span class="token number">100</span>,
+    <span class="token property">"MasterId"</span>: <span class="token string">"33213a9e-ded6-4323-9c97-de69a327577z"</span>,
+    <span class="token property">"Name"</span>: <span class="token string">"Page (2 - 2) - invoice test.pdf"</span>,
+    <span class="token property">"DocumentType"</span>: <span class="token string">"invoice"</span>,
+    <span class="token property">"Fields"</span>: [
+        { <span class="token property">"Id"</span>: <span class="token number">16510</span>, <span class="token property">"Name"</span>: <span class="token string">"invoice no."</span>, <span class="token property">"Value"</span>: <span class="token string">"INVOICE #200"</span> },
+        { <span class="token property">"Id"</span>: <span class="token number">18513</span>, <span class="token property">"Name"</span>: <span class="token string">"total"</span>, <span class="token property">"Value"</span>: <span class="token string">"90000"</span> }
+    ],
+    <span class="token property">"Tables"</span>: [
+        {
+            <span class="token property">"Name"</span>: <span class="token string">"line items"</span>,
+            <span class="token property">"Rows"</span>: [
+                {
+                    <span class="token property">"Cells"</span>: [
+                        { <span class="token property">"Name"</span>: <span class="token string">"qty"</span>, <span class="token property">"Id"</span>: <span class="token number">5796</span>, <span class="token property">"Value"</span>: <span class="token string">"200"</span> },
+                        { <span class="token property">"Name"</span>: <span class="token string">"description"</span>, <span class="token property">"Id"</span>: <span class="token number">7796</span>, <span class="token property">"Value"</span>: <span class="token string">"Decorative clay pottery (LG)"</span> },
+                        { <span class="token property">"Name"</span>: <span class="token string">"unit price"</span>, <span class="token property">"Id"</span>: <span class="token number">7797</span>, <span class="token property">"Value"</span>: <span class="token string">"900"</span> }
+                    ],
+                    <span class="token property">"RowNo"</span>: <span class="token number">1</span>,
+                    <span class="token property">"IsHeader"</span>: <span class="token boolean">false</span>
+                }
+            ]
+        }
+    ],
+    <span class="token property">"Result"</span>: <span class="token number">1</span>,
+    <span class="token property">"ResultString"</span>: <span class="token string">"success"</span>
+}</code></pre>
+            </div>
+
+            <h3>By Document ID (Flattened)</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code
+                        class="code-inline">/api/v4/Document/Verified/{DocumentId}/Flatten</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code
+                        class="code-inline">DocumentId: Id of the Document</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    <span class="token property">"Id"</span>: <span class="token number">31886</span>, 
+    <span class="token property">"MasterId"</span>: <span class="token string">"n7fb112d-4142-4f3e-2x1e-8eb0f5ccs1ea"</span>, 
+    <span class="token property">"Supplier"</span>: <span class="token string">"Alpine Ski House"</span>,
+    <span class="token property">"InvoiceNumber"</span>: <span class="token string">"500045/22"</span>,
+    <span class="token property">"OrderNumber"</span>: <span class="token string">"NUMBER"</span>,
+    <span class="token property">"IssueDate"</span>: <span class="token string">"10/07/17"</span>,
+    <span class="token property">"TotalNet"</span>: <span class="token string">"1100.00"</span>,
+    <span class="token property">"TotalTax"</span>: <span class="token string">"45.00"</span>,
+    <span class="token property">"TotalGross"</span>: <span class="token string">"1160.00"</span>,
+    <span class="token property">"EmailAddress"</span>: <span class="token string">"dstemp@xyzconsulting.com"</span>,
+    <span class="token property">"Phone"</span>: <span class="token string">"0207783463"</span>,
+    <span class="token property">"lineitems"</span>: [
+        {
+            <span class="token property">"Tax"</span>: <span class="token string">"10"</span>,
+            <span class="token property">"Description"</span>: <span class="token string">"Computer Monitors"</span>,
+            <span class="token property">"Quantity"</span>: <span class="token string">"100"</span>,
+            <span class="token property">"Amount"</span>: <span class="token string">"1000.00"</span>
+        },
+        {
+            <span class="token property">"Tax"</span>: <span class="token string">"5"</span>,
+            <span class="token property">"Description"</span>: <span class="token string">"Video Cards"</span>,
+            <span class="token property">"Quantity"</span>: <span class="token string">"20"</span>,
+            <span class="token property">"Amount"</span>: <span class="token string">"100.00"</span>
+        }
+    ]
+}</code></pre>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="#step4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Step 4
+                </a>
+                <a href="#step6">
+                    Next: Step 6
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 6 -->
+        <div id="step6" class="page hidden">
+            <h2>6. Mark Documents as Exported</h2>
+            <p>The final step is to mark processed documents as exported to track their status. An error is thrown for
+                invalid document IDs.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/MarkDocumentsExported</code>
+                </p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <pre><code>{
+    <span class="token property">"DocumentIdList"</span>: [<span class="token number">1001</span>,<span class="token number">1002</span>,<span class="token number">1003</span>]
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>{
+    <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
+    <span class="token property">"Message"</span>: <span class="token string">"Success"</span>
+}</code></pre>
+            </div>
+            <div class="nav-buttons">
+                <a href="#step5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Step 5
+                </a>
+                <a href="#step7">
+                    Next: Best Practices
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 7 -->
+        <div id="step7" class="page hidden">
+            <h2>Best Practices</h2>
+            <ul>
+                <li><strong>Synchronous Processing:</strong> Use for lightweight documents (up to 5 pages) requiring
+                    immediate results.</li>
+                <li><strong>Asynchronous Processing:</strong> Use for heavy documents or batch document processing.
+                    Implement a polling or callback mechanism to retrieve results.</li>
+                <li><strong>Token Management:</strong> Monitor token expiry and use the refresh token to maintain
+                    uninterrupted access.</li>
+                <li><strong>Document Type Specification:</strong> Include document type IDs when uploading documents to
+                    improve classification accuracy.</li>
+                <li><strong>Verification Process:</strong> Ensure the review method (Manual, Skip, or Auto) aligns with
+                    your workflow to streamline verification and data extraction.</li>
+                <li><strong>Error Handling:</strong> Check for <code>"token-expired": "true"</code> headers and handle
+                    invalid credential errors appropriately.</li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#step6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Step 6
+                </a>
+                <a href="#step8">
+                    Next: Conclusion
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 8 -->
+        <div id="step8" class="page hidden">
+            <h2>Conclusion</h2>
+            <p>The DocAcquire API provides a structured workflow for document processing, starting with authentication,
+                followed by retrieving document types, processing documents (synchronously or asynchronously),
+                retrieving verified documents, and marking documents as exported.</p>
+            <div class="nav-buttons">
+                <a href="#step7">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Best Practices
+                </a>
+                <div></div> <!-- Placeholder for next button on last page -->
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 8;
+        const pages = document.querySelectorAll('.page');
+        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        // Function to show the selected page and update active link
+        function showPage(pageNum) {
+            pages.forEach((page, index) => {
+                page.classList.toggle('hidden', (index + 1 !== pageNum));
+            });
+
+            sidebarLinks.forEach(a => a.classList.remove('active'));
+            const activeLink = document.querySelector(`.sidebar a[href="#step${pageNum}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll to top of content when page changes
+            document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Hide sidebar on mobile after navigation
+            if (window.innerWidth < 1024) { // 1024px is the breakpoint for 'lg'
+                sidebar.classList.remove('sidebar-open');
+            }
+        }
+
+        // Event listeners for sidebar navigation
+        sidebarLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', '');
+                currentPage = parseInt(pageId.replace('step', ''));
+                showPage(currentPage);
+            });
+        });
+
+        // Event listeners for next/previous navigation buttons
+        document.querySelectorAll('.nav-buttons a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', '');
+                currentPage = parseInt(pageId.replace('step', ''));
+                showPage(currentPage);
+            });
+        });
+
+        // Toggle sidebar visibility on mobile
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+        });
+
+        // Initial page load
+        showPage(currentPage);
+    </script>
+
+</body>
+
+</html>
