@@ -4,7 +4,7 @@
 <link>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DocAcquire API Guide</title>
+<title>API Reference</title>
 <link rel="stylesheet" href="style.css">
 </link>
 <style>
@@ -647,13 +647,28 @@
     "username": "<span class="token string">"joebloggs@xyz.com"</span>",
     "password": "<span class="token string">"YourPassword"</span>"
 }</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                
+                <br>
+                <p ><strong>cURL Example:</strong></p>
+                <pre><code>curl --request POST \
+     --url <span class="token string">{BASE_URL}/oauth/token</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'content-type: application/json'</span> \
+     --data <span class="token string">'
+{
+  "username": "your_username",
+  "password": "your_password"
+}'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - Success):</strong></p>
                 <pre><code>{
     "accessToken": "<span class="token string">"token here"</span>",
     "validTo": <span class="token number">157679999</span>,
     "refreshToken": "<span class="token string">"refresh token here"</span>"
 }</code></pre>
-                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <br>
+                <p ><strong>Sample Response (400 - Invalid Credentials):</strong></p>
                 <pre><code><span class="token string">"Invalid credentials."</span></code></pre>
             </div>
 
@@ -674,13 +689,31 @@
     "validTo": <span class="token number">157679999</span>,
     "refreshToken": "<span class="token string">"refresh token here"</span>"
 }</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+
+                <br>
+                <p ><strong>cURL Example:</strong></p>
+                <pre><code>curl --request POST \
+     --url <span class="token string">{BASE_URL}/oauth/refresh</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'content-type: application/json'</span> \
+     --data <span class="token string">'
+{
+  "accessToken": "your_access_token",
+  "validTo": "2025-06-30T17:10:00Z",
+  "refreshToken": "your_refresh_token"
+}
+'</span></code></pre>
+                <br>
+
+
+                <p ><strong>Sample Response (200 - Success):</strong></p>
                 <pre><code>{
     "accessToken": "<span class="token string">"new token here"</span>",
     "validTo": <span class="token number">157679999</span>,
     "refreshToken": "<span class="token string">"new refresh token here"</span>"
 }</code></pre>
-                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <br>
+                <p ><strong>Sample Response (400 - Invalid Credentials):</strong></p>
                 <pre><code><span class="token string">"Invalid credentials."</span></code></pre>
             </div>
 
@@ -719,9 +752,18 @@
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/DocumentTypes</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+
+                <br>
+                <p ><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request GET \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/DocumentTypes</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer AUTH_TOKEN'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - Success):</strong></p>
                 <pre><code>[
     {
         <span class="token property">"Id"</span>: <span class="token string">"100"</span>,
@@ -820,12 +862,13 @@
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/ExtractSync</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
 enctype: multipart/form-data
 Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <br>
+                <p ><strong>Body - Form Data Example:</strong></p>
                 <pre><code>const formData = new FormData();
 formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice.pdf"</span>);
 let headers = new HttpHeaders();
@@ -837,9 +880,19 @@ headers = headers.set(<span class="token string">"docTypeIds"</span>, <span clas
 var request = new XMLHttpRequest();
 request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
 request.send(formData);</code></pre>
-                <p class="mt-4"><strong>Response:</strong> (200) Includes extracted fields, tables, and document
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request POST \
+     --url <span class="token string">{BASE_URL}/api/v4/document/ExtractSync</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
+     --header <span class="token string">'content-type: multipart/form-data'</span> \
+     --header <span class="token string">'docTypeIds: [100,200]'</span> \
+     --form <span class="token string">files='@invoice.pdf'</span></code></pre>
+                <br>
+                <p><strong>Response:</strong> (200) Includes extracted fields, tables, and document
                     metadata.</p>
-                <p class="mt-2"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <p><strong>Sample Response (200 - OK, truncated):</strong></p>
                 <pre><code>{
     <span class="token property">"Result"</span>: <span class="token string">"success"</span>,
     <span class="token property">"Documents"</span>: [
@@ -995,12 +1048,13 @@ request.send(formData);</code></pre>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
 enctype: multipart/form-data
 Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <br>
+                <p ><strong>Body - Form Data Example:</strong></p>
                 <pre><code>const formData = new FormData();
 formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice.pdf"</span>);
 let headers = new HttpHeaders();
@@ -1012,7 +1066,19 @@ headers = headers.set(<span class="token string">"docTypeIds"</span>, <span clas
 var request = new XMLHttpRequest();
 request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
 request.send(formData);</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request POST \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/UploadSingle</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
+     --header <span class="token string">'content-type: multipart/form-data'</span> \
+     --header <span class="token string">'docTypeIds: [100,200]'</span> \
+     --form <span class="token string">files='@invoice.pdf'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - OK):</strong></p>
                 <pre><code>{
     <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
     <span class="token property">"Message"</span>: <span class="token string">"Uploaded successfully"</span>,
@@ -1056,17 +1122,18 @@ request.send(formData);</code></pre>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 DocumentTypeList: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <p ><strong>Request Payload:</strong></p>
                 <pre><code>{
     <span class="token property">"Filename"</span>: <span class="token string">"invoice.pdf"</span>,
     <span class="token property">"Content"</span>: <span class="token string">"&lt;&lt;BASE64 STRING HERE&gt;&gt;"</span>,
     <span class="token property">"TaskId"</span>: <span class="token number">0</span>, <span class="token comment">//optional</span>
     <span class="token property">"DocumentTypeList"</span>: [<span class="token number">100</span>, <span class="token number">200</span>] <span class="token comment">//optional</span>
 }</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+
+                <p ><strong>Sample Response (200 - OK):</strong></p>
                 <pre><code>{
     <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
     <span class="token property">"Message"</span>: <span class="token string">"Uploaded successfully"</span>,
@@ -1110,12 +1177,13 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadMultiple</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
 enctype: multipart/form-data
 Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <br>
+                <p ><strong>Body - Form Data Example:</strong></p>
                 <pre><code>const formData = new FormData();
 formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice1.pdf"</span>);
 formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice2.pdf"</span>);
@@ -1128,7 +1196,22 @@ headers = headers.set(<span class="token string">"docTypeIds"</span>, <span clas
 var request = new XMLHttpRequest();
 request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
 request.send(formData);</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+
+                
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request POST \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/UploadMultiple</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
+     --header <span class="token string">'content-type: multipart/form-data'</span> \
+     --header <span class="token string">'docTypeIds: [1000,2000]'</span> \
+     --form <span class="token string">files='@invoice1.pdf'</span> \
+     --form <span class="token string">files='@invoice2.pdf'</span></code></pre>
+                <br>
+
+
+                <p ><strong>Sample Response (200 - OK):</strong></p>
                 <pre><code>{
     <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
     <span class="token property">"Message"</span>: <span class="token string">"Uploaded successfully"</span>,
@@ -1237,11 +1320,21 @@ request.send(formData);</code></pre>
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/{DocumentId}</code>
                 </p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
-                <p class="mt-4"><strong>Query String:</strong> <code
+                <p ><strong>Query String:</strong> <code
                         class="code-inline">DocumentId : Id of the Document</code></p>
-                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+
+                
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request GET \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/{DocumentId}</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - OK, truncated):</strong></p>
                 <pre><code>{
     <span class="token property">"Id"</span>: <span class="token number">100</span>,
     <span class="token property">"MasterId"</span>: <span class="token string">"33213a9e-ded6-4323-9c97-de69a327577z"</span>,
@@ -1303,11 +1396,20 @@ request.send(formData);</code></pre>
                 <p><strong>Endpoint:</strong> <code
                         class="code-inline">/api/v4/Document/Verified/{DocumentId}/Flatten</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
-                <p class="mt-4"><strong>Query String:</strong> <code
+                <p ><strong>Query String:</strong> <code
                         class="code-inline">DocumentId: Id of the Document</code></p>
-                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+
+                 <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request GET \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/{DocumentId}/Flatten</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - OK):</strong></p>
                 <pre><code>{
     <span class="token property">"Id"</span>: <span class="token number">31886</span>, 
     <span class="token property">"MasterId"</span>: <span class="token string">"n7fb112d-4142-4f3e-2x1e-8eb0f5ccs1ea"</span>, 
@@ -1368,11 +1470,20 @@ request.send(formData);</code></pre>
                 <p><strong>Endpoint:</strong> <code
                         class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
-                <p class="mt-4"><strong>Query String:</strong> <code
+                <p ><strong>Query String:</strong> <code
                         class="code-inline">DocumentTypeId : Id of the Document Type</code></p>
-                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request GET \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - OK, truncated):</strong></p>
                 <pre><code>{
     <span class="token property">"Result"</span>: <span class="token string">"success"</span>,
     <span class="token property">"Documents"</span>: [
@@ -1443,11 +1554,20 @@ request.send(formData);</code></pre>
                 <p><strong>Endpoint:</strong> <code
                         class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
-                <p class="mt-4"><strong>Query String:</strong> <code
+                <p ><strong>Query String:</strong> <code
                         class="code-inline">DocumentTypeId: Id of the Document Type</code></p>
-                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request GET \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - OK):</strong></p>
                 <pre><code>[
     {
         <span class="token property">"Id"</span>: <span class="token number">432</span>,
@@ -1499,13 +1619,30 @@ request.send(formData);</code></pre>
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/MarkDocumentsExported</code>
                 </p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
-                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <p ><strong>Request Payload:</strong></p>
                 <pre><code>{
     <span class="token property">"DocumentIdList"</span>: [<span class="token number">1001</span>,<span class="token number">1002</span>,<span class="token number">1003</span>]
 }</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request POST \
+     --url <span class="token string">{BASE_URL}/api/v4/Document/MarkDocumentsExported</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
+     --header <span class="token string">'content-type: application/json'</span> \
+     --data <span class="token string">'{
+                "DocumentIdList": [
+                    "1001",
+                    "1002",
+                    "1003"
+                ]
+            }'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - Success):</strong></p>
                 <pre><code>{
     <span class="token property">"Success"</span>: <span class="token string">"true"</span>,
     <span class="token property">"Message"</span>: <span class="token string">"Success"</span>
