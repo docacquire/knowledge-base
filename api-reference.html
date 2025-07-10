@@ -867,19 +867,7 @@
 enctype: multipart/form-data
 Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <br>
-                <p ><strong>Body - Form Data Example:</strong></p>
-                <pre><code>const formData = new FormData();
-formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice.pdf"</span>);
-let headers = new HttpHeaders();
-headers = headers.set(<span class="token string">"Accept"</span>, <span class="token string">"application/json"</span>);
-headers = headers.set(<span class="token string">"enctype"</span>, <span class="token string">"multipart/form-data"</span>);
-headers = headers.set(<span class="token string">"Authorization"</span>, <span class="token string">"Bearer {AUTH TOKEN}"</span>);
-headers = headers.set(<span class="token string">"docTypeIds"</span>, <span class="token string">"[100,200]"</span>);
 
-var request = new XMLHttpRequest();
-request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
-request.send(formData);</code></pre>
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request POST \
@@ -1053,19 +1041,6 @@ request.send(formData);</code></pre>
 enctype: multipart/form-data
 Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <br>
-                <p ><strong>Body - Form Data Example:</strong></p>
-                <pre><code>const formData = new FormData();
-formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice.pdf"</span>);
-let headers = new HttpHeaders();
-headers = headers.set(<span class="token string">"Accept"</span>, <span class="token string">"application/json"</span>);
-headers = headers.set(<span class="token string">"enctype"</span>, <span class="token string">"multipart/form-data"</span>);
-headers = headers.set(<span class="token string">"Authorization"</span>, <span class="token string">"Bearer {AUTH TOKEN}"</span>);
-headers = headers.set(<span class="token string">"docTypeIds"</span>, <span class="token string">"[100,200]"</span>);
-
-var request = new XMLHttpRequest();
-request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
-request.send(formData);</code></pre>
                 
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
@@ -1182,21 +1157,6 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
 enctype: multipart/form-data
 Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <br>
-                <p ><strong>Body - Form Data Example:</strong></p>
-                <pre><code>const formData = new FormData();
-formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice1.pdf"</span>);
-formData.append(<span class="token string">"files"</span>, file, <span class="token string">"invoice2.pdf"</span>);
-let headers = new HttpHeaders();
-headers = headers.set(<span class="token string">"Accept"</span>, <span class="token string">"application/json"</span>);
-headers = headers.set(<span class="token string">"enctype"</span>, <span class="token string">"multipart/form-data"</span>);
-headers = headers.set(<span class="token string">"Authorization"</span>, <span class="token string">"Bearer {AUTH TOKEN}"</span>);
-headers = headers.set(<span class="token string">"docTypeIds"</span>, <span class="token string">"[1000,2000]"</span>);
-
-var request = new XMLHttpRequest();
-request.open(<span class="token string">"POST"</span>, <span class="token string">"https://foo.com/submitform.php"</span>);
-request.send(formData);</code></pre>
-
                 
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
