@@ -628,7 +628,6 @@
             </div>
         </div>
 
-
         <!-- Content for Step 1 -->
         <div id="step1" class="page hidden">
             <div class="intro-box">
@@ -751,7 +750,7 @@
             <p>After authentication, retrieve the list of document types to identify the IDs needed for document
                 classification and data extraction in later steps.</p>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/DocumentTypes</code></p>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/documentTypes</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
@@ -759,7 +758,7 @@
                 <br>
                 <p ><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request GET \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/DocumentTypes</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/documentTypes</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer AUTH_TOKEN'</span></code></pre>
                 <br>
@@ -857,7 +856,7 @@
                 <li>Not suitable for batch or large file processing.</li>
             </ul>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/ExtractSync</code></p>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/extractSync</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
@@ -868,7 +867,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request POST \
-     --url <span class="token string">{BASE_URL}/api/v4/document/ExtractSync</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/extractSync</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
      --header <span class="token string">'content-type: multipart/form-data'</span> \
@@ -1023,11 +1022,11 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         <div id="step3.2.1" class="page hidden">
             <h4>Upload Single Document</h4>
             <p>The client sends a POST request with a single document file to the <code
-                    class="code-inline">/api/v4/Document/UploadSingle</code> endpoint. The server acknowledges the
+                    class="code-inline">/api/v4/document/uploadSingle</code> endpoint. The server acknowledges the
                 upload and queues the document for background processing. The client can later query the status or
                 retrieve results using the provided document ID.</p>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle</code></p>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/uploadSingle</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
@@ -1038,7 +1037,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request POST \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/UploadSingle</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/uploadSingle</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
      --header <span class="token string">'content-type: multipart/form-data'</span> \
@@ -1082,11 +1081,11 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         <div id="step3.2.2" class="page hidden">
             <h4>Upload Single Document in Base64</h4>
             <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to
-                the <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code> endpoint. The server decodes
+                the <code class="code-inline">/api/v4/document/uploadSingle/base64</code> endpoint. The server decodes
                 the Base64 string, acknowledges the upload, and queues the document for processing. The client retrieves
                 results later using the document ID.</p>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code></p>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/uploadSingle/base64</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
@@ -1135,11 +1134,11 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
         <div id="step3.2.3" class="page hidden">
             <h4>Upload Multiple Documents</h4>
             <p>The client sends a POST request with up to 10 documents to the <code
-                    class="code-inline">/api/v4/Document/UploadMultiple</code> endpoint. The server acknowledges the
+                    class="code-inline">/api/v4/document/uploadMultiple</code> endpoint. The server acknowledges the
                 upload and processes each document in the background. The client retrieves results for each document
                 using the respective document IDs.</p>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadMultiple</code></p>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/uploadMultiple</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
@@ -1150,7 +1149,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request POST \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/UploadMultiple</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/uploadMultiple</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
      --header <span class="token string">'content-type: multipart/form-data'</span> \
@@ -1202,9 +1201,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                     documents as verified before extracting data via APIs.</li>
                 <li><strong>Skip Review:</strong> If set to skip review, documents are automatically verified and moved
                     to the Reviewed stage, enabling immediate data extraction via APIs.</li>
-                <li><strong>Auto Review:</strong> If configured for auto review, extracted fields undergo automated
-                    validation checks. If all checks pass, documents are moved to the Reviewed stage, and data can be
-                    extracted directly via APIs.</li>
+                <li><strong>Auto Review:</strong>If configured for auto review, and the document meets the required confidence score and passes all validation checks, DocAcquire will automatically mark it as Reviewed. The extracted data will then be available for direct access via APIs.</li>
             </ul>
             <div class="nav-buttons">
                 <a href="#step3.2.3">
@@ -1260,19 +1257,19 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         <div id="step5.1" class="page hidden">
             <h3>By Document ID</h3>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/{DocumentId}</code>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/verified/{documentId}</code>
                 </p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p ><strong>Query String:</strong> <code
-                        class="code-inline">DocumentId : Id of the Document</code></p>
+                        class="code-inline">documentId : Id of the Document</code></p>
 
                 
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request GET \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/{DocumentId}</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/verified/{documentId}</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
                 <br>
@@ -1335,17 +1332,17 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             <h3>By Document ID (Flattened)</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code
-                        class="code-inline">/api/v4/Document/Verified/{DocumentId}/Flatten</code></p>
+                        class="code-inline">/api/v4/document/verified/{documentId}/flatten</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p ><strong>Query String:</strong> <code
-                        class="code-inline">DocumentId: Id of the Document</code></p>
+                        class="code-inline">documentId: Id of the Document</code></p>
 
                  <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request GET \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/{DocumentId}/Flatten</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/verified/{documentId}/flatten</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
                 <br>
@@ -1407,17 +1404,17 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             <h3>By Document Type</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code
-                        class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</code></p>
+                        class="code-inline">/api/v4/document/verified/documentType/{documentTypeId}</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p ><strong>Query String:</strong> <code
-                        class="code-inline">DocumentTypeId : Id of the Document Type</code></p>
+                        class="code-inline">documentTypeId : Id of the Document Type</code></p>
 
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request GET \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/verified/documentType/{documentTypeId}</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
                 <br>
@@ -1489,17 +1486,17 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                 confidence scores.</p>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code
-                        class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</code></p>
+                        class="code-inline">/api/v4/document/verified/documentType/{documentTypeId}/flatten</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p ><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p ><strong>Query String:</strong> <code
-                        class="code-inline">DocumentTypeId: Id of the Document Type</code></p>
+                        class="code-inline">documentTypeId: Id of the Document Type</code></p>
                 
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request GET \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/verified/documentType/{documentTypeId}/flatten</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
                 <br>
@@ -1551,7 +1548,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             <p>The final step is to mark processed documents as exported to track their status. An error is thrown for
                 invalid document IDs.</p>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/MarkDocumentsExported</code>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/markDocumentsExported</code>
                 </p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
                 <p ><strong>Request Headers:</strong></p>
@@ -1564,7 +1561,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                 <br>
                 <p class="mt-4"><strong>cURL Example:</strong></p>
                 <pre><code><span class="token keyword">curl</span> --request POST \
-     --url <span class="token string">{BASE_URL}/api/v4/Document/MarkDocumentsExported</span> \
+     --url <span class="token string">{BASE_URL}/api/v4/document/markDocumentsExported</span> \
      --header <span class="token string">'accept: application/json'</span> \
      --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span> \
      --header <span class="token string">'content-type: application/json'</span> \
