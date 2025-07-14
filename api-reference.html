@@ -477,16 +477,16 @@
 
         <ul>
             <li>
-                <a href="#step0">Introduction</a>
+                <a href="#introduction">Introduction</a>
             </li>
             <li>
-                <a href="#step1">Authentication</a>
+                <a href="#authentication">Authentication</a>
             </li>
             <li>
-                <a href="#step2">Retrieve Document Types</a>
+                <a href="#retrieveDocumentTypes">Retrieve Document Types</a>
             </li>
             <li>
-                <a href="#step3">
+                <a href="#documentProcessing">
                     <span>Document Processing</span>
                     <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -495,9 +495,9 @@
                     </svg>
                 </a>
                 <ul class="nested-list">
-                    <li><a href="#step3.1">Synchronous Processing</a></li>
+                    <li><a href="#synchronousProcessing">Synchronous Processing</a></li>
                     <li>
-                        <a href="#step3.2">
+                        <a href="#asynchronousProcessing">
                             <span>Asynchronous Processing</span>
                             <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -506,18 +506,18 @@
                             </svg>
                         </a>
                         <ul class="nested-list">
-                            <li><a href="#step3.2.1">upload single document</a></li>
-                            <li><a href="#step3.2.2">upload single document(base 64)</a></li>
-                            <li><a href="#step3.2.3">upload multiple documents</a></li>
+                            <li><a href="#uploadSingleDocument">upload single document</a></li>
+                            <li><a href="#uploadSingleDocumentBase64">upload single document(base 64)</a></li>
+                            <li><a href="#uploadMultipleDocuments">upload multiple documents</a></li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#step4">Document Verification Process</a>
+                <a href="#documentVerification">Document Verification Process</a>
             </li>
             <li>
-                <a href="#step5">
+                <a href="#retrieveVerifiedDocuments">
                     <span>Retrieve Verified Documents</span>
                     <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -526,20 +526,20 @@
                     </svg>
                 </a>
                 <ul class="nested-list">
-                    <li><a href="#step5.1">By Document ID</a></li>
-                    <li><a href="#step5.2">By Document ID (Flattened)</a></li>
-                    <li><a href="#step5.3">By Document Type ID</a></li>
-                    <li><a href="#step5.4">By Document Type ID (Flattened)</a></li>
+                    <li><a href="#byDocumentId">By Document ID</a></li>
+                    <li><a href="#byDocumentIdFlattened">By Document ID (Flattened)</a></li>
+                    <li><a href="#byDocumentTypeId">By Document Type ID</a></li>
+                    <li><a href="#byDocumentTypeIdFlattened">By Document Type ID (Flattened)</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#step6">Mark Documents as Exported</a>
+                <a href="#markDocumentsExported">Mark Documents as Exported</a>
             </li>
             <li>
-                <a href="#step7">Best Practices</a>
+                <a href="#bestPractices">Best Practices</a>
             </li>
             <li>
-                <a href="#step8">Conclusion</a>
+                <a href="#conclusion">Conclusion</a>
             </li>
         </ul>
     </div>
@@ -554,11 +554,12 @@
 
     <!-- Main content area -->
     <div class="main-content" id="main-content">
-        <h1>Automation Engineer's Guide to the DocAcquire API</h1>
+        <!-- <h1>Automation Engineer's Guide to the DocAcquire API</h1> -->
+        <h1>DocAcquire API Documentation Overview</h1>
         <div class="meta">Updated on Jul 09, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 08, 2025</div>
 
         <!-- Content for Step 0 (Introduction) -->
-        <div id="step0" class="page">
+        <div id="introduction" class="page">
             <h2>Welcome to the DocAcquire API Guide</h2>
             <p>Unlock the power of intelligent document processing with the DocAcquire API. Our robust, AI-powered platform
                 is engineered to streamline your document workflows, enabling seamless data extraction, classification, and
@@ -612,7 +613,7 @@
             <!-- Navigation buttons -->
             <div class="nav-buttons">
                 <div></div> 
-                <a href="#step1" class="next-link">
+                <a href="#authentication" class="next-link">
                     Next: Authentication
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -629,7 +630,7 @@
         </div>
 
         <!-- Content for Step 1 -->
-        <div id="step1" class="page hidden">
+        <div id="authentication" class="page hidden">
             <div class="intro-box">
                 <!-- <p>In this guide, you will find steps for using the DocAcquire API effectively. Browse the topics on the left to learn more.</p> -->
                 <p>In this guide, you will find steps for using the DocAcquire API effectively. Browse the topics on the
@@ -721,14 +722,14 @@
 
             <!-- Navigation buttons -->
             <div class="nav-buttons">
-                <a href="#step0">
+                <a href="#introduction">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Introduction
                 </a>
-                <a href="#step2" class="next-link">
+                <a href="#retrieveDocumentTypes" class="next-link">
                     Next: Retrive Document Types
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -745,7 +746,7 @@
         </div>
 
         <!-- Content for Step 2 -->
-        <div id="step2" class="page hidden">
+        <div id="retrieveDocumentTypes" class="page hidden">
             <h2>2. Retrieve Document Types</h2>
             <p>After authentication, retrieve the list of document types to identify the IDs needed for document
                 classification and data extraction in later steps.</p>
@@ -778,14 +779,14 @@
 ]</code></pre>
             </div>
             <div class="nav-buttons">
-                <a href="#step1">
+                <a href="#authentication">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Authentication
                 </a>
-                <a href="#step3">
+                <a href="#documentProcessing">
                     Next: Document Processing
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -800,7 +801,7 @@
         </div>
 
         <!-- Content for Step 3 -->
-        <div id="step3" class="page hidden">
+        <div id="documentProcessing" class="page hidden">
             <h2>3. Document Processing</h2>
             <p>After retrieving document type IDs, you can upload and process documents using the DocAcquire API. The
                 API supports two processing modes: synchronous and asynchronous. The primary difference is that
@@ -809,14 +810,14 @@
                 subscription) or batch processing, with results retrieved later.</p>
 
             <div class="nav-buttons">
-                <a href="#step2">
+                <a href="#retrieveDocumentTypes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Retrieve Document Types
                 </a>
-                <a href="#step3.1" class="next-link">
+                <a href="#synchronousProcessing" class="next-link">
                     Next: Synchronous Processing
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -831,7 +832,7 @@
         </div>
 
         <!-- Step 3.1: Synchronous Processing -->
-        <div id="step3.1" class="page hidden">
+        <div id="synchronousProcessing" class="page hidden">
             <h3>Synchronous Processing</h3>
             <p>Synchronous processing involves uploading a document to the API, where the server immediately processes
                 it—performing tasks like splitting, classification, and data extraction—and returns the extracted data
@@ -915,14 +916,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step3">
+                <a href="#documentProcessing">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Document Processing
                 </a>
-                <a href="#step3.2" class="next-link">
+                <a href="#asynchronousProcessing" class="next-link">
                     Next: Asynchronous Processing
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -938,7 +939,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- step 3.2: Asynchronous Processing -->
-        <div id="step3.2" class="page hidden">
+        <div id="asynchronousProcessing" class="page hidden">
             <h3>Asynchronous Processing</h3>
             <p>Asynchronous processing allows the client to upload one or more documents, receiving an immediate
                 acknowledgment (e.g., a document ID). The server queues the documents for processing in the background,
@@ -997,14 +998,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step3.1">
+                <a href="#synchronousProcessing">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Synchronous Processing
                 </a>
-                <a href="#step3.2.1" class="next-link">
+                <a href="#uploadSingleDocument" class="next-link">
                     Next: Upload Single Document
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1019,7 +1020,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 3.2.1 (Upload Single Document) -->
-        <div id="step3.2.1" class="page hidden">
+        <div id="uploadSingleDocument" class="page hidden">
             <h4>Upload Single Document</h4>
             <p>The client sends a POST request with a single document file to the <code
                     class="code-inline">/api/v4/document/uploadSingle</code> endpoint. The server acknowledges the
@@ -1056,14 +1057,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step3.2">
+                <a href="#asynchronousProcessing">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Asynchronous Processing
                 </a>
-                <a href="#step3.2.2" class="next-link">
+                <a href="#uploadSingleDocumentBase64" class="next-link">
                     Next: Upload Single Document (Base 64)
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1078,7 +1079,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 3.2.1 (Upload Single Document in Base64) -->
-        <div id="step3.2.2" class="page hidden">
+        <div id="uploadSingleDocumentBase64" class="page hidden">
             <h4>Upload Single Document in Base64</h4>
             <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to
                 the <code class="code-inline">/api/v4/document/uploadSingle/base64</code> endpoint. The server decodes
@@ -1109,14 +1110,14 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
             </div>
 
             <div class="nav-buttons">
-                <a href="#step3.2.1">
+                <a href="#uploadSingleDocument">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Upload Single Document
                 </a>
-                <a href="#step3.2.3" class="next-link">
+                <a href="#uploadMultipleDocuments" class="next-link">
                     Next: Upload Multiple Documents
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1131,7 +1132,7 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
         </div>
 
         <!-- Content for Step 3.2.3 (Upload Multiple Documents) -->
-        <div id="step3.2.3" class="page hidden">
+        <div id="uploadMultipleDocuments" class="page hidden">
             <h4>Upload Multiple Documents</h4>
             <p>The client sends a POST request with up to 10 documents to the <code
                     class="code-inline">/api/v4/document/uploadMultiple</code> endpoint. The server acknowledges the
@@ -1170,14 +1171,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step3.2.2">
+                <a href="#uploadSingleDocumentBase64">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Upload Single Document (Base 64)
                 </a>
-                <a href="#step4" class="next-link">
+                <a href="#documentVerification" class="next-link">
                     Next: Document Verification Process
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1192,7 +1193,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 4 -->
-        <div id="step4" class="page hidden">
+        <div id="documentVerification" class="page hidden">
             <h2>4. Document Verification Process</h2>
             <p>Based on the review method configured during document type setup, the following steps apply to verify
                 documents before data extraction:</p>
@@ -1204,14 +1205,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                 <li><strong>Auto Review:</strong>If configured for auto review, and the document meets the required confidence score and passes all validation checks, DocAcquire will automatically mark it as Reviewed. The extracted data will then be available for direct access via APIs.</li>
             </ul>
             <div class="nav-buttons">
-                <a href="#step3.2.3">
+                <a href="#uploadMultipleDocuments">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Upload Multiple Documents
                 </a>
-                <a href="#step5">
+                <a href="#retrieveVerifiedDocuments" class="next-link">
                     Next: Retrieve Verified Documents
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1226,20 +1227,20 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 5 -->
-        <div id="step5" class="page hidden">
+        <div id="retrieveVerifiedDocuments" class="page hidden">
             <h2>5. Retrieve Verified Documents</h2>
             <p>After documents are verified, retrieve verified (human or system-verified) documents using document type
                 or ID, in standard or flattened formats.</p>
 
             <div class="nav-buttons">
-                <a href="#step4">
+                <a href="#documentVerification">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Document Verification Process
                 </a>
-                <a href="#step5.1" class="next-link">
+                <a href="#byDocumentId" class="next-link">
                     Next: By Document ID
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1254,7 +1255,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 5.1 (By Document ID) -->
-        <div id="step5.1" class="page hidden">
+        <div id="byDocumentId" class="page hidden">
             <h3>By Document ID</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/verified/{documentId}</code>
@@ -1306,14 +1307,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step5">
+                <a href="#retrieveVerifiedDocuments">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Retrieve Verified Documents
                 </a>
-                <a href="#step5.2" class="next-link">
+                <a href="#byDocumentIdFlattened" class="next-link">
                     Next: By Document ID (Flattened)
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1328,7 +1329,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 5.2 (By Document ID (Flattened)) -->
-        <div id="step5.2" class="page hidden">
+        <div id="byDocumentIdFlattened" class="page hidden">
             <h3>By Document ID (Flattened)</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code
@@ -1378,14 +1379,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step5.1">
+                <a href="#byDocumentId">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: By Document ID
                 </a>
-                <a href="#step5.3" class="next-link">
+                <a href="#byDocumentTypeId" class="next-link">
                     Next: By Document Type ID
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1400,7 +1401,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 5.3 (By Document Type ID) -->
-        <div id="step5.3" class="page hidden">
+        <div id="byDocumentTypeId" class="page hidden">
             <h3>By Document Type</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code
@@ -1458,14 +1459,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step5.2">
+                <a href="#byDocumentIdFlattened">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: By Document ID (Flattened)
                 </a>
-                <a href="#step5.4" class="next-link">
+                <a href="#byDocumentTypeIdFlattened" class="next-link">
                     Next: By Document Type ID (Flattened)
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1480,7 +1481,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 5.4 (By Document Type ID (Flattened)) -->
-        <div id="step5.4" class="page hidden">
+        <div id="byDocumentTypeIdFlattened" class="page hidden">
             <h3>By Document Type (Flattened)</h3>
             <p>Returns verified documents in a simplified key/value pair format without additional metadata like
                 confidence scores.</p>
@@ -1521,14 +1522,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
 
             <div class="nav-buttons">
-                <a href="#step5.3">
+                <a href="#byDocumentTypeId">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: By Document Type ID
                 </a>
-                <a href="#step6" class="next-link">
+                <a href="#markDocumentsExported" class="next-link">
                     Next: Mark Documents as Exported
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1543,7 +1544,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 6 -->
-        <div id="step6" class="page hidden">
+        <div id="markDocumentsExported" class="page hidden">
             <h2>6. Mark Documents as Exported</h2>
             <p>The final step is to mark processed documents as exported to track their status. An error is thrown for
                 invalid document IDs.</p>
@@ -1581,14 +1582,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
 }</code></pre>
             </div>
             <div class="nav-buttons">
-                <a href="#step5.4">
+                <a href="#byDocumentTypeIdFlattened">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: By Document Type ID (Flattened)
                 </a>
-                <a href="#step7" class="next-link">
+                <a href="#bestPractices" class="next-link">
                     Next: Best Practices
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1603,7 +1604,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 7 -->
-        <div id="step7" class="page hidden">
+        <div id="bestPractices" class="page hidden">
             <h2>Best Practices</h2>
             <ul>
                 <li><strong>Synchronous Processing:</strong> Use for lightweight documents (up to 5 pages) requiring
@@ -1620,14 +1621,14 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                     invalid credential errors appropriately.</li>
             </ul>
             <div class="nav-buttons">
-                <a href="#step6">
+                <a href="#markDocumentsExported">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Mark Documents as Exported
                 </a>
-                <a href="#step8">
+                <a href="#conclusion" class="next-link">
                     Next: Conclusion
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -1642,13 +1643,13 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <!-- Content for Step 8 -->
-        <div id="step8" class="page hidden">
+        <div id="conclusion" class="page hidden">
             <h2>Conclusion</h2>
             <p>The DocAcquire API provides a structured workflow for document processing, starting with authentication,
                 followed by retrieving document types, processing documents (synchronously or asynchronously),
                 retrieving verified documents, and marking documents as exported.</p>
             <div class="nav-buttons">
-                <a href="#step7">
+                <a href="#bestPractices">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
@@ -1665,7 +1666,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
     </div>
 
-    <script>
+    <!-- <script>
         let currentPage = '0';
         const pages = document.querySelectorAll('.page');
         const sidebarLinks = document.querySelectorAll('.sidebar ul a');
@@ -1762,8 +1763,773 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
 
         // Initial page load
         showPage(currentPage);
-    </script>
+    </script> -->
 
+    <!-- changed from number to proper name navigation, bug: cannot navigate to individual page-->
+    <!-- <script>
+        let currentPage = 'introduction'; // Default to the introduction page
+        const pages = document.querySelectorAll('.page');
+        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
+        const sidebar = document.getElementById('sidebar');
+        const openSidebar = document.getElementById('openSidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        // Function to show the selected page and update active link
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.toggle('hidden', page.id !== pageId);
+            });
+
+            sidebarLinks.forEach(a => a.classList.remove('active'));
+            const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll to top of content when page changes
+            document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Hide sidebar on mobile after navigation
+            if (window.innerWidth < 1024) {
+                sidebar.classList.remove('sidebar-open');
+                closeSidebar.classList.add('hidden');
+                closeSidebar.classList.remove('close-sidebar');
+                openSidebar.classList.remove('hidden');
+                openSidebar.classList.add('open-sidebar');
+            }
+        }
+
+        // Function to toggle nested list and icon
+        function toggleNestedList(link) {
+            const nestedList = link.parentElement.querySelector('.nested-list');
+            const toggleIcon = link.querySelector('.toggle-icon');
+            if (nestedList) {
+                nestedList.classList.toggle('expanded');
+                if (toggleIcon) {
+                    toggleIcon.classList.toggle('expanded');
+                }
+            }
+        }
+
+        // Event listeners for sidebar navigation
+        sidebarLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
+                const nestedList = this.parentElement.querySelector('.nested-list');
+
+                // Toggle the nested list if it exists
+                if (nestedList) {
+                    toggleNestedList(this);
+                }
+
+                // Navigate to the page
+                currentPage = pageId;
+                showPage(pageId);
+            });
+        });
+
+        // Event listeners for next/previous navigation buttons
+        document.querySelectorAll('.nav-buttons a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
+                currentPage = pageId;
+                showPage(pageId);
+            });
+        });
+
+        // Toggle sidebar visibility on mobile
+        openSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+            openSidebar.classList.add('hidden');
+            openSidebar.classList.remove('open-sidebar');
+            closeSidebar.classList.remove('hidden');
+            closeSidebar.classList.add('close-sidebar');
+        });
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+            closeSidebar.classList.add('hidden');
+            closeSidebar.classList.remove('close-sidebar');
+            openSidebar.classList.remove('hidden');
+            openSidebar.classList.add('open-sidebar');
+        });
+
+        // Initial page load
+        showPage(currentPage);
+    </script> -->
+
+
+    <!-- bug:navigation issue with the url -->
+    <!-- <script>
+        let currentPage = 'introduction'; // Default to the introduction page
+        const pages = document.querySelectorAll('.page');
+        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
+        const sidebar = document.getElementById('sidebar');
+        const openSidebar = document.getElementById('openSidebar');
+        const closeSidebar = document.getElementById('closeSidebar');
+
+        // Function to show the selected page and update active link
+        function showPage(pageId) {
+            const mainContent = document.querySelector('.main-content');
+            const previousScrollTop = mainContent.scrollTop;
+
+            // Toggle page visibility
+            pages.forEach(page => {
+                page.classList.toggle('hidden', page.id !== pageId);
+            });
+
+            // Update sidebar links
+            sidebarLinks.forEach(a => a.classList.remove('active'));
+            const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll logic
+            if (previousScrollTop > 0) {
+                mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                mainContent.scrollTop = 0;
+            }
+
+            // Update URL
+            history.replaceState(null, '', `#${pageId}`);
+
+            currentPage = pageId;
+
+            // Hide sidebar on mobile after navigation
+            if (window.innerWidth < 1024) {
+                sidebar.classList.remove('sidebar-open');
+                closeSidebar.classList.add('hidden');
+                closeSidebar.classList.remove('close-sidebar');
+                openSidebar.classList.remove('hidden');
+                openSidebar.classList.add('open-sidebar');
+            }
+        }
+
+        // Function to toggle nested list and icon
+        function toggleNestedList(link) {
+            const nestedList = link.parentElement.querySelector('.nested-list');
+            const toggleIcon = link.querySelector('.toggle-icon');
+            if (nestedList) {
+                nestedList.classList.toggle('expanded');
+                if (toggleIcon) {
+                    toggleIcon.classList.toggle('expanded');
+                }
+            }
+        }
+
+        // Event listeners for sidebar navigation
+        sidebarLinks.forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
+                const nestedList = this.parentElement.querySelector('.nested-list');
+
+                // Toggle the nested list if it exists
+                if (nestedList) {
+                    toggleNestedList(this);
+                }
+
+                // Navigate to the page
+                showPage(pageId);
+            });
+        });
+
+        // Event listeners for next/previous navigation buttons
+        document.querySelectorAll('.nav-buttons a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
+                showPage(pageId);
+            });
+        });
+
+        // Toggle sidebar visibility on mobile
+        openSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+            openSidebar.classList.add('hidden');
+            openSidebar.classList.remove('open-sidebar');
+            closeSidebar.classList.remove('hidden');
+            closeSidebar.classList.add('close-sidebar');
+        });
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+            closeSidebar.classList.add('hidden');
+            closeSidebar.classList.remove('close-sidebar');
+            openSidebar.classList.remove('hidden');
+            openSidebar.classList.add('open-sidebar');
+        });
+
+        // Initial page load
+        showPage(currentPage);
+
+        // Handle hash change to load the correct page on page reload or manual URL navigation
+        window.addEventListener('hashchange', () => {
+            const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
+            if (document.getElementById(pageId)) {
+                currentPage = pageId;
+                showPage(pageId);
+            }
+        });
+
+        // Load page based on initial hash (e.g., on page reload)
+        if (window.location.hash) {
+            const initialPageId = window.location.hash.replace('#', '');
+            if (document.getElementById(initialPageId)) {
+                currentPage = initialPageId;
+                showPage(initialPageId);
+            }
+        }
+    </script> -->
+
+
+
+    <!-- bug: side bar not remaing active for child items  -->
+    <!-- <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentPage = 'introduction'; // Default to the introduction page
+            const pages = document.querySelectorAll('.page');
+            const sidebarLinks = document.querySelectorAll('.sidebar ul a');
+            const sidebar = document.getElementById('sidebar');
+            const openSidebar = document.getElementById('openSidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
+
+            // Function to show the selected page and update active link
+            function showPage(pageId) {
+                const mainContent = document.querySelector('.main-content');
+                const previousScrollTop = mainContent.scrollTop;
+
+                // Toggle page visibility
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', page.id !== pageId);
+                });
+
+                // Update sidebar links
+                sidebarLinks.forEach(a => a.classList.remove('active'));
+                const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+
+                // Scroll logic
+                if (previousScrollTop > 0) {
+                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    mainContent.scrollTop = 0;
+                }
+
+                // Update URL
+                history.replaceState(null, '', `#${pageId}`);
+
+                currentPage = pageId;
+
+                // Hide sidebar on mobile after navigation
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.remove('sidebar-open');
+                    closeSidebar.classList.add('hidden');
+                    closeSidebar.classList.remove('close-sidebar');
+                    openSidebar.classList.remove('hidden');
+                    openSidebar.classList.add('open-sidebar');
+                }
+            }
+
+            // Function to toggle nested list and icon
+            function toggleNestedList(link) {
+                const nestedList = link.parentElement.querySelector('.nested-list');
+                const toggleIcon = link.querySelector('.toggle-icon');
+                if (nestedList) {
+                    nestedList.classList.toggle('expanded');
+                    if (toggleIcon) {
+                        toggleIcon.classList.toggle('expanded');
+                    }
+                }
+            }
+
+            // Event listeners for sidebar navigation
+            sidebarLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
+                    const nestedList = this.parentElement.querySelector('.nested-list');
+
+                    // Toggle the nested list if it exists
+                    if (nestedList) {
+                        toggleNestedList(this);
+                    }
+
+                    // Navigate to the page
+                    showPage(pageId);
+                });
+            });
+
+            // Event listeners for next/previous navigation buttons
+            document.querySelectorAll('.nav-buttons a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
+                    showPage(pageId);
+                });
+            });
+
+            // Toggle sidebar visibility on mobile
+            openSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                openSidebar.classList.add('hidden');
+                openSidebar.classList.remove('open-sidebar');
+                closeSidebar.classList.remove('hidden');
+                closeSidebar.classList.add('close-sidebar');
+            });
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                closeSidebar.classList.add('hidden');
+                closeSidebar.classList.remove('close-sidebar');
+                openSidebar.classList.remove('hidden');
+                openSidebar.classList.add('open-sidebar');
+            });
+
+            // Initial page load based on hash
+            const initialHash = window.location.hash.replace('#', '');
+            if (initialHash && document.getElementById(initialHash)) {
+                currentPage = initialHash;
+            }
+            showPage(currentPage);
+
+            // Handle hash change to load the correct page on page reload or manual URL navigation
+            window.addEventListener('hashchange', () => {
+                const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
+                if (document.getElementById(pageId)) {
+                    currentPage = pageId;
+                    showPage(pageId);
+                }
+            });
+        });
+    </script> -->
+
+    <!-- bug: toggle sidebar child working on entire div -->
+    <!-- <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentPage = 'introduction'; // Default to the introduction page
+            const pages = document.querySelectorAll('.page');
+            const sidebarLinks = document.querySelectorAll('.sidebar ul a');
+            const sidebar = document.getElementById('sidebar');
+            const openSidebar = document.getElementById('openSidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
+
+            // Function to show the selected page and update active link
+            function showPage(pageId, expandParents = false) {
+                const mainContent = document.querySelector('.main-content');
+                const previousScrollTop = mainContent.scrollTop;
+
+                // Toggle page visibility
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', page.id !== pageId);
+                });
+
+                // Update sidebar links
+                sidebarLinks.forEach(a => a.classList.remove('active'));
+                const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+
+                    // Expand parent nested lists only if expandParents is true (e.g., initial load or deep link)
+                    if (expandParents) {
+                        let parent = activeLink.parentElement;
+                        while (parent && parent.tagName === 'LI') {
+                            const nestedList = parent.querySelector('.nested-list');
+                            const toggleIcon = parent.querySelector('.toggle-icon');
+                            if (nestedList) {
+                                nestedList.classList.add('expanded');
+                                if (toggleIcon) {
+                                    toggleIcon.classList.add('expanded');
+                                }
+                            }
+                            parent = parent.parentElement.closest('li');
+                        }
+                    }
+                }
+
+                // Scroll logic
+                if (previousScrollTop > 0) {
+                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    mainContent.scrollTop = 0;
+                }
+
+                // Update URL
+                history.replaceState(null, '', `#${pageId}`);
+
+                currentPage = pageId;
+
+                // Hide sidebar on mobile after navigation
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.remove('sidebar-open');
+                    closeSidebar.classList.add('hidden');
+                    closeSidebar.classList.remove('close-sidebar');
+                    openSidebar.classList.remove('hidden');
+                    openSidebar.classList.add('open-sidebar');
+                }
+            }
+
+            // Function to toggle nested list and icon
+            function toggleNestedList(link) {
+                const nestedList = link.parentElement.querySelector('.nested-list');
+                const toggleIcon = link.querySelector('.toggle-icon');
+                if (nestedList) {
+                    nestedList.classList.toggle('expanded');
+                    if (toggleIcon) {
+                        toggleIcon.classList.toggle('expanded');
+                    }
+                }
+            }
+
+            // Event listeners for sidebar navigation
+            sidebarLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
+                    const nestedList = this.parentElement.querySelector('.nested-list');
+
+                    // Toggle the nested list if it exists
+                    if (nestedList) {
+                        toggleNestedList(this);
+                    }
+
+                    // Navigate to the page without forcing parent expansion (manual click)
+                    showPage(pageId, false);
+                });
+            });
+
+            // Event listeners for next/previous navigation buttons
+            document.querySelectorAll('.nav-buttons a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
+                    showPage(pageId, false); // No forced expansion on button navigation
+                });
+            });
+
+            // Toggle sidebar visibility on mobile
+            openSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                openSidebar.classList.add('hidden');
+                openSidebar.classList.remove('open-sidebar');
+                closeSidebar.classList.remove('hidden');
+                closeSidebar.classList.add('close-sidebar');
+            });
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                closeSidebar.classList.add('hidden');
+                closeSidebar.classList.remove('close-sidebar');
+                openSidebar.classList.remove('hidden');
+                openSidebar.classList.add('open-sidebar');
+            });
+
+            // Initial page load based on hash
+            const initialHash = window.location.hash.replace('#', '');
+            if (initialHash && document.getElementById(initialHash)) {
+                currentPage = initialHash;
+            }
+            showPage(currentPage, true); // Expand parents on initial load
+
+            // Handle hash change to load the correct page on page reload or manual URL navigation
+            window.addEventListener('hashchange', () => {
+                const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
+                if (document.getElementById(pageId)) {
+                    currentPage = pageId;
+                    showPage(pageId, true); // Expand parents on hash change
+                }
+            });
+        });
+    </script> -->
+
+    <!-- bug: scroll issue with the initial page load -->
+    <!-- <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentPage = 'introduction'; // Default to the introduction page
+            const pages = document.querySelectorAll('.page');
+            const sidebarLinks = document.querySelectorAll('.sidebar ul a');
+            const sidebar = document.getElementById('sidebar');
+            const openSidebar = document.getElementById('openSidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
+
+            // Function to show the selected page and update active link
+            function showPage(pageId, expandParents = false) { 
+                const mainContent = document.querySelector('.main-content');
+                const previousScrollTop = mainContent.scrollTop;
+
+                // Toggle page visibility
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', page.id !== pageId);
+                });
+
+                // Update sidebar links
+                sidebarLinks.forEach(a => a.classList.remove('active'));
+                const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+
+                    // Expand parent nested lists only if expandParents is true (e.g., initial load or deep link)
+                    if (expandParents) {
+                        let parent = activeLink.parentElement;
+                        while (parent && parent.tagName === 'LI') {
+                            const nestedList = parent.querySelector('.nested-list');
+                            const toggleIcon = parent.querySelector('.toggle-icon');
+                            if (nestedList) {
+                                nestedList.classList.add('expanded');
+                                if (toggleIcon) {
+                                    toggleIcon.classList.add('expanded');
+                                }
+                            }
+                            parent = parent.parentElement.closest('li');
+                        }
+                    }
+                }
+
+                // Scroll logic
+                if (previousScrollTop > 0) {
+                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    mainContent.scrollTop = 0;
+                }
+
+                // Update URL
+                history.replaceState(null, '', `#${pageId}`);
+
+                currentPage = pageId;
+
+                // Hide sidebar on mobile after navigation
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.remove('sidebar-open');
+                    closeSidebar.classList.add('hidden');
+                    closeSidebar.classList.remove('close-sidebar');
+                    openSidebar.classList.remove('hidden');
+                    openSidebar.classList.add('open-sidebar');
+                }
+            }
+
+            // Function to toggle nested list and icon
+            function toggleNestedList(link) {
+                const nestedList = link.parentElement.querySelector('.nested-list');
+                const toggleIcon = link.querySelector('.toggle-icon');
+                if (nestedList) {
+                    nestedList.classList.toggle('expanded');
+                    if (toggleIcon) {
+                        toggleIcon.classList.toggle('expanded');
+                    }
+                }
+            }
+
+            // Event listeners for sidebar navigation (only navigate, no toggle)
+            sidebarLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
+
+                    // Navigate to the page without forcing parent expansion (manual click)
+                    showPage(pageId, false);
+                });
+            });
+
+            // Event listeners for toggle icons to expand/collapse nested lists
+            const toggleIcons = document.querySelectorAll('.toggle-icon');
+            toggleIcons.forEach(icon => {
+                icon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent the click from bubbling to the parent <a>
+                    const link = this.parentElement; // Assuming the icon is inside the <a>
+                    toggleNestedList(link);
+                });
+            });
+
+            // Event listeners for next/previous navigation buttons
+            document.querySelectorAll('.nav-buttons a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
+                    showPage(pageId, false); // No forced expansion on button navigation
+                });
+            });
+
+            // Toggle sidebar visibility on mobile
+            openSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                openSidebar.classList.add('hidden');
+                openSidebar.classList.remove('open-sidebar');
+                closeSidebar.classList.remove('hidden');
+                closeSidebar.classList.add('close-sidebar');
+            });
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                closeSidebar.classList.add('hidden');
+                closeSidebar.classList.remove('close-sidebar');
+                openSidebar.classList.remove('hidden');
+                openSidebar.classList.add('open-sidebar');
+            });
+
+            // Initial page load based on hash
+            const initialHash = window.location.hash.replace('#', '');
+            if (initialHash && document.getElementById(initialHash)) {
+                currentPage = initialHash;
+            }
+            showPage(currentPage, true); // Expand parents on initial load
+
+            // Handle hash change to load the correct page on page reload or manual URL navigation
+            window.addEventListener('hashchange', () => {
+                const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
+                if (document.getElementById(pageId)) {
+                    currentPage = pageId;
+                    showPage(pageId, true); // Expand parents on hash change
+                }
+            });
+        });
+    </script> -->
+
+    <script>
+        // Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentPage = 'introduction'; // Default page
+            const pages = document.querySelectorAll('.page');
+            const sidebarLinks = document.querySelectorAll('.sidebar ul a');
+            const sidebar = document.getElementById('sidebar');
+            const openSidebar = document.getElementById('openSidebar');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const mainContent = document.querySelector('.main-content');
+
+            // Function to show the selected page and update active link
+            function showPage(pageId, expandParents = false) {
+                const previousScrollTop = mainContent.scrollTop;
+
+                // Toggle page visibility
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', page.id !== pageId);
+                });
+
+                // Update sidebar links
+                sidebarLinks.forEach(a => a.classList.remove('active'));
+                const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+
+                    // Expand parent nested lists if expandParents is true
+                    if (expandParents) {
+                        let parent = activeLink.parentElement;
+                        while (parent && parent.tagName === 'LI') {
+                            const nestedList = parent.querySelector('.nested-list');
+                            const toggleIcon = parent.querySelector('.toggle-icon');
+                            if (nestedList) {
+                                nestedList.classList.add('expanded');
+                                if (toggleIcon) toggleIcon.classList.add('expanded');
+                            }
+                            parent = parent.parentElement.closest('li');
+                        }
+                    }
+                }
+
+                // Scroll logic
+                if (previousScrollTop > 0) {
+                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+
+                // Update URL
+                history.replaceState(null, '', `#${pageId}`);
+                currentPage = pageId;
+
+                // Hide sidebar on mobile after navigation
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.remove('sidebar-open');
+                    closeSidebar.classList.add('hidden');
+                    closeSidebar.classList.remove('close-sidebar');
+                    openSidebar.classList.remove('hidden');
+                    openSidebar.classList.add('open-sidebar');
+                }
+            }
+
+            // Function to toggle nested list and icon
+            function toggleNestedList(link) {
+                const nestedList = link.parentElement.querySelector('.nested-list');
+                const toggleIcon = link.querySelector('.toggle-icon');
+                if (nestedList) {
+                    nestedList.classList.toggle('expanded');
+                    if (toggleIcon) toggleIcon.classList.toggle('expanded');
+                }
+            }
+
+            // Event listeners for sidebar navigation (only navigate, no toggle)
+            sidebarLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
+
+                    // Navigate to the page without forcing parent expansion (manual click)
+                    showPage(pageId, false);
+                });
+            });
+
+            // Event listeners for toggle icons to expand/collapse nested lists
+            const toggleIcons = document.querySelectorAll('.toggle-icon');
+            toggleIcons.forEach(icon => {
+                icon.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent the click from bubbling to the parent <a>
+                    const link = this.parentElement; // Assuming the icon is inside the <a>
+                    toggleNestedList(link);
+                });
+            });
+
+            // Event listeners for next/previous buttons
+            document.querySelectorAll('.nav-buttons a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').replace('#', '');
+                    showPage(pageId, false);
+                });
+            });
+
+            // Toggle sidebar visibility on mobile
+            openSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                openSidebar.classList.add('hidden');
+                openSidebar.classList.remove('open-sidebar');
+                closeSidebar.classList.remove('hidden');
+                closeSidebar.classList.add('close-sidebar');
+            });
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-open');
+                closeSidebar.classList.add('hidden');
+                closeSidebar.classList.remove('close-sidebar');
+                openSidebar.classList.remove('hidden');
+                openSidebar.classList.add('open-sidebar');
+            });
+
+            // Initial page load based on hash
+            const initialHash = window.location.hash.replace('#', '');
+            if (initialHash && document.getElementById(initialHash)) {
+                currentPage = initialHash;
+            }
+            // Show page and reset scroll with a delay
+            showPage(currentPage, true);
+            setTimeout(() => {
+                mainContent.scrollTop = 0;
+            }, 0);
+
+            // Handle hash changes
+            window.addEventListener('hashchange', () => {
+                const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
+                if (document.getElementById(pageId)) {
+                    currentPage = pageId;
+                    showPage(pageId, true); // Expand parents on hash change
+                    setTimeout(() => {
+                        mainContent.scrollTop = 0;
+                    }, 0);
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
