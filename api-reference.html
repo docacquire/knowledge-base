@@ -552,13 +552,10 @@
 
     </button>
 
-    <!-- Main content area -->
     <div class="main-content" id="main-content">
-        <!-- <h1>Automation Engineer's Guide to the DocAcquire API</h1> -->
         <h1>DocAcquire API Documentation Overview</h1>
         <div class="meta">Updated on Jul 09, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 08, 2025</div>
 
-        <!-- Content for Step 0 (Introduction) -->
         <div id="introduction" class="page">
             <h2>Welcome to the DocAcquire API Guide</h2>
             <p>Unlock the power of intelligent document processing with the DocAcquire API. Our robust, AI-powered platform
@@ -629,7 +626,6 @@
             </div>
         </div>
 
-        <!-- Content for Step 1 -->
         <div id="authentication" class="page hidden">
             <div class="intro-box">
                 <!-- <p>In this guide, you will find steps for using the DocAcquire API effectively. Browse the topics on the left to learn more.</p> -->
@@ -745,7 +741,6 @@
             </div>
         </div>
 
-        <!-- Content for Step 2 -->
         <div id="retrieveDocumentTypes" class="page hidden">
             <h2>2. Retrieve Document Types</h2>
             <p>After authentication, retrieve the list of document types to identify the IDs needed for document
@@ -800,7 +795,6 @@
             </div>
         </div>
 
-        <!-- Content for Step 3 -->
         <div id="documentProcessing" class="page hidden">
             <h2>3. Document Processing</h2>
             <p>After retrieving document type IDs, you can upload and process documents using the DocAcquire API. The
@@ -831,7 +825,6 @@
             </div>
         </div>
 
-        <!-- Step 3.1: Synchronous Processing -->
         <div id="synchronousProcessing" class="page hidden">
             <h3>Synchronous Processing</h3>
             <p>Synchronous processing involves uploading a document to the API, where the server immediately processes
@@ -938,7 +931,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
 
         </div>
 
-        <!-- step 3.2: Asynchronous Processing -->
         <div id="asynchronousProcessing" class="page hidden">
             <h3>Asynchronous Processing</h3>
             <p>Asynchronous processing allows the client to upload one or more documents, receiving an immediate
@@ -1019,7 +1011,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 3.2.1 (Upload Single Document) -->
         <div id="uploadSingleDocument" class="page hidden">
             <h4>Upload Single Document</h4>
             <p>The client sends a POST request with a single document file to the <code
@@ -1078,7 +1069,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 3.2.1 (Upload Single Document in Base64) -->
         <div id="uploadSingleDocumentBase64" class="page hidden">
             <h4>Upload Single Document in Base64</h4>
             <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to
@@ -1131,7 +1121,6 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
             </div>
         </div>
 
-        <!-- Content for Step 3.2.3 (Upload Multiple Documents) -->
         <div id="uploadMultipleDocuments" class="page hidden">
             <h4>Upload Multiple Documents</h4>
             <p>The client sends a POST request with up to 10 documents to the <code
@@ -1192,7 +1181,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 4 -->
         <div id="documentVerification" class="page hidden">
             <h2>4. Document Verification Process</h2>
             <p>Based on the review method configured during document type setup, the following steps apply to verify
@@ -1226,7 +1214,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 5 -->
         <div id="retrieveVerifiedDocuments" class="page hidden">
             <h2>5. Retrieve Verified Documents</h2>
             <p>After documents are verified, retrieve verified (human or system-verified) documents using document type
@@ -1254,7 +1241,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 5.1 (By Document ID) -->
         <div id="byDocumentId" class="page hidden">
             <h3>By Document ID</h3>
             <div class="code-block">
@@ -1328,7 +1314,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 5.2 (By Document ID (Flattened)) -->
         <div id="byDocumentIdFlattened" class="page hidden">
             <h3>By Document ID (Flattened)</h3>
             <div class="code-block">
@@ -1400,7 +1385,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 5.3 (By Document Type ID) -->
         <div id="byDocumentTypeId" class="page hidden">
             <h3>By Document Type</h3>
             <div class="code-block">
@@ -1480,7 +1464,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 5.4 (By Document Type ID (Flattened)) -->
         <div id="byDocumentTypeIdFlattened" class="page hidden">
             <h3>By Document Type (Flattened)</h3>
             <p>Returns verified documents in a simplified key/value pair format without additional metadata like
@@ -1543,7 +1526,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 6 -->
         <div id="markDocumentsExported" class="page hidden">
             <h2>6. Mark Documents as Exported</h2>
             <p>The final step is to mark processed documents as exported to track their status. An error is thrown for
@@ -1603,7 +1585,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 7 -->
         <div id="bestPractices" class="page hidden">
             <h2>Best Practices</h2>
             <ul>
@@ -1642,7 +1623,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
 
-        <!-- Content for Step 8 -->
         <div id="conclusion" class="page hidden">
             <h2>Conclusion</h2>
             <p>The DocAcquire API provides a structured workflow for document processing, starting with authentication,
@@ -1665,729 +1645,6 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             </div>
         </div>
     </div>
-
-    <!-- <script>
-        let currentPage = '0';
-        const pages = document.querySelectorAll('.page');
-        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
-        const sidebar = document.getElementById('sidebar');
-        const openSidebar = document.getElementById('openSidebar');
-        const closeSidebar = document.getElementById('closeSidebar');
-
-        // Function to show the selected page and update active link
-        function showPage(pageId) {
-            pages.forEach(page => {
-                page.classList.toggle('hidden', page.id !== `step${pageId}`);
-            });
-
-            sidebarLinks.forEach(a => a.classList.remove('active'));
-            const activeLink = document.querySelector(`.sidebar a[href="#step${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-
-            // Scroll to top of content when page changes
-            document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Hide sidebar on mobile after navigation
-            if (window.innerWidth < 1024) {
-                sidebar.classList.remove('sidebar-open');
-                closeSidebar.classList.add('hidden');
-                closeSidebar.classList.remove('close-sidebar');
-                openSidebar.classList.remove('hidden');
-                openSidebar.classList.add('open-sidebar');
-            }
-        }
-
-        // Function to toggle nested list and icon
-        function toggleNestedList(link) {
-            const nestedList = link.parentElement.querySelector('.nested-list');
-            const toggleIcon = link.querySelector('.toggle-icon');
-            if (nestedList) {
-                nestedList.classList.toggle('expanded');
-                if (toggleIcon) {
-                    toggleIcon.classList.toggle('expanded');
-                }
-            }
-        }
-
-        // Event listeners for sidebar navigation
-        sidebarLinks.forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., step3, step3.1
-                const nestedList = this.parentElement.querySelector('.nested-list');
-
-                // Toggle the nested list if it exists
-                if (nestedList) {
-                    toggleNestedList(this);
-                }
-
-                // Navigate to the page if it starts with "step"
-                if (pageId.startsWith('step')) {
-                    const pageNum = pageId.replace('step', ''); // e.g., 3, 3.1, 3.2.1
-                    currentPage = pageNum;
-                    showPage(pageNum);
-                }
-            });
-        });
-
-        // Event listeners for next/previous navigation buttons
-        document.querySelectorAll('.nav-buttons a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., step3, step3.1
-                if (pageId.startsWith('step')) {
-                    const pageNum = pageId.replace('step', ''); // e.g., 3, 3.1
-                    currentPage = pageNum;
-                    showPage(pageNum);
-                }
-            });
-        });
-
-        // Toggle sidebar visibility on mobile
-        openSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            openSidebar.classList.add('hidden');
-            openSidebar.classList.remove('open-sidebar');
-            closeSidebar.classList.remove('hidden');
-            closeSidebar.classList.add('close-sidebar');
-        });
-        closeSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            closeSidebar.classList.add('hidden');
-            closeSidebar.classList.remove('close-sidebar');
-            openSidebar.classList.remove('hidden');
-            openSidebar.classList.add('open-sidebar');
-        });
-
-        // Initial page load
-        showPage(currentPage);
-    </script> -->
-
-    <!-- changed from number to proper name navigation, bug: cannot navigate to individual page-->
-    <!-- <script>
-        let currentPage = 'introduction'; // Default to the introduction page
-        const pages = document.querySelectorAll('.page');
-        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
-        const sidebar = document.getElementById('sidebar');
-        const openSidebar = document.getElementById('openSidebar');
-        const closeSidebar = document.getElementById('closeSidebar');
-
-        // Function to show the selected page and update active link
-        function showPage(pageId) {
-            pages.forEach(page => {
-                page.classList.toggle('hidden', page.id !== pageId);
-            });
-
-            sidebarLinks.forEach(a => a.classList.remove('active'));
-            const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-
-            // Scroll to top of content when page changes
-            document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Hide sidebar on mobile after navigation
-            if (window.innerWidth < 1024) {
-                sidebar.classList.remove('sidebar-open');
-                closeSidebar.classList.add('hidden');
-                closeSidebar.classList.remove('close-sidebar');
-                openSidebar.classList.remove('hidden');
-                openSidebar.classList.add('open-sidebar');
-            }
-        }
-
-        // Function to toggle nested list and icon
-        function toggleNestedList(link) {
-            const nestedList = link.parentElement.querySelector('.nested-list');
-            const toggleIcon = link.querySelector('.toggle-icon');
-            if (nestedList) {
-                nestedList.classList.toggle('expanded');
-                if (toggleIcon) {
-                    toggleIcon.classList.toggle('expanded');
-                }
-            }
-        }
-
-        // Event listeners for sidebar navigation
-        sidebarLinks.forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
-                const nestedList = this.parentElement.querySelector('.nested-list');
-
-                // Toggle the nested list if it exists
-                if (nestedList) {
-                    toggleNestedList(this);
-                }
-
-                // Navigate to the page
-                currentPage = pageId;
-                showPage(pageId);
-            });
-        });
-
-        // Event listeners for next/previous navigation buttons
-        document.querySelectorAll('.nav-buttons a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
-                currentPage = pageId;
-                showPage(pageId);
-            });
-        });
-
-        // Toggle sidebar visibility on mobile
-        openSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            openSidebar.classList.add('hidden');
-            openSidebar.classList.remove('open-sidebar');
-            closeSidebar.classList.remove('hidden');
-            closeSidebar.classList.add('close-sidebar');
-        });
-        closeSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            closeSidebar.classList.add('hidden');
-            closeSidebar.classList.remove('close-sidebar');
-            openSidebar.classList.remove('hidden');
-            openSidebar.classList.add('open-sidebar');
-        });
-
-        // Initial page load
-        showPage(currentPage);
-    </script> -->
-
-
-    <!-- bug:navigation issue with the url -->
-    <!-- <script>
-        let currentPage = 'introduction'; // Default to the introduction page
-        const pages = document.querySelectorAll('.page');
-        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
-        const sidebar = document.getElementById('sidebar');
-        const openSidebar = document.getElementById('openSidebar');
-        const closeSidebar = document.getElementById('closeSidebar');
-
-        // Function to show the selected page and update active link
-        function showPage(pageId) {
-            const mainContent = document.querySelector('.main-content');
-            const previousScrollTop = mainContent.scrollTop;
-
-            // Toggle page visibility
-            pages.forEach(page => {
-                page.classList.toggle('hidden', page.id !== pageId);
-            });
-
-            // Update sidebar links
-            sidebarLinks.forEach(a => a.classList.remove('active'));
-            const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-
-            // Scroll logic
-            if (previousScrollTop > 0) {
-                mainContent.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                mainContent.scrollTop = 0;
-            }
-
-            // Update URL
-            history.replaceState(null, '', `#${pageId}`);
-
-            currentPage = pageId;
-
-            // Hide sidebar on mobile after navigation
-            if (window.innerWidth < 1024) {
-                sidebar.classList.remove('sidebar-open');
-                closeSidebar.classList.add('hidden');
-                closeSidebar.classList.remove('close-sidebar');
-                openSidebar.classList.remove('hidden');
-                openSidebar.classList.add('open-sidebar');
-            }
-        }
-
-        // Function to toggle nested list and icon
-        function toggleNestedList(link) {
-            const nestedList = link.parentElement.querySelector('.nested-list');
-            const toggleIcon = link.querySelector('.toggle-icon');
-            if (nestedList) {
-                nestedList.classList.toggle('expanded');
-                if (toggleIcon) {
-                    toggleIcon.classList.toggle('expanded');
-                }
-            }
-        }
-
-        // Event listeners for sidebar navigation
-        sidebarLinks.forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
-                const nestedList = this.parentElement.querySelector('.nested-list');
-
-                // Toggle the nested list if it exists
-                if (nestedList) {
-                    toggleNestedList(this);
-                }
-
-                // Navigate to the page
-                showPage(pageId);
-            });
-        });
-
-        // Event listeners for next/previous navigation buttons
-        document.querySelectorAll('.nav-buttons a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
-                showPage(pageId);
-            });
-        });
-
-        // Toggle sidebar visibility on mobile
-        openSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            openSidebar.classList.add('hidden');
-            openSidebar.classList.remove('open-sidebar');
-            closeSidebar.classList.remove('hidden');
-            closeSidebar.classList.add('close-sidebar');
-        });
-        closeSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            closeSidebar.classList.add('hidden');
-            closeSidebar.classList.remove('close-sidebar');
-            openSidebar.classList.remove('hidden');
-            openSidebar.classList.add('open-sidebar');
-        });
-
-        // Initial page load
-        showPage(currentPage);
-
-        // Handle hash change to load the correct page on page reload or manual URL navigation
-        window.addEventListener('hashchange', () => {
-            const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
-            if (document.getElementById(pageId)) {
-                currentPage = pageId;
-                showPage(pageId);
-            }
-        });
-
-        // Load page based on initial hash (e.g., on page reload)
-        if (window.location.hash) {
-            const initialPageId = window.location.hash.replace('#', '');
-            if (document.getElementById(initialPageId)) {
-                currentPage = initialPageId;
-                showPage(initialPageId);
-            }
-        }
-    </script> -->
-
-
-
-    <!-- bug: side bar not remaing active for child items  -->
-    <!-- <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            let currentPage = 'introduction'; // Default to the introduction page
-            const pages = document.querySelectorAll('.page');
-            const sidebarLinks = document.querySelectorAll('.sidebar ul a');
-            const sidebar = document.getElementById('sidebar');
-            const openSidebar = document.getElementById('openSidebar');
-            const closeSidebar = document.getElementById('closeSidebar');
-
-            // Function to show the selected page and update active link
-            function showPage(pageId) {
-                const mainContent = document.querySelector('.main-content');
-                const previousScrollTop = mainContent.scrollTop;
-
-                // Toggle page visibility
-                pages.forEach(page => {
-                    page.classList.toggle('hidden', page.id !== pageId);
-                });
-
-                // Update sidebar links
-                sidebarLinks.forEach(a => a.classList.remove('active'));
-                const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-
-                // Scroll logic
-                if (previousScrollTop > 0) {
-                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    mainContent.scrollTop = 0;
-                }
-
-                // Update URL
-                history.replaceState(null, '', `#${pageId}`);
-
-                currentPage = pageId;
-
-                // Hide sidebar on mobile after navigation
-                if (window.innerWidth < 1024) {
-                    sidebar.classList.remove('sidebar-open');
-                    closeSidebar.classList.add('hidden');
-                    closeSidebar.classList.remove('close-sidebar');
-                    openSidebar.classList.remove('hidden');
-                    openSidebar.classList.add('open-sidebar');
-                }
-            }
-
-            // Function to toggle nested list and icon
-            function toggleNestedList(link) {
-                const nestedList = link.parentElement.querySelector('.nested-list');
-                const toggleIcon = link.querySelector('.toggle-icon');
-                if (nestedList) {
-                    nestedList.classList.toggle('expanded');
-                    if (toggleIcon) {
-                        toggleIcon.classList.toggle('expanded');
-                    }
-                }
-            }
-
-            // Event listeners for sidebar navigation
-            sidebarLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
-                    const nestedList = this.parentElement.querySelector('.nested-list');
-
-                    // Toggle the nested list if it exists
-                    if (nestedList) {
-                        toggleNestedList(this);
-                    }
-
-                    // Navigate to the page
-                    showPage(pageId);
-                });
-            });
-
-            // Event listeners for next/previous navigation buttons
-            document.querySelectorAll('.nav-buttons a').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
-                    showPage(pageId);
-                });
-            });
-
-            // Toggle sidebar visibility on mobile
-            openSidebar.addEventListener('click', () => {
-                sidebar.classList.toggle('sidebar-open');
-                openSidebar.classList.add('hidden');
-                openSidebar.classList.remove('open-sidebar');
-                closeSidebar.classList.remove('hidden');
-                closeSidebar.classList.add('close-sidebar');
-            });
-            closeSidebar.addEventListener('click', () => {
-                sidebar.classList.toggle('sidebar-open');
-                closeSidebar.classList.add('hidden');
-                closeSidebar.classList.remove('close-sidebar');
-                openSidebar.classList.remove('hidden');
-                openSidebar.classList.add('open-sidebar');
-            });
-
-            // Initial page load based on hash
-            const initialHash = window.location.hash.replace('#', '');
-            if (initialHash && document.getElementById(initialHash)) {
-                currentPage = initialHash;
-            }
-            showPage(currentPage);
-
-            // Handle hash change to load the correct page on page reload or manual URL navigation
-            window.addEventListener('hashchange', () => {
-                const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
-                if (document.getElementById(pageId)) {
-                    currentPage = pageId;
-                    showPage(pageId);
-                }
-            });
-        });
-    </script> -->
-
-    <!-- bug: toggle sidebar child working on entire div -->
-    <!-- <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            let currentPage = 'introduction'; // Default to the introduction page
-            const pages = document.querySelectorAll('.page');
-            const sidebarLinks = document.querySelectorAll('.sidebar ul a');
-            const sidebar = document.getElementById('sidebar');
-            const openSidebar = document.getElementById('openSidebar');
-            const closeSidebar = document.getElementById('closeSidebar');
-
-            // Function to show the selected page and update active link
-            function showPage(pageId, expandParents = false) {
-                const mainContent = document.querySelector('.main-content');
-                const previousScrollTop = mainContent.scrollTop;
-
-                // Toggle page visibility
-                pages.forEach(page => {
-                    page.classList.toggle('hidden', page.id !== pageId);
-                });
-
-                // Update sidebar links
-                sidebarLinks.forEach(a => a.classList.remove('active'));
-                const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-
-                    // Expand parent nested lists only if expandParents is true (e.g., initial load or deep link)
-                    if (expandParents) {
-                        let parent = activeLink.parentElement;
-                        while (parent && parent.tagName === 'LI') {
-                            const nestedList = parent.querySelector('.nested-list');
-                            const toggleIcon = parent.querySelector('.toggle-icon');
-                            if (nestedList) {
-                                nestedList.classList.add('expanded');
-                                if (toggleIcon) {
-                                    toggleIcon.classList.add('expanded');
-                                }
-                            }
-                            parent = parent.parentElement.closest('li');
-                        }
-                    }
-                }
-
-                // Scroll logic
-                if (previousScrollTop > 0) {
-                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    mainContent.scrollTop = 0;
-                }
-
-                // Update URL
-                history.replaceState(null, '', `#${pageId}`);
-
-                currentPage = pageId;
-
-                // Hide sidebar on mobile after navigation
-                if (window.innerWidth < 1024) {
-                    sidebar.classList.remove('sidebar-open');
-                    closeSidebar.classList.add('hidden');
-                    closeSidebar.classList.remove('close-sidebar');
-                    openSidebar.classList.remove('hidden');
-                    openSidebar.classList.add('open-sidebar');
-                }
-            }
-
-            // Function to toggle nested list and icon
-            function toggleNestedList(link) {
-                const nestedList = link.parentElement.querySelector('.nested-list');
-                const toggleIcon = link.querySelector('.toggle-icon');
-                if (nestedList) {
-                    nestedList.classList.toggle('expanded');
-                    if (toggleIcon) {
-                        toggleIcon.classList.toggle('expanded');
-                    }
-                }
-            }
-
-            // Event listeners for sidebar navigation
-            sidebarLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
-                    const nestedList = this.parentElement.querySelector('.nested-list');
-
-                    // Toggle the nested list if it exists
-                    if (nestedList) {
-                        toggleNestedList(this);
-                    }
-
-                    // Navigate to the page without forcing parent expansion (manual click)
-                    showPage(pageId, false);
-                });
-            });
-
-            // Event listeners for next/previous navigation buttons
-            document.querySelectorAll('.nav-buttons a').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
-                    showPage(pageId, false); // No forced expansion on button navigation
-                });
-            });
-
-            // Toggle sidebar visibility on mobile
-            openSidebar.addEventListener('click', () => {
-                sidebar.classList.toggle('sidebar-open');
-                openSidebar.classList.add('hidden');
-                openSidebar.classList.remove('open-sidebar');
-                closeSidebar.classList.remove('hidden');
-                closeSidebar.classList.add('close-sidebar');
-            });
-            closeSidebar.addEventListener('click', () => {
-                sidebar.classList.toggle('sidebar-open');
-                closeSidebar.classList.add('hidden');
-                closeSidebar.classList.remove('close-sidebar');
-                openSidebar.classList.remove('hidden');
-                openSidebar.classList.add('open-sidebar');
-            });
-
-            // Initial page load based on hash
-            const initialHash = window.location.hash.replace('#', '');
-            if (initialHash && document.getElementById(initialHash)) {
-                currentPage = initialHash;
-            }
-            showPage(currentPage, true); // Expand parents on initial load
-
-            // Handle hash change to load the correct page on page reload or manual URL navigation
-            window.addEventListener('hashchange', () => {
-                const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
-                if (document.getElementById(pageId)) {
-                    currentPage = pageId;
-                    showPage(pageId, true); // Expand parents on hash change
-                }
-            });
-        });
-    </script> -->
-
-    <!-- bug: scroll issue with the initial page load -->
-    <!-- <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            let currentPage = 'introduction'; // Default to the introduction page
-            const pages = document.querySelectorAll('.page');
-            const sidebarLinks = document.querySelectorAll('.sidebar ul a');
-            const sidebar = document.getElementById('sidebar');
-            const openSidebar = document.getElementById('openSidebar');
-            const closeSidebar = document.getElementById('closeSidebar');
-
-            // Function to show the selected page and update active link
-            function showPage(pageId, expandParents = false) { 
-                const mainContent = document.querySelector('.main-content');
-                const previousScrollTop = mainContent.scrollTop;
-
-                // Toggle page visibility
-                pages.forEach(page => {
-                    page.classList.toggle('hidden', page.id !== pageId);
-                });
-
-                // Update sidebar links
-                sidebarLinks.forEach(a => a.classList.remove('active'));
-                const activeLink = document.querySelector(`.sidebar a[href="#${pageId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-
-                    // Expand parent nested lists only if expandParents is true (e.g., initial load or deep link)
-                    if (expandParents) {
-                        let parent = activeLink.parentElement;
-                        while (parent && parent.tagName === 'LI') {
-                            const nestedList = parent.querySelector('.nested-list');
-                            const toggleIcon = parent.querySelector('.toggle-icon');
-                            if (nestedList) {
-                                nestedList.classList.add('expanded');
-                                if (toggleIcon) {
-                                    toggleIcon.classList.add('expanded');
-                                }
-                            }
-                            parent = parent.parentElement.closest('li');
-                        }
-                    }
-                }
-
-                // Scroll logic
-                if (previousScrollTop > 0) {
-                    mainContent.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    mainContent.scrollTop = 0;
-                }
-
-                // Update URL
-                history.replaceState(null, '', `#${pageId}`);
-
-                currentPage = pageId;
-
-                // Hide sidebar on mobile after navigation
-                if (window.innerWidth < 1024) {
-                    sidebar.classList.remove('sidebar-open');
-                    closeSidebar.classList.add('hidden');
-                    closeSidebar.classList.remove('close-sidebar');
-                    openSidebar.classList.remove('hidden');
-                    openSidebar.classList.add('open-sidebar');
-                }
-            }
-
-            // Function to toggle nested list and icon
-            function toggleNestedList(link) {
-                const nestedList = link.parentElement.querySelector('.nested-list');
-                const toggleIcon = link.querySelector('.toggle-icon');
-                if (nestedList) {
-                    nestedList.classList.toggle('expanded');
-                    if (toggleIcon) {
-                        toggleIcon.classList.toggle('expanded');
-                    }
-                }
-            }
-
-            // Event listeners for sidebar navigation (only navigate, no toggle)
-            sidebarLinks.forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., introduction, authentication
-
-                    // Navigate to the page without forcing parent expansion (manual click)
-                    showPage(pageId, false);
-                });
-            });
-
-            // Event listeners for toggle icons to expand/collapse nested lists
-            const toggleIcons = document.querySelectorAll('.toggle-icon');
-            toggleIcons.forEach(icon => {
-                icon.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Prevent the click from bubbling to the parent <a>
-                    const link = this.parentElement; // Assuming the icon is inside the <a>
-                    toggleNestedList(link);
-                });
-            });
-
-            // Event listeners for next/previous navigation buttons
-            document.querySelectorAll('.nav-buttons a').forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('href').replace('#', ''); // e.g., authentication, retrieveDocumentTypes
-                    showPage(pageId, false); // No forced expansion on button navigation
-                });
-            });
-
-            // Toggle sidebar visibility on mobile
-            openSidebar.addEventListener('click', () => {
-                sidebar.classList.toggle('sidebar-open');
-                openSidebar.classList.add('hidden');
-                openSidebar.classList.remove('open-sidebar');
-                closeSidebar.classList.remove('hidden');
-                closeSidebar.classList.add('close-sidebar');
-            });
-            closeSidebar.addEventListener('click', () => {
-                sidebar.classList.toggle('sidebar-open');
-                closeSidebar.classList.add('hidden');
-                closeSidebar.classList.remove('close-sidebar');
-                openSidebar.classList.remove('hidden');
-                openSidebar.classList.add('open-sidebar');
-            });
-
-            // Initial page load based on hash
-            const initialHash = window.location.hash.replace('#', '');
-            if (initialHash && document.getElementById(initialHash)) {
-                currentPage = initialHash;
-            }
-            showPage(currentPage, true); // Expand parents on initial load
-
-            // Handle hash change to load the correct page on page reload or manual URL navigation
-            window.addEventListener('hashchange', () => {
-                const pageId = window.location.hash.replace('#', '') || 'introduction'; // Default to introduction if no hash
-                if (document.getElementById(pageId)) {
-                    currentPage = pageId;
-                    showPage(pageId, true); // Expand parents on hash change
-                }
-            });
-        });
-    </script> -->
 
     <script>
         // Wait for the DOM to be fully loaded
@@ -2530,6 +1787,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
             });
         });
     </script>
+
 </body>
 
 </html>
