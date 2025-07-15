@@ -3,38 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Base Home</title>
-     <link rel="stylesheet" href="style.css"></link>
+    <title>DocAcquire Knowledge Base</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        /* Base styles */
         body {
             font-family: 'Inter', sans-serif;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            width: 100%;
-            /* background-color: #f9fafb; */
-            color: #1f2937;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0); /* Subtle gradient background */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            color: #1f2937; /* Default text color */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Container for main content */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
             padding: 2.5rem 1rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; 
         }
 
+        /* Logo styles */
+        .main-logo {
+            margin-bottom: 2.5rem; 
+            max-width: 150px; 
+            height: auto;
+            display: block;
+            text-align: center; 
+        }
+
+        /* Main title styles */
         .main-title {
-            font-size: 2.25rem;
+            font-size: 2rem; 
             font-weight: 800;
+            color: #1f2937;
             text-align: center;
-            color: #002b49;
             margin-bottom: 3rem;
+            line-height: 1.2; 
         }
 
+        .main-title-highlight {
+            color: #002b49;
+        }
+
+        /* Card grid styles */
         .card-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 2rem; 
+            width: 100%;
+            max-width: 72rem;
         }
 
         @media (min-width: 768px) {
@@ -49,13 +77,13 @@
             }
         }
 
+        /* Individual card styles */
         .card {
             background-color: #ffffff;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); */
-            box-shadow: 0px 4px 10px #E8E8E8;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-radius: 0.75rem; 
+            padding: 2rem; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -65,14 +93,13 @@
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            transform: translateY(-0.5rem); 
         }
 
+        /* Icon circle styles */
         .icon-circle {
-            /* background-color: #e0f2fe; */
             background-color: #e6eaed;
-            /* color: #007bff; */
             color: #002b49;
             border-radius: 9999px;
             padding: 1rem;
@@ -90,44 +117,67 @@
         }
 
         .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
+            font-size: 1.5rem; 
+            font-weight: 600; 
+            color: #1f2937; 
+            margin-bottom: 0.75rem; 
         }
 
+        /* Card description styles */
         .card-description {
             color: #4b5563;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-            flex-grow: 1;
+            font-size: 1rem; 
+            line-height: 1.625; 
+            margin-bottom: 1.5rem;
+            flex-grow: 1; 
         }
 
+        /* Card link styles */
         .card-link {
             color: #002b49;
             font-weight: 500;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.25rem;
-            margin-top: 0.75rem;
+            gap: 0.25rem; 
             transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
-        }
-
-        .card-link:hover {
-            color: #ff7c74;
-            text-decoration: underline;
         }
 
         .card-link svg {
             width: 1rem;
-            height: 1rem;
+            height: 1rem; 
+        }
+
+        .card-link:hover {
+            color: #ff4438; 
+            text-decoration: underline;
+        }
+
+       
+        .footer {
+            background-color: #1f2937;
+            color: #ffffff;
+            padding: 1.5rem 0; 
+            margin-top: 2.5rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+            color: #9ca3af; 
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="main-title">Knowledge Base</h1>
+        <!-- DocAcquire Logo -->
+        <img src="assets/DocAcquire_master-marque.png" alt="DocAcquire Logo" class="main-logo">
+        
+        <h1 class="main-title">
+            Welcome to the <span class="main-title-highlight">DocAcquire</span> Knowledge Base
+        </h1>
 
         <div class="card-grid">
             <!-- Card 1: DocAcquire API Guide -->
@@ -139,7 +189,7 @@
                     </svg>
                 </div>
                 <h2 class="card-title">API Reference</h2>
-                <p class="card-description">A comprehensive guide to integrating with the DocAcquire API.</p>
+                <p class="card-description">A comprehensive guide to integrating with the DocAcquire API, including endpoints, authentication, and examples.</p>
                 <span class="card-link">
                     Learn more
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -148,8 +198,47 @@
                 </span>
             </a>
 
-            
+            <!-- Card 2: DocAcquire User Guide -->       
+            <a href="user-guide.html" class="card">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                </div>
+                <h2 class="card-title">User Guide</h2>
+                <p class="card-description">Get started quickly with DocAcquire. Find clear instructions on how to use all features, from basic setup to advanced workflows.</p>
+                <span class="card-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </span>
+            </a>
+
+            <!-- Card 3: FAQs & Troubleshooting -->
+            <!-- <a href="faqs.html" class="card">
+                <div class="icon-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                    </svg>
+                </div>
+                <h2 class="card-title">FAQs & Troubleshooting</h2>
+                <p class="card-description">Find answers to common questions and solutions to typical issues you might encounter with DocAcquire.</p>
+                <span class="card-link">
+                    Learn more
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </span>
+            </a> -->
         </div>
     </div>
+
+    <!-- Footer -->
+    <!-- <footer class="footer">
+        <div class="footer-content">
+            &copy; 2025 DocAcquire. All rights reserved.
+        </div>
+    </footer> -->
 </body>
 </html>
