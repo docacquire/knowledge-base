@@ -462,7 +462,7 @@
             .nav-buttons a {
                 font-size: 0.9rem;
             }
-            
+
              .image-container {
                 width: 700px;
             }
@@ -586,6 +586,15 @@
                 <a href="#markDocumentsExported">Mark Documents as Exported</a>
             </li>
             <li>
+                <a href="#documentStatus">Get Document Status</a>
+            </li>
+            <li>
+                <a href="#documentCountByStatus">Get Document Count by Status</a>
+            </li>
+            <li>
+                <a href="#statusTypes">Status Types</a>
+            </li>
+            <li>
                 <a href="#bestPractices">Best Practices</a>
             </li>
             <li>
@@ -654,7 +663,7 @@
             'Authorization': 'Bearer YOUR_ACCESS_TOKEN',
             'Content-Type': 'multipart/form-data',
             'Accept': 'application/json'
-        }</code></pre>
+          }</code></pre>
             </div>
 
             <p>Ready to explore? This guide provides detailed steps and examples for each API endpoint. Dive in to see how
@@ -991,9 +1000,8 @@
         </div>
 
         <div id="synchronousProcessing" class="page hidden">
-            <h3>Synchronous Processing</h3>
-            <p>Synchronous processing involves uploading a document to the API, where the server immediately processes
-                it—performing tasks like splitting, classification, and data extraction—and returns the extracted data
+            <h3>3.1 Synchronous Processing</h3>
+            <p>Synchronous processing involves uploading a document to the API, where the server immediately processes it—performing tasks like splitting, classification, and data extraction—and returns the extracted data
                 (fields, tables, and metadata) within the same request cycle. The client waits for the processing to
                 complete, making it suitable for scenarios where instant results are needed for small documents.</p>
             <h4>Key Characteristics:</h4>
@@ -1097,7 +1105,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <div id="asynchronousProcessing" class="page hidden">
-            <h3>Asynchronous Processing</h3>
+            <h3>3.2 Asynchronous Processing</h3>
             <p>Asynchronous processing allows the client to upload one or more documents, receiving an immediate
                 acknowledgment (e.g., a document ID). The server queues the documents for processing in the background,
                 performing tasks like splitting, classification, and data extraction. The client must later query a
@@ -1177,7 +1185,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <div id="uploadSingleDocument" class="page hidden">
-            <h4>Upload Single Document</h4>
+            <h4>3.2.1 Upload Single Document</h4>
             <p>The client sends a POST request with a single document file to the <code
                     class="code-inline">/api/v4/document/uploadSingle</code> endpoint. The server acknowledges the
                 upload and queues the document for background processing. The client can later query the status or
@@ -1235,7 +1243,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <div id="uploadSingleDocumentBase64" class="page hidden">
-            <h4>Upload Single Document in Base64</h4>
+            <h4>3.2.2 Upload Single Document in Base64</h4>
             <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to
                 the <code class="code-inline">/api/v4/document/uploadSingle/base64</code> endpoint. The server decodes
                 the Base64 string, acknowledges the upload, and queues the document for processing. The client retrieves
@@ -1287,7 +1295,7 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
         </div>
 
         <div id="uploadMultipleDocuments" class="page hidden">
-            <h4>Upload Multiple Documents</h4>
+            <h4>3.2.3 Upload Multiple Documents</h4>
             <p>The client sends a POST request with up to 10 documents to the <code
                     class="code-inline">/api/v4/document/uploadMultiple</code> endpoint. The server acknowledges the
                 upload and processes each document in the background. The client retrieves results for each document
@@ -1409,7 +1417,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <div id="byDocumentId" class="page hidden">
-            <h3>By Document ID</h3>
+            <h3>5.1 By Document ID</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/verified/{documentId}</code>
                 </p>
@@ -1482,7 +1490,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <div id="byDocumentIdFlattened" class="page hidden">
-            <h3>By Document ID (Flattened)</h3>
+            <h3>5.2 By Document ID (Flattened)</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code
                         class="code-inline">/api/v4/document/verified/{documentId}/flatten</code></p>
@@ -1553,7 +1561,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <div id="byDocumentTypeId" class="page hidden">
-            <h3>By Document Type</h3>
+            <h3>5.3 By Document Type</h3>
             <div class="code-block">
                 <p><strong>Endpoint:</strong> <code
                         class="code-inline">/api/v4/document/verified/documentType/{documentTypeId}</code></p>
@@ -1632,7 +1640,7 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
         </div>
 
         <div id="byDocumentTypeIdFlattened" class="page hidden">
-            <h3>By Document Type (Flattened)</h3>
+            <h3>5.4 By Document Type (Flattened)</h3>
             <p>Returns verified documents in a simplified key/value pair format without additional metadata like
                 confidence scores.</p>
             <div class="code-block">
@@ -1738,6 +1746,150 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                     </svg>
                     Previous: By Document Type ID (Flattened)
                 </a>
+                <a href="#documentStatus" class="next-link">
+                    Next: Get Document Status
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <div id="documentStatus" class="page hidden">
+            <h2>7. Get the current processing status of a document.</h2>
+            <p>Returns the current processing status of a document. An error will be thrown in case of an
+                invalid document id.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/{documentId}/status</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p ><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p ><strong>Query String:</strong> <code
+                        class="code-inline">documentId: Id of the Document</code></p>
+                
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request GET \
+     --url <span class="token string">{BASE_URL}/api/v4/document/{documentId}/status</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    <span class="token property">"Id"</span>: <span class="token number">101010</span>,
+    <span class="token property">"Status"</span>: <span class="token number">4</span>,
+    <span class="token property">"Description"</span>: <span class="token string">"Awaiting Review"</span>
+}</code></pre>
+            </div>
+            <div class="nav-buttons">
+                <a href="#markDocumentsExported">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Mark Documents as Exported
+                </a>
+                <a href="#documentCountByStatus" class="next-link">
+                    Next: Get Document Count by Status
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <div id="documentCountByStatus" class="page hidden">
+            <h2>8. Get the count of documents in a particular status.</h2>
+            <p>Returns the count of documents in a given status. An error will be thrown in case of an invalid status ID. Below is the list of valid status IDs.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/count/{statusId}</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p ><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
+                <p ><strong>Query String:</strong> <code
+                        class="code-inline">statusId: Id of the Document Status</code></p>
+                
+                <br>
+                <p class="mt-4"><strong>cURL Example:</strong></p>
+                <pre><code><span class="token keyword">curl</span> --request GET \
+     --url <span class="token string">{BASE_URL}/api/v4/document/count/{statusId}</span> \
+     --header <span class="token string">'accept: application/json'</span> \
+     --header <span class="token string">'authorization: Bearer {AUTH_TOKEN}'</span></code></pre>
+                <br>
+
+                <p ><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    <span class="token property">"Count"</span>: <span class="token number">350</span>,
+    <span class="token property">"Status"</span>: <span class="token string">"Processing"</span>
+}</code></pre>
+            </div>
+            <div class="nav-buttons">
+                <a href="#documentStatus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Get Document Status
+                </a>
+                <a href="#statusTypes" class="next-link">
+                    Next: Status Types
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <div id="statusTypes" class="page hidden">
+            <h2>9. Status Types</h2>
+            <p>Below is the list of valid status IDs and their descriptions.</p>
+            <div class="code-block">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status Id</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Queued</td></tr>
+                        <tr><td>2</td><td>Processing</td></tr>
+                        <tr><td>3</td><td>Data Extracted</td></tr>
+                        <tr><td>4</td><td>Awaiting Review</td></tr>
+                        <tr><td>5</td><td>Reviewed</td></tr>
+                        <tr><td>6</td><td>Exported</td></tr>
+                        <tr><td>7</td><td>Failed</td></tr>
+                        <tr><td>8</td><td>Ignored</td></tr>
+                        <tr><td>9</td><td>Unclassified</td></tr>
+                        <tr><td>10</td><td>Waiting (Either the subscription has expired or there are not enough credits in your account)</td></tr>
+                        <tr><td>11</td><td>Export Failed</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="nav-buttons">
+                <a href="#documentCountByStatus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Get Document Count by Status
+                </a>
                 <a href="#bestPractices" class="next-link">
                     Next: Best Practices
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -1769,12 +1921,12 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
                     invalid credential errors appropriately.</li>
             </ul>
             <div class="nav-buttons">
-                <a href="#markDocumentsExported">
+                <a href="#statusTypes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
-                    Previous: Mark Documents as Exported
+                    Previous: Status Types
                 </a>
                 <a href="#conclusion" class="next-link">
                     Next: Conclusion
