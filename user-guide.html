@@ -368,12 +368,12 @@
         .image-container {
             margin: 20px 0;
             text-align: center;
-            width: 700px;
+            width: 100%;
         }
 
         .image-container img {
             /* max-width: 90%; */
-            max-width: 700px;
+            max-width: 100%;
             height: auto;
         }   
 
@@ -412,7 +412,6 @@
             color: #1d4ed8;
         }
 
-        /* Tables */
         .main-content table {
             width: 100%;
             text-align: left;
@@ -453,6 +452,14 @@
             .nav-buttons a {
                 font-size: 0.9rem;
             }
+
+            .image-container {
+                width: 700px;
+            }
+
+            .image-container img {
+                max-width: 700px;
+            }   
         }
 
         @media (min-width: 1024px) {
@@ -480,99 +487,7 @@
 </head>
 
 <body>
-    <!-- Sidebar for navigation -->
-    <!-- <div id="sidebar" class="sidebar">
-        <div class="close-sidebar">
-            <button id="closeSidebar" class="close-sidebar">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </button>
-        </div>
-
-        <div class="breadcrumb">
-            <span class="breadcrumb-link">
-                <a href="index.html">Documentation</a>
-            </span>
-            <span>  /  </span>
-            <span class="breadcrumb-current">User Guide</span>
-        </div>
-
-        <ul>
-            <li>
-                <a href="#introduction">Introduction</a>
-            </li>
-            <li>
-                <a href="#login">Log in to DocAcquire</a>
-            </li>
-            <li>
-                <a href="#defineDocumentType">
-                    <span>Define or Select a Document Type</span>
-                    <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </a>
-                <ul class="nested-list">
-                    <li><a href="#builtInDoctype">Use Built-in Document Types</a></li>
-                    <li><a href="#customDoctype">Create a Custom Document Type</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#addFieldsTables">
-                    <span>Add Fields and Tables</span>
-                    <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </a>
-                <ul class="nested-list">
-                    <li><a href="#addFields">Add Fields</a></li>
-                    <li><a href="#addTables">Add Tables</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#configureVerification">
-                    <span>Configure Document Verification</span>
-                    <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </a>
-                <ul class="nested-list">
-                    <li><a href="#autoReview">Auto Review</a></li>
-                    <li><a href="#manualReview">Manual Review</a></li>
-                    <li><a href="#skipReview">Skip Review</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#uploadDocument">Upload the Document</a>
-            </li>
-            <li>
-                <a href="#reviewDocument">Review Documents and Mark as Reviewed</a>
-            </li>
-            <li>
-                <a href="#exportDocument">
-                    <span>Export the Document</span>
-                    <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </a>
-                <ul class="nested-list">
-                    <li><a href="#exportToExcel">Export to Excel</a></li>
-                    <li><a href="#exportViaWebhook">Export via Webhooks</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div> -->
-
-
+    <!-- Sidebar for navigation -->  
     <div id="sidebar" class="sidebar">
         <div class="close-sidebar">
             <button id="closeSidebar" class="close-sidebar">
@@ -676,7 +591,6 @@
             </li>
         </ul>
     </div>
-
 
     <!-- Mobile sidebar toggle button -->
     <button id="openSidebar" class="open-sidebar">
@@ -1555,115 +1469,6 @@
             </div>
         </div>
     </div>
-
-    <!-- <script>
-        let currentPage = '0'; // Default to the introduction page
-        const pages = document.querySelectorAll('.page');
-        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
-        const sidebar = document.getElementById('sidebar');
-        const openSidebar = document.getElementById('openSidebar');
-        const closeSidebar = document.getElementById('closeSidebar');
-
-        // Function to show the selected page and update active link
-        function showPage(pageId) {
-            pages.forEach(page => {
-                page.classList.toggle('hidden', page.id !== `step${pageId}`);
-            });
-
-            sidebarLinks.forEach(a => a.classList.remove('active'));
-            const activeLink = document.querySelector(`.sidebar a[href="#step${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-                // Expand parent nested lists if the active link is nested
-                let parentUl = activeLink.closest('.nested-list');
-                while (parentUl) {
-                    parentUl.classList.add('expanded');
-                    const parentLink = parentUl.previousElementSibling;
-                    if (parentLink && parentLink.classList.contains('toggle-icon')) {
-                        parentLink.classList.add('expanded');
-                    }
-                    parentUl = parentUl.parentElement.closest('.nested-list');
-                }
-            }
-
-            // Scroll to top of content when page changes
-            document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
-
-            // Hide sidebar on mobile after navigation
-            if (window.innerWidth < 1024) {
-                sidebar.classList.remove('sidebar-open');
-                closeSidebar.classList.add('hidden');
-                closeSidebar.classList.remove('close-sidebar');
-                openSidebar.classList.remove('hidden');
-                openSidebar.classList.add('open-sidebar');
-            }
-        }
-
-        // Function to toggle nested list and icon
-        function toggleNestedList(link) {
-            const nestedList = link.parentElement.querySelector('.nested-list');
-            const toggleIcon = link.querySelector('.toggle-icon');
-            if (nestedList) {
-                nestedList.classList.toggle('expanded');
-                if (toggleIcon) {
-                    toggleIcon.classList.toggle('expanded');
-                }
-            }
-        }
-
-        // Event listeners for sidebar navigation
-        sidebarLinks.forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., addFieldsTables, addFields
-                const nestedList = this.parentElement.querySelector('.nested-list');
-
-                // Toggle the nested list if it exists
-                if (nestedList) {
-                    toggleNestedList(this);
-                }
-
-                // Navigate to the page if it starts with "step"
-                if (pageId.startsWith('step')) {
-                    const pageNum = pageId.replace('step', ''); // e.g., 3, 3.1, 3.2.1
-                    currentPage = pageNum;
-                    showPage(pageNum);
-                }
-            });
-        });
-
-        // Event listeners for next/previous navigation buttons
-        document.querySelectorAll('.nav-buttons a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('href').replace('#', ''); // e.g., addFieldsTables, addFields
-                if (pageId.startsWith('step')) {
-                    const pageNum = pageId.replace('step', ''); // e.g., 3, 3.1
-                    currentPage = pageNum;
-                    showPage(pageNum);
-                }
-            });
-        });
-
-        // Toggle sidebar visibility on mobile
-        openSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            openSidebar.classList.add('hidden');
-            openSidebar.classList.remove('open-sidebar');
-            closeSidebar.classList.remove('hidden');
-            closeSidebar.classList.add('close-sidebar');
-        });
-        closeSidebar.addEventListener('click', () => {
-            sidebar.classList.toggle('sidebar-open');
-            closeSidebar.classList.add('hidden');
-            closeSidebar.classList.remove('close-sidebar');
-            openSidebar.classList.remove('hidden');
-            openSidebar.classList.add('open-sidebar');
-        });
-
-        // Initial page load
-        showPage(currentPage);
-    </script> -->
 
     <script>
         // Wait for the DOM to be fully loaded
