@@ -671,6 +671,9 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#bestPractices">Best Practices</a>
+            </li>
         </ul>
     </div>
 
@@ -1473,7 +1476,6 @@
                 <li>Combine with Skip Review → for a fully automated, no-touch workflow!</li>
             </ul>
 
-            <!-- Navigation buttons -->
             <div class="nav-buttons">
                 <a href="#exportToExcel">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -1482,7 +1484,12 @@
                     </svg>
                     Previous:Export to Excel
                 </a>
-                <div></div> <!-- Placeholder for next button on last page -->
+                <a href="#exportViaApi" class="next-link">
+                    Next: Export via API
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
             </div>
         </div>
 
@@ -1500,19 +1507,51 @@
                     </ol>
                 </li>
             </ul>
-            <!-- <p>We hope this structured user guide helps you effectively utilize DocAcquire to streamline your document processing. For any further questions or assistance, please refer to our comprehensive Knowledge Base, FAQ section, or contact our support team.</p> -->
             <p>We hope this structured user guide helps you effectively utilize DocAcquire to streamline your document processing. For any further questions or assistance, <a href="https://www.docacquire.com/contact-us/" class="link" target="_blank">Contact Us</a>.</p>
 
-            <!-- Navigation buttons -->
             <div class="nav-buttons">
-                <a href="#export-via-webhook">
+                <a href="#exportViaWebhook">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
                     Previous: Export via Webhook
                 </a>
+                <a href="#bestPractices" class="next-link">
+                    Next: Best Practices
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </div>
+
+        <div id="bestPractices" class="page hidden">
+            <h2>Best Practices</h2>
+            <p>To ensure optimal usage and efficiency with DocAcquire, consider these best practices: </p>
+            <ul>
+                <li><strong>Clear Naming Conventions:</strong> Use descriptive and consistent names for your Document Types, fields, and tables. Giving each Document Type a clear and specific name—based on the documents that will be uploaded against it—is crucial for accurate document classification and streamlined processing.</li>
+                <li><strong>Granular Field Definitions:</strong> Be as specific as possible when defining fields and providing instructions. This helps DocAcquire's extraction model achieve higher accuracy. </li>
+                <li><strong>Strategic Verification Methods:</strong> Choose your review method (Auto, Manual, Skip) based on the criticality and consistency of your documents. High-value or highly variable documents may benefit from Manual Review, while consistent, low-risk documents are perfect for Auto or Skip Review. </li>
+                <li><strong>Leverage Webhooks for Automation:</strong> For seamless integration with other business systems, utilize webhooks. Combine with "Automatically Export Document" and "Flatten Data" for robust, automated workflows.</li>
+                <li><strong>Regular Review of Extracted Data:</strong> Even with Auto Review, periodically spot-check extracted data to ensure accuracy and identify any potential issues or areas for improvement in your document type configuration. </li>
+                
+            </ul>
+            <div class="nav-buttons">
+                <a href="#exportViaApi">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Export via API
+                </a>
                 <div></div> <!-- Placeholder for next button on last page -->
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
             </div>
         </div>
     </div>
@@ -1723,7 +1762,7 @@
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const pageId = this.getAttribute('href').replace('#', '');
-                    showPage(pageId, false);
+                    showPage(pageId, true);
                 });
             });
 
