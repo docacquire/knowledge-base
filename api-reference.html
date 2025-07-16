@@ -499,6 +499,9 @@
                 <a href="#introduction">Introduction</a>
             </li>
             <li>
+                <a  href="#serviceLimits">Service Limits</a>
+            </li>
+            <li>
                 <a href="#authentication">Authentication</a>
             </li>
             <li>
@@ -573,7 +576,7 @@
 
     <div class="main-content" id="main-content">
         <h1>DocAcquire API Documentation Overview</h1>
-        <div class="meta">Updated on Jul 15, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 08, 2025</div>
+        <div class="meta">Updated on Jul 16, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 08, 2025</div>
 
         <div id="introduction" class="page">
             <h2>Welcome to the DocAcquire API Guide</h2>
@@ -629,8 +632,8 @@
             <!-- Navigation buttons -->
             <div class="nav-buttons">
                 <div></div> 
-                <a href="#authentication" class="next-link">
-                    Next: Authentication
+                <a href="#serviceLimits" class="next-link">
+                    Next: Service Limits
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                     </svg>
@@ -643,6 +646,113 @@
                 <button>Yes</button>
                 <button>No</button>
             </div>
+        </div>
+
+        <div id="serviceLimits" class="page hidden">
+            <h2>Service Limits</h2>
+            <p>Two types of limits can affect your service usage. These limits govern how service should be consumed to deliver a better processing experience. Some of these rules are Hard (can't be changed) and some of them can be changed. As a consumer, you must test your integration thoroughly to adhere to/respect the following service limits.</p>
+            <p><strong>Important Note:</strong> Intentionally abusing service limits may result in revoking your service access permanently and without prior notice.</p>
+
+            <div class="code-block">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Limit</th>
+                            <th>Description</th>
+                            <th>Hard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Accepted File formats</td>
+                            <td>JPEG, JPG, PNG, PDF, TIFF</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>File Size Limits</td>
+                            <td>20 MBs</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Page Size Limit</td>
+                            <td>A document with 10 pages - this is configurable. Please contact support if your requirement demands a higher number.</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Min. Polling Interval</td>
+                            <td>There should be a delay of at least 5 Minutes when polling endpoints for extracted data.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Max. files that can be uploaded in a batch - synchronously</td>
+                            <td>1</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Max. files that can be uploaded in a batch - asynchronously</td>
+                            <td>10</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Throttling on document upload - Asynchronous</td>
+                            <td>At least a 30-second delay after every upload call. This is true when you upload documents using asynchronous processing.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Throttling on file upload - Synchronous</td>
+                            <td>At least a 2-second delay after every call. This is true when you upload documents using synchronous processing.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Queue Processing Agents</td>
+                            <td>A single capture agent is available to process documents in the queue. Each agent processes 3 documents in parallel.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Queue Limit</td>
+                            <td>At any instance, you should not have more than 300 documents in the queue with the status of QUEUED, PROCESSING & FAILED.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Parallel Processing</td>
+                            <td>You must avoid making parallel service calls, such as using a multithreading approach.</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>PDF Specific Limits</td>
+                            <td>No support for password-protected PDFs</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Languages</td>
+                            <td>English, French, German, Italian, Portuguese and Spanish</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Character Type</td>
+                            <td>DocAcquire supports both handwritten and printed character recognition.</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="nav-buttons">
+                <a href="#introduction">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/>
+                    </svg>
+                    Previous: Introduction
+                </a>
+                <a href="#authentication" class="next-link">
+                    Next: Authentication
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+
         </div>
 
         <div id="authentication" class="page hidden">
@@ -737,12 +847,12 @@
 
             <!-- Navigation buttons -->
             <div class="nav-buttons">
-                <a href="#introduction">
+                <a href="#serviceLimits">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
-                    Previous: Introduction
+                    Previous: Service Limits
                 </a>
                 <a href="#retrieveDocumentTypes" class="next-link">
                     Next: Retrive Document Types
