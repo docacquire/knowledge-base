@@ -151,6 +151,14 @@
             transform: rotate(180deg);
         }
 
+        .sidebar .version-info {
+            padding: 10px 20px;
+            font-size: 12px;
+            color: #33556d;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
         /* Mobile sidebar toggle button */
         .close-sidebar {
             display: flex;
@@ -366,6 +374,18 @@
             width: 18px;
         }
 
+        /* Image container */
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }   
+
         /* Feedback section */
         .feedback {
             display: none;
@@ -441,6 +461,14 @@
         @media (min-width:768px) {
             .nav-buttons a {
                 font-size: 0.9rem;
+            }
+            
+             .image-container {
+                width: 700px;
+            }
+
+            .image-container img {
+                max-width: 700px;
             }
         }
 
@@ -528,9 +556,9 @@
                             </svg>
                         </a>
                         <ul class="nested-list">
-                            <li><a href="#uploadSingleDocument">upload single document</a></li>
-                            <li><a href="#uploadSingleDocumentBase64">upload single document(base 64)</a></li>
-                            <li><a href="#uploadMultipleDocuments">upload multiple documents</a></li>
+                            <li><a href="#uploadSingleDocument">Upload Single Document</a></li>
+                            <li><a href="#uploadSingleDocumentBase64">Upload Single Document (Base 64)</a></li>
+                            <li><a href="#uploadMultipleDocuments">Upload Multiple Documents</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -562,8 +590,11 @@
             </li>
             <li>
                 <a href="#conclusion">Conclusion</a>
-            </li>
+            </li>     
         </ul>
+        <div class="version-info">
+            <p>Version: 6.0</p>
+        </div>
     </div>
 
     <!-- Mobile sidebar toggle button -->
@@ -575,11 +606,11 @@
     </button>
 
     <div class="main-content" id="main-content">
-        <h1>DocAcquire API Documentation Overview</h1>
+        <h1>DocAcquire API Reference</h1>
         <div class="meta">Updated on Jul 16, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 08, 2025</div>
 
         <div id="introduction" class="page">
-            <h2>Welcome to the DocAcquire API Guide</h2>
+            <h2>Welcome to the DocAcquire API Reference</h2>
             <p>Unlock the power of intelligent document processing with the DocAcquire API. Our robust, AI-powered platform
                 is engineered to streamline your document workflows, enabling seamless data extraction, classification, and
                 validation. Whether you're dealing with invoices, contracts, or any other document type, DocAcquire provides
@@ -926,8 +957,13 @@
 
         <div id="documentProcessing" class="page hidden">
             <h2>3. Document Processing</h2>
-            <p>After retrieving document type IDs, you can upload and process documents using the DocAcquire API. The
-                API supports two processing modes: synchronous and asynchronous. The primary difference is that
+            <p>After retrieving document type IDs, you can upload and process documents using the DocAcquire API.</p>
+            <p>The API supports two processing modes:</p>
+            <ol>
+                <li>Synchronous Processing</li>
+                <li>Asynchronous Processing</li>
+            </ol>
+            <p>The primary difference is that
                 synchronous processing is designed for lightweight documents (up to 5 pages) with immediate results,
                 while asynchronous processing is suited for heavy documents (up to 2000 pages, depending on
                 subscription) or batch processing, with results retrieved later.</p>
@@ -1312,14 +1348,16 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
 
         <div id="documentVerification" class="page hidden">
             <h2>4. Document Verification Process</h2>
-            <p>Based on the review method configured during document type setup, the following steps apply to verify
-                documents before data extraction:</p>
+            <p>Based on the review method configured during Document Type setup, DocAcquire offers three options to verify the extracted data before it is finalized for use:</p>
+            <div class="image-container">
+                <img src="assets/configuration.png">
+            </div>
             <ul>
+                <li><strong>Auto Review:</strong>If configured for auto review, and the document meets the required confidence score and passes all validation checks, DocAcquire will automatically mark it as Reviewed. The extracted data will then be available for direct access via APIs.</li>
                 <li><strong>Manual Review:</strong> If configured for manual review, you must manually review and mark
                     documents as verified before extracting data via APIs.</li>
                 <li><strong>Skip Review:</strong> If set to skip review, documents are automatically verified and moved
                     to the Reviewed stage, enabling immediate data extraction via APIs.</li>
-                <li><strong>Auto Review:</strong>If configured for auto review, and the document meets the required confidence score and passes all validation checks, DocAcquire will automatically mark it as Reviewed. The extracted data will then be available for direct access via APIs.</li>
             </ul>
             <div class="nav-buttons">
                 <a href="#uploadMultipleDocuments">
