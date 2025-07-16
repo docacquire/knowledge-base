@@ -4,26 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DocAcquire Knowledge Base</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-        /* Base styles */
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to bottom right, #f8fafc, #e2e8f0); /* Subtle gradient background */
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            color: #1f2937; /* Default text color */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            /* background: linear-gradient(to bottom right, #f8fafc, #e2e8f0); */
         }
 
-        /* Container for main content */
         .container {
             max-width: 1280px;
+            /* min-height: 100vh; */
             margin: 0 auto;
             padding: 2.5rem 1rem;
             flex-grow: 1;
@@ -33,16 +25,15 @@
             justify-content: center; 
         }
 
-        /* Logo styles */
         .main-logo {
             margin-bottom: 2.5rem; 
-            max-width: 150px; 
+            /* max-width: 150px;  */
+            max-width: 100px; 
             height: auto;
             display: block;
             text-align: center; 
         }
 
-        /* Main title styles */
         .main-title {
             font-size: 2rem; 
             font-weight: 800;
@@ -56,7 +47,6 @@
             color: #002b49;
         }
 
-        /* Card grid styles */
         .card-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -66,6 +56,10 @@
         }
 
         @media (min-width: 768px) {
+            .main-logo{
+                max-width: 150px;
+            }
+            
             .card-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -77,7 +71,6 @@
             }
         }
 
-        /* Individual card styles */
         .card {
             background-color: #ffffff;
             border-radius: 0.75rem; 
@@ -97,7 +90,6 @@
             transform: translateY(-0.5rem); 
         }
 
-        /* Icon circle styles */
         .icon-circle {
             background-color: #e6eaed;
             color: #002b49;
@@ -123,7 +115,6 @@
             margin-bottom: 0.75rem; 
         }
 
-        /* Card description styles */
         .card-description {
             color: #4b5563;
             font-size: 1rem; 
@@ -132,7 +123,6 @@
             flex-grow: 1; 
         }
 
-        /* Card link styles */
         .card-link {
             color: #002b49;
             font-weight: 500;
