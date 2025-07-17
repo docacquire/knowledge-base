@@ -37,6 +37,8 @@
             transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;
             z-index: 20;
+            display: flex; /* Added for flexbox layout */
+            flex-direction: column; /* Added for vertical stacking */
         }
 
         /* Hide scrollbar for sidebar */
@@ -81,6 +83,8 @@
 
         .sidebar ul {
             list-style: none;
+            flex-grow: 1; /* Allows the ul to take up available space, pushing version-info down */
+
         }
 
         .sidebar ul li {
@@ -152,11 +156,12 @@
         }
 
         .sidebar .version-info {
-            padding: 10px 20px;
+            padding: 10px 14px 0px;
             font-size: 12px;
             color: #33556d;
-            border-top: 1px solid #e2e8f0;
-            text-align: center;
+            /* border-top: 1px solid #e2e8f0; */
+            text-align: left;
+            margin-top: auto; /* Pushes the element to the bottom */
         }
 
         /* Mobile sidebar toggle button */
@@ -1542,8 +1547,10 @@ docTypeIds: is optional to help the classifier engine to classify the documents.
 
         <div id="retrieveVerifiedDocuments" class="page hidden">
             <h2>6. Retrieve Verified Documents</h2>
-            <p>After documents are verified, retrieve verified (human or system-verified) documents using document type
-                or ID, in standard or flattened formats.</p>
+            <p>After documents are verified, retrieve verified (human or system-verified) documents using document type or ID, in standard or flattened formats.</p>
+            <div class="image-container">
+                <img src="assets/review-grid2.png">
+            </div>
 
             <div class="nav-buttons">
                 <a href="#documentVerification">
