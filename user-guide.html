@@ -238,6 +238,13 @@
             margin-bottom: 6px;
         }
 
+        .main-content h5 {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #8095a4;
+            margin-bottom: 6px;
+        }
+
         /* Paragraphs */
         .main-content p {
             color: #5c5c5c;
@@ -525,7 +532,6 @@
                     </svg>
                 </a>
                 <ul class="nested-list">
-                    <!-- <li><a href="#registration">Registration</a></li> -->
                     <li>
                         <a href="#defineDocumentType">
                             <span>Define a Document Type</span>
@@ -537,30 +543,29 @@
                         </a>
                          <ul class="nested-list">
                             <li><a href="#builtInDoctype">Built-in Document Types</a></li>
-                            <li><a href="#customDoctype">Custom Document Types</a></li>
+                            <li>
+                                <a href="#customDoctype">
+                                    <span>Custom Document Types</span>
+                                    <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24"     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </a>
+                                <ul class="nested-list">
+                                    <li><a href="#addFields">Add Fields</a></li>
+                                    <li><a href="#addTables">Add Tables</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#addFieldsTables">
-                            <span>Add Fields and Tables</span>
-                            <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                        <ul class="nested-list">
-                            <li><a href="#addFields">Add Fields</a></li>
-                            <li><a href="#addTables">Add Tables</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#configureVerification">Configure Document Verification</a></li>
+                    
                     <li><a href="#uploadDocument">Upload the Document</a></li>
                 </ul>
             </li>
+            <li><a href="#configureVerification">Configure Document Verification</a></li>
+            <li><a href="#reviewDocument">Review Documents and Mark as Reviewed</a></li>
             <li>
-                <a href="#manageDocuments">
-                    <span>Managing Documents</span>
+                <a href="#exportDocument">
+                    <span>Export the Document</span>
                     <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -568,22 +573,9 @@
                     </svg>
                 </a>
                 <ul class="nested-list">
-                    <li><a href="#reviewDocument">Review Documents and Mark as Reviewed</a></li>
-                    <li>
-                        <a href="#exportDocument">
-                            <span>Export the Document</span>
-                            <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </a>
-                        <ul class="nested-list">
-                            <li><a href="#exportToExcel">Export to Excel</a></li>
-                            <li><a href="#exportViaWebhook">Export via Webhook</a></li>
-                            <li><a href="#exportViaApi">Export via API (API Integrations)</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#exportToExcel">Export to Excel</a></li>
+                    <li><a href="#exportViaWebhook">Export via Webhook</a></li>
+                    <li><a href="#exportViaApi">Export via API</a></li>
                 </ul>
             </li>
             <li>
@@ -601,8 +593,8 @@
 
     <!-- Main content area -->
     <div class="main-content" id="main-content">
-        <h1>DocAcquire UI User Guide</h1>
-        <div class="meta">Updated on Jul 16, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 10, 2025</div>
+        <h1>DocAcquire User Guide</h1>
+        <div class="meta">Updated on Jul 17, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 10, 2025</div>
 
         <div id="introduction" class="page">
             <h2>Introduction</h2>
@@ -631,7 +623,51 @@
 
         <div id="gettingStarted" class="page hidden">
             <h2>Getting Started with DocAcquire</h2>
-            <p>This section will guide you through the initial setup and configuration steps to begin processing documents with DocAcquire.</p>
+            <p>Welcome to DocAcquire! This guide will walk you through the initial setup process, from registration to managing your documents.</p>
+
+            <h3>Step 1: Register Your Account</h3>
+            <p><strong>Fill in your details:</strong> Navigate to the DocAcquire registration page and fill in your details (full name, organization, phone number, company email, and a password meeting the specified criteria: minimum 8 characters, including a digit, lowercase, uppercase, and a symbol). Complete the "I'm not a robot" CAPTCHA and click "Register" to submit your information.</p>
+            <div class="image-container">
+                <img src="assets/register.png" alt="Registration Form">
+            </div>
+
+            <h3>Step 2: Activate and Log In</h3>
+            <p><strong>Activate your account:</strong> Check your email for an activation link and click it to confirm your account.</p>
+            <p><strong>Log in:</strong> After activating your account, return to the DocAcquire login page and log in using the email and password you registered with.</p>
+
+            <h3>Step 3: Create Document Type</h3>
+            <p>Upon successful login, you will be presented with the "Create document type" page. This is a crucial step before you can upload documents.</p>
+            <ul>
+                <li><strong>Select a document type:</strong> Choose the type of document you intend to process. For example, if you're working with invoices, select "Invoice."</li>
+                <li><strong>Capture line items (optional):</strong> Decide whether you want to capture line items from your documents. Select "Yes" or "No" accordingly.</li>
+                <div class="image-container">
+                    <img src="assets/create-doctype.png" alt="Create Document Type">
+                </div>
+                <li><strong>Create:</strong> Click the "Create" button to finalize your document type.</li>
+            </ul>
+
+            <h3>Step 4: Upload Documents</h3>
+            <p>After creating your document type, you will be taken to the documents page. Upload your documents manually or via API; DocAcquire will automatically classify and split them, or you can manage this process manually.</p>
+            <div class="image-container">
+                <img src="assets/doc-upload3.png" alt="Upload Document 1">
+            </div>
+            <div class="image-container">
+                <img src="assets/doc-upload4.png" alt="Upload Document 2">
+            </div>
+
+            <h3>Step 5: Review & Export</h3>
+            <p>Once data is extracted, you can review the results and make any necessary corrections.</p>
+            <div class="image-container">
+                <img src="assets/review-field3.png" alt="Review Fields">
+            </div>
+            <p>After reviewing, you have the option to export the data in Excel format or utilize APIs to extract the data for further use.</p>
+            <div class="image-container">
+                <img src="assets/export-excel7.png" alt="Export to Excel">
+            </div>
+            <div class="image-container">
+                <img src="assets/export-excel8.png" alt="Export to Excel">
+            </div>
+            <p>You are now ready to start using DocAcquire to manage your documents!</p>
 
             <!-- Navigation buttons -->
             <div class="nav-buttons">
@@ -642,52 +678,14 @@
                     </svg>
                     Previous: Introduction
                 </a>
-                <!-- <a href="#registration" class="next-link">
-                    Next: Registration
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                    </svg>
-                </a> -->
                 <a href="#defineDocumentType" class="next-link">
                     Next: Define Document Type
-
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                     </svg>
                 </a>
             </div>
         </div>
-
-        <!-- <div id="registration" class="page hidden">
-            <h2>Log in to DocAcquire</h2>
-            <ul>
-                <li>Open DocAcquire in your browser.</li>
-                <li>Enter your credentials and log in to your account.</li>
-                <div class="image-container">
-                    <img src="assets/login.png" alt="login" />
-                </div>
-                <li>Once logged in, you'll be taken to the DocAcquire dashboard.</li>
-            </ul>
-
-            <div class="nav-buttons">
-                <a href="#introduction">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="currentColor">
-                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
-                    </svg>
-                    Previous: Introduction
-                </a>
-                <a href="#defineDocumentType" class="next-link">
-                    Next: Define or Select a Document Type
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                    </svg>
-
-                </a>
-            </div>
-        </div> -->
 
         <div id="defineDocumentType" class="page hidden">
             <h2>Define a Document Type</h2>
@@ -789,11 +787,10 @@
             </div>
         </div>
 
-        <div id="addFieldsTables" class="page hidden">
+        <!-- <div id="addFieldsTables" class="page hidden">
             <h2>Add Fields and Tables</h2>
             <p>After selecting or creating your document type, define which data DocAcquire should extract.</p>
 
-            <!-- Navigation buttons -->
             <div class="nav-buttons">
                 <a href="#customDoctype">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -809,10 +806,11 @@
                     </svg>
                 </a>
             </div>
-        </div>
+        </div> -->
 
         <div id="addFields" class="page hidden">
             <h3>Add Fields</h3>
+            <p>After selecting or creating your document type, define which data DocAcquire should extract.</p>
             <p>To capture specific data from your documents:</p>
             <ol>
                 <li>Open your Document Type configuration.</li>
@@ -918,8 +916,8 @@
                     </svg>
                     Previous: Add Fields
                 </a>
-                <a href="#configureVerification" class="next-link">
-                    Next: Configure Document Verification
+                <a href="#uploadDocument" class="next-link">
+                    Next: Upload the Document
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                     </svg>
@@ -978,15 +976,15 @@
 
             <!-- Navigation buttons -->
             <div class="nav-buttons">
-                <a href="#addTables">
+                <a href="#uploadDocument">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
-                    Previous: Add Tables
+                    Previous: Upload the Document
                 </a>
-                <a href="#uploadDocument" class="next-link">
-                    Next: Upload the Document
+                <a href="#reviewDocument" class="next-link">
+                    Next: Review Documents and Mark as Reviewed
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                     </svg>
@@ -1132,18 +1130,45 @@
                     <img src="assets/doc-upload1.png" alt="upload doc 1" />
                 </div>
                 <li>Choose Your Upload Option
-                    <p>You now have two ways to upload documents:</p>
-                    <h4>Without Selecting a Document Type (Auto Classification):</h4>
+                    <p>Once documents are uploaded to DocAcquire, they go through two important stages: Classification and Splitting.</p>
+                    <p>In both cases, please ensure that the necessary Document Type(s) are created beforehand to enable proper processing.</p>
+                    <h4>Classifying Documents</h4>
+                    <p>DocAcquire offers two ways to classify documents:</p>
+                    
+                    <p><strong>1. Auto Classification – Let DocAcquire Detect the Type Automatically</strong></p>
                     <ul>
-                        <li>Skip selecting a Document Type before importing.</li>
-                        <li>DocAcquire will automatically analyze the document's content and identify the correct Document Type using its Auto Classification feature.</li>
-                        <li>This is useful when uploading mixed document batches or when you're unsure of the document type.</li>
+                        <li>You can upload documents without selecting a Document Type.</li>
+                        <li>DocAcquire will analyze the content and automatically assign the most relevant Document Type.</li>
+                        <li>This is ideal for:
+                            <ul>
+                                <li>Mixed document batches</li>
+                                <li>When you're not sure about the exact type</li>
+                            </ul>
+                        </li>
+                        <li>If the matched Document Type includes splitting rules, they will be applied automatically.</li>
+                        <li>If not, AI Splitting will intelligently detect and split the document into logical sections.</li>
                     </ul>
-                    <h4>After Selecting One or More Document Types:</h4>
+                    
+
+                    <p><strong>2. Manual Classification – Specify the Document Type(s) Before Uploading</strong></p>
                     <ul>
                         <li>Before importing, select one or more Document Types.</li>
                         <li>The uploaded document will be categorized and processed based on the selected Document Type(s).</li>
                         <li>This ensures the document is processed exactly according to how you've configured your fields and tables.</li>
+                        <li>Splitting is then handled based on the selected Document Type’s rules.</li>
+                        <li>If no rules are defined, AI Splitting will take over.</li>
+                    </ul>
+
+                    <h4>Splitting Documents</h4>
+                    <p>Splitting allows you to divide a document into smaller parts for focused data extraction. This is useful when:</p>
+                    <ul>
+                        <li>A single file contains multiple documents or entities that need to be processed individually</li>
+                    </ul>
+
+                    <p>You have two options:</p>
+                    <ul>
+                        <li><strong>Split by Rules:</strong> Define splitting rules within the Document Type to automatically control how documents are divided.</li>
+                        <li><strong>AI Splitting (Default):</strong> If no rules are defined, DocAcquire will use AI to detect and split based on structure and content.</li>
                     </ul>
                 </li>
                 <div class="image-container">
@@ -1167,15 +1192,15 @@
                 target="_blank">API documentation</a> for details on how to upload documents via API.</p>
 
             <div class="nav-buttons">
-                <a href="#configureVerification">
+                <a href="#addTables">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
-                    Previous: Configure Document Verification
+                    Previous: Add Tables
                 </a>
-                <a href="#manageDocuments" class="next-link">
-                    Next: Managing Documents
+                <a href="#configureVerification" class="next-link">
+                    Next: Configure Document Verification
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                     </svg>
@@ -1257,12 +1282,12 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="#uploadDocument">
+                <a href="#configureVerification">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
-                    Previous: Upload the Document
+                    Previous: Configure Document Verification
                 </a>
                 <a href="#exportDocument" class="next-link">
                     Next: Export the Document
@@ -1275,7 +1300,13 @@
        
         <div id="exportDocument" class="page hidden">
             <h2>7. Export the Document</h2>
-            <p>Once your documents are marked as Reviewed, they’re ready for export so you can integrate the extracted data into other systems or reports. DocAcquire offers multiple export options, including Excel downloads, webhooks, and API integrations.</p>
+            <p>Once your documents are marked as Reviewed, they’re ready for export so you can integrate the extracted data into other systems or reports.</p>
+            <p>DocAcquire offers multiple export options, including,</p>
+            <ol>
+                <li>Excel downloads</li>
+                <li>Webhooks</li>
+                <li>API integrations</li>
+            </ol>
 
             <!-- Navigation buttons -->
             <div class="nav-buttons">
@@ -1410,17 +1441,14 @@
         <div id="exportViaApi" class="page hidden">
             <h3>Export via API (API Integrations)</h3>
             <p>For more complex integrations and programmatic control, DocAcquire offers a comprehensive API.</p>
-            <ul>
-                <li><strong>How to Use:</strong>
-                    <ol>
-                        <li>To authenticate with the DocAcquire API, you can obtain an OAuth access token from the OAuth section under the Account Section in DocAcquire.</li>
-                        <li>Use the DocAcquire API to programmatically query for validated documents, retrieve their extracted data, and manage document statuses.</li>
-                        <li>This method offers the highest flexibility for building custom integrations with your CRM, ERP, accounting software, or other business intelligence tools.</li>
-                        <!-- <li>Refer to the <a href="api-reference.html" class="link" target="_blank">DocAcquire API Reference Documentation</a> for detailed endpoints, request formats, and response structures.</li> -->
-                        <li>Refer to the <a href="api-reference.html#retrieveVerifiedDocuments" class="link" target="_blank">DocAcquire API Reference Documentation</a> for details on how to retrive verified document(s) and mark them as exported via API.</li>
-                    </ol>
-                </li>
-            </ul>
+            <h4>How to Use:</h4>
+            <ol>
+                <li>To authenticate with the DocAcquire API, you can obtain an OAuth access token from the OAuth section under the Account Section in DocAcquire.</li>
+                <li>Use the DocAcquire API to programmatically query for validated documents, retrieve their extracted data, and manage document statuses.</li>
+                <li>This method offers the highest flexibility for building custom integrations with your CRM, ERP, accounting software, or other business intelligence tools.</li>
+                <!-- <li>Refer to the <a href="api-reference.html" class="link" target="_blank">DocAcquire API Reference Documentation</a> for detailed endpoints, request formats, and response structures.</li> -->
+                <li>Refer to the <a href="api-reference.html#retrieveVerifiedDocuments" class="link" target="_blank">DocAcquire API Reference Documentation</a> for details on how to retrive verified document(s) and mark them as exported via API.</li>
+            </ol>
             <p>We hope this structured user guide helps you effectively utilize DocAcquire to streamline your document processing. For any further questions or assistance, <a href="https://www.docacquire.com/contact-us/" class="link" target="_blank">Contact Us</a>.</p>
 
             <div class="nav-buttons">
