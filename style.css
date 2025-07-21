@@ -1,5 +1,168 @@
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v19/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf) format('truetype');
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  font-family: 'inter', sans-serif;
+}
+.kb-homepage .container {
+  max-width: 1280px;
+  /* min-height: 100vh; */
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.kb-homepage .main-logo {
+  margin-bottom: 2.5rem;
+  max-width: 100px;
+  height: auto;
+  display: block;
+  text-align: center;
+}
+.kb-homepage .main-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 3rem;
+  line-height: 1.2;
+}
+.kb-homepage .main-title-highlight {
+  color: #002b49;
+}
+.kb-homepage .card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 72rem;
+}
+.kb-homepage .card {
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  text-decoration: none;
+}
+.kb-homepage .card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  transform: translateY(-0.5rem);
+}
+.kb-homepage .icon-circle {
+  background-color: #e6eaed;
+  color: #002b49;
+  border-radius: 9999px;
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.kb-homepage .icon-circle svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke-width: 1.5;
+}
+.kb-homepage .card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+}
+.kb-homepage .card-description {
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.625;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+.kb-homepage .card-link {
+  color: #002b49;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+}
+.kb-homepage .card-link svg {
+  width: 1rem;
+  height: 1rem;
+}
+.kb-homepage .card-link:hover {
+  color: #ff4438;
+  text-decoration: underline;
+}
+.kb-homepage .footer {
+  background-color: #1f2937;
+  color: #ffffff;
+  padding: 1.5rem 0;
+  margin-top: 2.5rem;
+}
+.kb-homepage .footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+  color: #9ca3af;
+}
+@media (min-width: 768px) {
+  .kb-homepage .main-logo {
+    max-width: 150px;
+  }
+  .kb-homepage .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .kb-homepage .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
