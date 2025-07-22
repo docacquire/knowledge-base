@@ -323,7 +323,7 @@
         }
 
         .main-content ol {
-            list-style-type: decimal;
+            /* list-style-type: decimal; */
         }
 
         .main-content ul {
@@ -570,6 +570,21 @@
                     <li><a href="#exportToExcel">Export to Excel</a></li>
                     <li><a href="#exportViaWebhook">Export via Webhook</a></li>
                     <li><a href="#exportViaApi">Export via API</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#settings">
+                    <span>Settings</span>
+                    <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <ul class="nested-list">
+                    <li><a href="#userManagement">User Management</a></li>
+                    <!-- <li><a href="#exportViaWebhook">Export via Webhook</a></li> -->
+                    <!-- <li><a href="#exportViaApi">Export via API</a></li> -->
                 </ul>
             </li>
             <li>
@@ -1518,13 +1533,144 @@
                     </svg>
                     Previous: Export via Webhook
                 </a>
+                <a href="#settings" class="next-link">
+                    Next: Settings
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </div>
+
+        <div id="settings" class="page hidden">
+            <h2>Settings</h2>
+            <p>The Settings page provides a centralized space to manage core parts of your account. From here, you can manage users, define and maintain lookups, and set up external connections to support your integration and platform requirements.
+            </p>
+
+            <div class="nav-buttons">
+                <a href="#exportViaApi">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Export via API
+                </a>
+                <a href="#userManagement" class="next-link">
+                    Next: User Management
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+                
+            </div>
+        </div>
+
+        <div id="userManagement" class="page hidden">
+            <h2>User Management</h2>
+            <p>Manage users and their roles within your DocAcquire account. You can add, edit, or Lock users, assign roles, and control access to various features based on permissions.</p>
+
+            <h3>Add User</h3>
+            <p>To add a new user to your account:</p>
+            <ol>
+                <li>Go to the Users page</li>
+                <p>Navigate to the Settings → Users section. You will see a list of all existing users.</p>
+                <div class="image-container">
+                    <img src="assets/users-list1.png" alt="users list 1" />
+                </div>
+
+                <li>Click the "+" Add User button</li>
+                <p>You'll find this button on the left side of the Users page (represented by a plus icon inside a blue circle).</p>
+                <div class="image-container">
+                    <img src="assets/users-list2.png" alt="users list 2" />
+                </div>
+                <li>Fill in the user details in the form:
+                    <div class="image-container">
+                        <img src="assets/user-add.png" alt="add user" />
+                    </div>
+                    <ol type="a">
+                        <li><strong>Email (required):</strong> Enter the user's email address. This will also serve as their username.</li>
+                        <li><strong>First Name (required):</strong> Provide the user's first name.</li>
+                        <li><strong>Last Name (optional):</strong> Add the user's last name.</li>
+                        <li><strong>Role:</strong> Select a role from the dropdown-options include:
+                            <ul>
+                                <li>Administrator: Full access to all settings and features.</li>
+                                <li>Capturer: Can upload and manage documents.</li>
+                                <li>Manager: Oversees teams and has intermediate privileges.</li>
+                                <li>Verifier: Responsible for reviewing extracted data.</li>
+                            </ul>
+                        </li>
+                        <div class="image-container">
+                            <img src="assets/user-roles.png" alt="user roles" />
+                        </div>
+                        <li><strong>Password:</strong> Create a password that meets the minimum requirements:
+                            <ol type="i">
+                                <li>At least 8 characters long</li>
+                                <li>Contains at least one digit</li>
+                                <li>Contains at least one lowercase letter</li>
+                            </ol>
+                        </li>
+                        <li><strong>Re-enter Password:</strong> Confirm the password.</li>
+                    </ol>
+                </li>
+                
+                
+                <li>Save or Cancel:
+                    <ol type="a">
+                        <li>Click Save to create the user.</li>
+                        <li>Click Cancel to discard the changes.</li>
+                    </ol>
+                </li>
+            </ol>
+
+            <p>If any required field (e.g., email or password) is missing or invalid, the form will highlight the issue in red and prevent submission until corrected.</p>
+
+            <h3>Edit User</h3>
+            <p>You can edit an existing user to update their personal details, change their role and permissions, or lock their access.</p>
+            <ol>
+                <li>Go to the Users page</li>
+                <p>Navigate to the Settings → Users section. You will see a list of all existing users.</p>
+                <li>Click on the user's First Name</li>
+                <p>The name appears as a clickable link in the First Name column. This opens the user's detail form for editing.</p>
+                <li>Update the necessary fields:
+                    <div class="image-container">
+                        <img src="assets/user-edit.png" alt="edit user" />
+                    </div>
+                    <ol type="a">
+                        <li><strong>First Name:</strong> Modify the user's first name.</li>
+                        <li><strong>Last Name:</strong> Edit the last name if needed.</li>
+                        <li><strong>Role:</strong> Use the dropdown to change the user's role. Options include:
+                            <ul>
+                                <li>Administrator</li>
+                                <li>Capturer</li>
+                                <li>Verifier</li>
+                                <li>Manager</li>
+                            </ul>
+                        </li>
+                        <li><strong>Lock this user (optional):</strong> Check this box to disable the user's login access while keeping their data in the system. Useful for temporary or security-related restrictions.</li>
+                        <div class="image-container">
+                            <img src="assets/user-lock.png" alt="lock user" />
+                        </div>
+                    </ol>
+                </li>
+                <li>Click Save to apply the changes, or Cancel to discard them.</li>
+            </ol>
+            <p>Note: The Email field is disabled and cannot be edited, as it serves as the unique identifier for the user account.</p>
+
+            <div class="nav-buttons">
+                <a href="#settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Settings
+                </a>
                 <a href="#bestPractices" class="next-link">
                     Next: Best Practices
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                     </svg>
                 </a>
-                
             </div>
         </div>
 
