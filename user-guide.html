@@ -588,7 +588,7 @@
     <!-- Main content area -->
     <div class="main-content" id="main-content">
         <h1>DocAcquire User Guide</h1>
-        <div class="meta">Updated on Jul 17, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 10, 2025</div>
+        <div class="meta">Updated on Jul 22, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 10, 2025</div>
 
         <div id="introduction" class="page">
             <h2>Introduction</h2>
@@ -797,10 +797,14 @@
 
                 <li>Define the following for each field:
                     <ol type="a">
-                        <li>Field Name (e.g., Receipt Number, Receipt Date, Subtotal)</li>
-                        <li>Instruction (optional) - A short explanation to guide the extraction model on how to identify this field in the document (e.g., The Receipt Number is typically labeled as "Receipt No." or "Receipt #", and is found near the top of the document.)</li>
+                        <!-- <li>Field Name (e.g., Receipt Number, Receipt Date, Subtotal)</li> -->
+                        <li>Field Name - A short, clear, and specific name that tells the AI what data to extract. Use natural, human-readable labels like "Receipt Number", "Receipt Date", or "Subtotal". (e.g., Receipt Number — this clearly tells the AI to look for the unique receipt identifier.)</li>
+                        <!-- <li>Instruction (optional) - A short explanation to guide the extraction model on how to identify this field in the document (e.g., The Receipt Number is typically labeled as "Receipt No." or "Receipt #", and is found near the top of the document.)</li> -->
+                        <li>Instruction (optional) - This can be added to guide more complex or ambiguous extractions. Write the instruction in natural language to explain where or how to locate the field in the document.
+                        (e.g., The Receipt number is typically labeled as "Receipt No." or "Receipt #" and is found near the top right.)</li>
                     </ol>
                 </li>
+                <p><strong>Note: </strong>Instructions take precedence over the field name when both are provided. That means the AI will primarily follow the instruction if present.</p>
                 <div class="image-container">
                     <img src="assets/add-field2.png" alt="add field 2" />
                 </div>
