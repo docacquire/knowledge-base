@@ -555,6 +555,22 @@
                 </ul>
             </li>
             <li><a href="#documentLifecycle">Document Lifecycle</a></li>
+            <li>
+                <a href="#documentTypeSettings">
+                    <span>Document Type Settings</span>
+                    <svg class="toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+                <ul class="nested-list">
+                    <li><a href="#setupCalculatedField">Setup Calculated Field</a></li>
+                    <li><a href="#setupSplittingRules">Setup Splitting Rules</a></li>
+                    <li><a href="#setupConfidenceScore">Setup Confidence Score</a></li>
+                </ul>
+            </li>
+
             <li><a href="#configureVerification">Configure Document Verification</a></li>
             <li><a href="#reviewDocument">Review Documents and Mark as Reviewed</a></li>
             <li>
@@ -583,8 +599,6 @@
                 </a>
                 <ul class="nested-list">
                     <li><a href="#userManagement">User Management</a></li>
-                    <!-- <li><a href="#exportViaWebhook">Export via Webhook</a></li> -->
-                    <!-- <li><a href="#exportViaApi">Export via API</a></li> -->
                 </ul>
             </li>
             <li>
@@ -1104,6 +1118,244 @@
                     </svg>
                     Previous: Upload the Document
                 </a>
+                <a href="#documentTypeSettings" class="next-link">
+                    Next: Document Type Settings
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div id="documentTypeSettings" class="page hidden">
+            <h2>Document Type Settings</h2>
+            <p>The Document Type Settings section allows you to fine-tune the behavior of each document type according to your business requirements. These settings give you greater control over how documents are processed, reviewed, and exported.</p>
+            <p>Here's what you can configure:</p>
+
+            <div>
+                <h3>1. Calculated Fields</h3>
+                <p>Define custom fields whose values are derived from other fields using expressions or formulas. This is useful for generating totals, or any other dynamic value based on existing data.</p>
+                <div class="image-container">
+                    <img src="assets/calculated-field.png" alt="Calculated Field" />
+                </div>
+            </div>
+
+            <div>
+                <h3>2. Splitting Rules</h3>
+                <p>Set rules that determine how multi-page documents should be split into individual documents. This is especially helpful for batch uploads or scanned files containing multiple forms or invoices.</p>
+                <div class="image-container">
+                    <img src="assets/document-split1.png" alt="Document Split" />
+                </div>
+            </div>
+
+            <div>
+                <h3>3. Confidence Score Threshold</h3>
+                <p>Set your desired confidence score for data extraction. Documents that achieve a lower score will be flagged for manual review (only if the review method is not set to "SKIP"). This ensures only data above your accuracy standards is processed, helping reduce manual review efforts.</p>
+                <div class="image-container">
+                    <img src="assets/confidence-score1.png" alt="Confidence Score" />
+                </div>
+            </div>
+
+            <div>
+                <h3>4. Export Options</h3>
+                <p>Configure how and where your data will be exported. You can enable automatic export to your selected destination, and if a webhook is configured, choose to flatten the data into a simple key-value format before it's sent—making it easier to process in external systems.</p>
+                <div class="image-container">
+                    <img src="assets/export-options.png" alt="export options" />
+                </div>
+            </div>
+
+            <div>
+                <h3>5. Review Method</h3>
+                <p>Choose how documents should be reviewed after extraction. You can set it to Auto, where documents that meet the confidence score and pass all validations are automatically marked as reviewed. In Manual mode, every document goes through a manual verification process, ensuring human oversight. If you select Skip, the review step is completely bypassed, and documents proceed directly to export.</p>
+                <div class="image-container">
+                    <img src="assets/review-method.png" alt="Review Method" />
+                </div>
+            </div>
+
+            <div>
+                <h3>6. Webhooks</h3>
+                <p>Use webhooks to send real-time updates to your system when key events occur. If auto-export is enabled, the webhook triggers automatically after review; otherwise, it triggers when you manually export the document.</p>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="#documentLifecycle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Document Lifecycle
+                </a>
+                <a href="#setupCalculatedField" class="next-link">
+                    Next: Setup Calculated Field
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div id="setupCalculatedField" class="page hidden">
+            <h2>Setup Calculated Field</h2>
+            <p>Calculated Fields allow you to define custom fields whose values are automatically derived from other data fields in a document using formulas or logic. These are useful when you want to automate computations like totals, taxes, or conditional values based on extracted data.</p>
+
+            <h3>Add a Calculated Field</h3>
+            <p>To add a new calculated field to a Document Type:</p>
+            <ol>
+                <li>Select the document type where you want to define the calculated field.</li>
+                <li>In the selected document type, go to the Fields tab. This section lists all fields associated with the document type.</li>
+                <div class="image-container">
+                    <img src="assets/fields.png" alt="Fields" />
+                </div>
+                <li>The calculated field logic can only be applied to fields with the Data Type set to Number.</li>
+                <li>If you haven't already created the field:
+                    <ul>
+                        <li>Click "Add new field"</li>
+                        <li>Set the Data Type to Number</li>
+                        <li>Click "Save All"</li>
+                    </ul>
+                    
+                </li>
+                <li>If the field already exists, make sure its data type is set to Number before continuing.</li>
+                <li>Locate the field you want to turn into a calculated field. Click the three-dot menu next to the field. The Advanced Settings panel will appear.</li>
+                <div class="image-container">
+                    <img src="assets/setup-calculated-field1.png" alt="Add Calculated Field Step 1" />
+                </div>
+                
+                <li>In the Advanced Settings panel:
+                    <ul>
+                        <li>Enable the Calculated Field option.</li>
+                        <div class="image-container">
+                            <img src="assets/setup-calculated-field2.png" alt="Advanced Settings Calculated Field" />
+                        </div>
+                        <li>Click inside the Formula input box. A dropdown will appear showing all fields with Data Type set to Number.</li>
+                        <div class="image-container">
+                            <img src="assets/setup-calculated-field3.png" alt="Formula Input Dropdown" />
+                        </div>
+                    </ul>
+                </li>
+                
+                
+                <li>Select fields from this dropdown to build your formula easily—no need to type field references manually; they will be inserted automatically in the correct format.</li>
+                <ul>
+                    <li>Example of formulas:</li>
+                    <ul>
+                        <li>Simple addition: [Subtotal] + [Tax]</li>
+                    </ul>
+                </ul>
+                <div class="image-container">
+                    <img src="assets/setup-calculated-field4.png" alt="Formula Example" />
+                </div>
+                <li>Click Save to apply the formula. The field will now automatically compute its value based on the formula every time a document is processed.</li>
+            </ol>
+
+            <div class="nav-buttons">
+                <a href="#documentTypeSettings">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Document Type Settings
+                </a>
+                <a href="#setupSplittingRules" class="next-link">
+                    Next: Setup Splitting Rules
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div id="setupSplittingRules" class="page hidden">
+            <h2>Setup Splitting Rules</h2>
+            <p>Splitting rules in DocAcquire helps break down multi-page files into individual documents for accurate processing. This is essential when a single file contains multiple logical documents—such as a batch of invoices, purchase orders, or forms.</p>
+            <p>You can set up these rules within each Document Type to instruct DocAcquire where and how to separate documents.</p>
+
+            <h3>Configure Splitting Rules</h3>
+            <p>To set up splitting rules for a Document Type in DocAcquire:</p>
+            <ol>
+                <li>Go to Document Types and select the document type you want to configure.</li>
+                <li>In the selected document type, go to the Document Split Settings section.</li>
+                <div class="image-container">
+                    <img src="assets/document-split2.png" alt="Document Split" />
+                </div>
+                <li>Choose your preferred splitting rule:
+                    <ol type="a">
+                        <li><strong>Page Count</strong> - Set how many pages each split should include (e.g., split every 1 page).</li>
+                        <!-- <div class="image-container">
+                            <img src="assets/document-split3.png" alt="Page Count" />
+                        </div> -->
+                        <li><strong>Keyword Search</strong> - Splits the content based on one or more keywords or phrases that act as markers. (e.g.,  If you add "page 1 of 1" and "invoice#" as keywords, the document will split at each occurrence of either phrase.)</li>
+                        <!-- <div class="image-container">
+                            <img src="assets/document-split4.png" alt="Keyword Search" />
+                        </div> -->
+                        <li><strong>Unique Field Value</strong> - Splits data based on the unique values of a specific field. (e.g., If using the "Customer ID" field, the content will be split into separate sections for each unique customer.)</li>
+                        <!-- <div class="image-container">
+                            <img src="assets/document-split5.png" alt="Unique Field Value" />
+                        </div> -->
+                    </ol>
+                </li>
+                <li><strong>Define Classification Keywords (Required)</strong>
+                    <p>You must define classification keywords to ensure accurate document splitting. These are specific words or phrases commonly found at the beginning of a new document—such as "Tax Invoice", "Debit Note", or "Purchase Order". DocAcquire uses these keywords as a mandatory condition to confirm the start of a new document, especially when the document structure is inconsistent or varies between pages.</p>
+                    <p>Including classification keywords helps prevent incorrect splits and ensures the system correctly identifies where each document begins.</p>
+                </li>
+                <li>Click Save to apply your selected splitting method and classification keywords to the document type.</li>
+            </ol>
+
+            <h3>Fallback to Auto Splitting</h3>
+            <p>If no splitting rules are defined for a Document Type, DocAcquire automatically applies AI-powered Auto Splitting.</p>
+            <p>This method uses intelligent layout and content analysis to detect document boundaries—ideal for mixed or unpredictable formats. Auto Splitting works in the background without manual setup, ensuring seamless processing for varied document types.</p>
+
+            <div class="nav-buttons">
+                <a href="#setupCalculatedField">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Setup Calculated Field
+                </a>
+                <a href="#setupConfidenceScore" class="next-link">
+                    Next: Setup Confidence Score
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div id="setupConfidenceScore" class="page hidden">
+            <h2>Setup Confidence Score</h2>
+            <p>The Confidence Score Threshold in DocAcquire allows you to set a minimum confidence level required for extracted data to be considered reliable. Confidence scores represent how sure the system is about the accuracy of each extracted value, based on the underlying AI and extraction logic. </p>
+            <div class="image-container">
+                <img src="assets/confidence-score2.png" alt="Confidence Score" />
+            </div>
+            <p>By setting a threshold, you can automatically flag any document where extracted values fall below the acceptable confidence level—ensuring that such documents are sent for manual review instead of being exported with potentially incorrect data.</p>
+            <p>This is particularly useful in maintaining high data accuracy, especially in business-critical processes like invoicing, compliance, or legal documentation.</p>
+
+            <h3>How It Works</h3>
+            <ol>
+                <li><strong>Threshold Setting: </strong>You can configure a confidence score threshold (e.g., 80%, 90%) to define how strict your data validation process should be. This threshold represents the minimum confidence level required for extracted data to be accepted without manual intervention. </li>
+                <li><strong>Manual Review Trigger: </strong>If any required field has a confidence score below the defined threshold, and the Review Method is not set to "SKIP", the document will be flagged for manual review. This ensures that potentially inaccurate data is reviewed by a human before proceeding.</li>
+                <li><strong>Visual Indicators: </strong>
+                    <ul>
+                        <li>Fields with low confidence scores (below the threshold) are marked with a blood orange tick, helping users quickly identify values that may need attention. </li>
+                        <li>Fields with high confidence scores (meeting or exceeding the threshold) are marked with a robin’s egg blue tick, indicating the data is accurate and does not require manual review. </li>
+                    </ul>
+                    <div class="image-container">
+                        <img src="assets/confidence-score3.png" alt="Confidence Score" />
+                    </div>
+                    <p>This color-coded feedback system allows reviewers to easily distinguish between fields that need verification and those that can be trusted. </p>
+                </li>
+            </ol>
+            <p>By leveraging confidence scores, you can strike the right balance between automation and accuracy—ensuring only high-confidence data is exported automatically, while low-confidence data is flagged for further validation. </p>
+
+            <div class="nav-buttons">
+                <a href="#setupSplittingRules">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Setup Splitting Rules
+                </a>
                 <a href="#configureVerification" class="next-link">
                     Next: Configure Document Verification
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -1111,6 +1363,7 @@
                     </svg>
                 </a>
             </div>
+
         </div>
 
         <div id="configureVerification" class="page hidden">
@@ -1162,12 +1415,12 @@
             <p>Your Document Type is now fully configured and ready for document processing according to your chosen verification method!</p>
 
             <div class="nav-buttons">
-                <a href="#documentLifecycle">
+                <a href="#setupConfidenceScore">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
-                    Previous: Document Lifecycle
+                    Previous: Setup Confidence Score
                 </a>
                 <a href="#reviewDocument" class="next-link">
                     Next: Review Documents and Mark as Reviewed
