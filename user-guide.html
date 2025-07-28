@@ -94,6 +94,7 @@
             </li>
 
             <li><a href="#configureVerification">Configure Document Verification</a></li>
+            <li><a href="#autoSplitting">Auto Splitting</a></li>
             <li><a href="#reviewDocument">Review Documents and Mark as Reviewed</a></li>
             <li>
                 <a href="#exportDocument">
@@ -125,6 +126,9 @@
             </li>
             <li>
                 <a href="#bestPractices">Best Practices</a>
+            </li>
+            <li>
+                <a href="#faqs">FAQs</a>
             </li>
         </ul>
     </div>
@@ -944,8 +948,8 @@
                     </svg>
                     Previous: Setup Confidence Score
                 </a>
-                <a href="#reviewDocument" class="next-link">
-                    Next: Review Documents and Mark as Reviewed
+                <a href="#autoSplitting" class="next-link">
+                    Next: Auto Splitting
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                     </svg>
@@ -1080,6 +1084,52 @@
             </div>
         </div>
 
+        <div id="autoSplitting" class="page hidden">
+            <h2>Auto Splitting</h2>
+            <p>Auto Splitting in DocAcquire uses artificial intelligence (AI) to automatically detect where one document ends and another begins—without requiring manual setup or predefined rules. </p>
+            <p>This intelligent method is ideal for processing documents that differ in layout, length, or structure—such as mixed batches of invoices, forms, or statements—where consistent patterns are hard to define.</p>
+            <p>Unlike fixed-rule approaches, Auto Splitting “reads” and interprets documents much like a human would, identifying logical breaks based on layout, content, and context. </p>
+
+            <h3>How Auto Splitting Works</h3>
+            <p>DocAcquire’s AI-powered Auto Splitting engine intelligently analyzes each document page to determine logical breakpoints, using a multi-layered approach that mimics human-like interpretation. This ensures highly accurate and efficient document separation, even in complex or variable formats.</p>
+            <ol>
+                <li><strong>Structural Layout Recognition: </strong>Auto Splitting begins by examining the visual layout of each page. It identifies structural components such as headers, footers, titles, section breaks, and tables.This allows the system to recognize the beginning and end of documents based on how information is visually presented—regardless of differences in formatting across pages.<br>
+                Even when documents lack consistent templates, the AI can detect layout patterns and segment pages accordingly.
+                </li>
+                <li><strong>Content-Aware Understanding: </strong>Beyond surface-level keywords, the AI evaluates the actual meaning and context of the text. It can intelligently detect key document features—like invoice numbers, purchase order references, customer IDs, or dates—even when they appear in different positions across pages.<br>
+                By understanding the semantics of the content, DocAcquire ensures accurate separation based on context rather than relying solely on predefined words or static positions.
+                </li>
+                <li><strong>Cross-Page Continuity Detection: </strong>The system also analyzes how content flows between pages. It can determine when information continues from one page to the next—such as multi-page invoices or reports—and when a new, independent document begins.<br>
+                This capability helps prevent premature or incorrect splits that could otherwise separate pages belonging to the same document.
+                </li>
+            </ol>
+
+            <h3>When to Use Auto Splitting</h3>
+            <p>Use Auto Splitting when: </p>
+            <ul>
+                <li>Documents have inconsistent layouts or structures.</li>
+                <li>You're processing mixed batches with different document types.</li>
+                <li>You want to save time by reducing manual rule setup.</li>
+                <li>You're handling large-scale document processing with high variability.</li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="#configureVerification">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Configure Document Verification
+                </a>
+                <a href="#reviewDocument" class="next-link">
+                    Next: Review Documents and Mark as Reviewed
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
         <div id="reviewDocument" class="page hidden">
             <h2>Review Documents and Mark as Reviewed</h2>
             <p>The Review Screen is a critical component of DocAcquire, allowing human-in-the-loop validation to ensure the highest data accuracy. This step is particularly relevant for documents configured for "Manual Review" or those that failed "Auto Review."</p>
@@ -1131,12 +1181,12 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="#configureVerification">
+                <a href="#autoSplitting">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="currentColor">
                         <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
                     </svg>
-                    Previous: Configure Document Verification
+                    Previous: Auto Splitting
                 </a>
                 <a href="#exportDocument" class="next-link">
                     Next: Export the Document
@@ -1471,12 +1521,172 @@
                     </svg>
                     Previous: User Management
                 </a>
-                <div></div> <!-- Placeholder for next button on last page -->
+                <a href="#faq" class="next-link">
+                    Next: FAQs
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </a>
             </div>
             <div class="feedback">
                 <span>Was this article helpful?</span>
                 <button>Yes</button>
                 <button>No</button>
+            </div>
+        </div>
+
+         <div id="faqs" class="page hidden">
+            <h2>Frequently Asked Questions</h2>
+            <h3>1. How does DocAcquire simplify document-based workflows?</h3>
+            <p>DocAcquire is an intelligent document processing (IDP) platform that automates the extraction, classification, and validation of data from a wide range of business documents. By converting unstructured or semi-structured files into clean, structured data, DocAcquire helps organizations eliminate manual data entry, reduce processing time, and improve accuracy across critical workflows.</p>
+
+            <h3>2. How does DocAcquire make working with documents easier?</h3>
+            <p>DocAcquire helps you save time by automatically reading and pulling out important data from your documents—like invoices, receipts, or forms. It sorts, checks, and organizes the information for you, so you don't have to enter it manually. This means faster work, fewer mistakes, and smoother business processes.</p>
+
+            <h3>3. How do I sign up for a DocAcquire account?</h3>
+            <p>To register, head over to the DocAcquire registration page, fill in your details like name, company email, organization name, and create a strong password (must include uppercase, lowercase, digit, and symbol). Don't forget to check the CAPTCHA box and hit Register.</p>
+
+            <h3>4. How do I activate my account?</h3>
+            <p>After registering, check your email inbox for a confirmation message. Click the activation link inside to verify your account. If you don't see it, check your spam folder.</p>
+
+            <h3>5. How do I log in once I've registered?</h3>
+            <p>Once your account is activated, go to the DocAcquire login page, enter your registered email and password, and click Log In.</p>
+
+            <h3>6. What is a document type, and why do I need to create one?</h3>
+            <p>A document type tells DocAcquire what kind of document you're working with—like an invoice or purchase order. This setup helps the system know what data to look for and how to extract it correctly.</p>
+
+            <h3>7. How do I create a document type in DocAcquire?</h3>
+            <p>Right after logging in, you'll see the Create Document Type page. Choose the kind of document you want to process (e.g., "Invoice"). If your documents include line items (like product lists), select Yes to capture them. Click Create to save your document type.</p>
+
+            <h3>8. How do I upload documents to DocAcquire?</h3>
+            <p>After setting up your document type, you'll land on the Documents page. You can: Manually upload files from your computer or use the API to upload documents in bulk. DocAcquire will automatically classify and split the documents, or you can handle this step manually.</p>
+
+            <h3>9. Is my data safe with DocAcquire?</h3>
+            <p>Yes—DocAcquire is built with strong security in mind. All your documents and extracted data are protected using advanced encryption, both when stored and while being transferred. We also follow strict data protection regulations to ensure your information is kept private, secure, and handled responsibly at every step.</p>
+
+            <h3>10. Does DocAcquire have ready-to-use document types?</h3>
+            <p>Yes! DocAcquire includes several built-in document types like invoices, purchase orders, contracts, and passports. These templates come preconfigured with important fields and smart extraction rules, so you can start processing documents right away—no setup needed.</p>
+
+            <h3>11. Can I create my own document type in DocAcquire?</h3>
+            <p>Absolutely! If you're working with documents that don't fit the built-in templates or need to extract custom fields, you can easily create a custom document type.</p>
+
+            <h3>12. How do I upload a document in DocAcquire?</h3>
+            <p>Go to the Documents tab on the left sidebar and click Import Documents. You can upload files manually from your computer in supported formats like PDF, JPEG, PNG, or TIFF.</p>
+
+            <h3>13. What happens after I upload a document?</h3>
+            <p>Once uploaded, DocAcquire automatically starts processing your document in the background. It goes through classification (to identify the document type) and splitting (to divide multi-doc files into separate documents, if needed).</p>
+
+            <h3>14. Can I keep working while documents are processing?</h3>
+            <p>Yes. DocAcquire processes documents asynchronously, so you can continue using the platform while files are being analyzed.</p>
+
+            <h3>15. What is document classification in DocAcquire?</h3>
+            <p>Classification means identifying what type of document was uploaded—like an invoice or a contract. You can classify documents in two ways: Auto Classification - DocAcquire figures out the document type on its own. Manual Classification - You select the document type before uploading.</p>
+
+            <h3>16. When should I use Auto Classification?</h3>
+            <p>Auto Classification is best when: You're uploading mixed document types in one batch. You're unsure of the document type. DocAcquire will assign the best-matching type automatically.</p>
+
+            <h3>17. What is Manual Classification, and when should I use it?</h3>
+            <p>Use Manual Classification when you know exactly which document type(s) you're uploading. This gives you precise control and ensures DocAcquire uses your configured fields and rules.</p>
+
+            <h3>18. What is document splitting in DocAcquire?</h3>
+            <p>Splitting breaks one large file into smaller, individual documents—useful when a single file contains multiple forms, invoices, or pages to be processed separately.</p>
+
+            <h3>19. How does DocAcquire split documents?</h3>
+            <p>You have two options: Rule-Based Splitting - Set rules inside your Document Type for when and how to split. AI Splitting (Default) - If no rules are set, DocAcquire uses AI to detect logical breaks based on content and layout.</p>
+
+            <h3>20. Can I upload documents through the API instead of the UI?</h3>
+            <p>Yes. DocAcquire offers an API that allows you to upload and process documents programmatically perfect for integrating into your existing apps or workflows.</p>
+
+            <h3>21. What are document lifecycle stages in DocAcquire?</h3>
+            <p>Each document in DocAcquire moves through a set of statuses (or stages) that show where it is in the processing pipeline—from upload to export. These stages help you track progress, fix issues, and ensure everything runs smoothly.</p>
+
+            <h3>22. What does 'Queued' status mean?</h3>
+            <p>A document marked as Queued is waiting its turn to be processed. This usually happens when several files are uploaded at once, or when system resources are temporarily busy.</p>
+
+            <h3>23. What happens during the 'Processing' stage?</h3>
+            <p>When a document is Processing, DocAcquire is actively analyzing it—reading the content, applying your setup rules, and extracting data using AI.</p>
+
+            <h3>24. What does 'Awaiting Review' mean?</h3>
+            <p>This means DocAcquire has finished extracting data, and the document is ready for you (or your team) to review. You can check, edit, and confirm the results before moving forward.</p>
+
+            <h3>25. What is the 'Reviewed' status?</h3>
+            <p>Once you verify and approve all extracted data, the document becomes Reviewed. This means it's ready to be exported or integrated into other systems.</p>
+
+            <h3>26. What does 'Exported' mean?</h3>
+            <p>A document reaches Exported status when its data has been successfully sent to its final destination—like a file download, system integration, or API.</p>
+
+            <h3>27. What should I do if a document status is 'Failed'?</h3>
+            <p>The Failed status means something went wrong during processing. This could be due to: No data to extract, Corrupt or password-protected file, File format issues, A processing timeout. Check the error message and either fix the issue or requeue the document for another attempt.</p>
+
+            <h3>28. What does 'Requeued' mean?</h3>
+            <p>If you choose to reprocess a failed document, it enters the Requeued stage. This sends it back into the queue so it can go through the lifecycle again—without needing to re-upload.</p>
+
+            <h3>29. When should I requeue a document?</h3>
+            <p>Requeue a document when: Temporary issues (like system load) are resolved, You've fixed extraction rules, You want to retry processing without uploading again.</p>
+
+            <h3>30. What are Document Type Settings in DocAcquire?</h3>
+            <p>Document Type Settings let you customize how each document type behaves—from how it's split and reviewed to how data is exported. These options help you tailor the processing flow to match your business needs.</p>
+
+            <h3>31. Can I create custom fields based on calculations?</h3>
+            <p>Yes. With Calculated Fields, you can define values using formulas based on other extracted data—like totals, taxes, or percentages. This helps automate common calculations without needing to do them manually.</p>
+
+            <h3>32. What are Splitting Rules, and when should I use them?</h3>
+            <p>Splitting Rules control how multi-page documents are divided into individual records. They're especially useful when uploading scanned files or batches that contain multiple invoices, forms, or receipts in one file.</p>
+
+            <h3>33. What is a Confidence Score Threshold?</h3>
+            <p>The Confidence Score Threshold lets you decide how accurate the extracted data must be before it's approved. If a document's score is lower than your threshold, it will be flagged for manual review—unless you've chosen to skip reviews entirely.</p>
+
+            <h3>34. How can I control where the data gets exported?</h3>
+            <p>Under Export Options, you can enable automatic export and choose where the data should go (e.g., via API or webhook). You can also simplify the output format using the "flatten" option to send data as basic key-value pairs.</p>
+
+            <h3>35. What is the Review Method setting?</h3>
+            <p>The Review Method controls how documents are checked after extraction: Auto: Documents are marked as reviewed if they meet confidence and validation criteria. Manual: Every document must be reviewed by a user. Skip: Bypasses review altogether; documents go straight to export.</p>
+
+            <h3>36. What are Webhooks used for in DocAcquire?</h3>
+            <p>Webhooks let you send real-time updates to other systems when certain events occur—such as when a user clicks the Export button after a document is reviewed, or if the document type's Export Options are configured to automatically export the document. They're especially useful for triggering actions in connected apps or systems automatically.</p>
+
+            <h3>37. What is document verification in DocAcquire?</h3>
+            <p>Document verification is the process of ensuring that the extracted data is accurate and meets your validation rules before it's marked as complete and ready for export or integration.</p>
+
+            <h3>38. What are the available document verification options?</h3>
+            <p>DocAcquire offers three verification modes: Auto Review, Manual Review, Skip Review.</p>
+
+            <h3>39. How does Auto Review work?</h3>
+            <p>In Auto Review, DocAcquire automatically checks extracted data against your configured validation rules. If everything passes and meets the confidence threshold, the document is marked as Reviewed without human involvement.</p>
+
+            <h3>40. When should I use Auto Review?</h3>
+            <p>Use Auto Review for high-volume, consistent document types where the AI performs reliably—like utility bills, standardized invoices, or forms with fixed layouts.</p>
+
+            <h3>41. What is Manual Review?</h3>
+            <p>Manual Review requires a user to inspect, correct, and approve the extracted data. Only after this review is the document marked as Reviewed.</p>
+
+            <h3>42. When is Manual Review recommended?</h3>
+            <p>Choose Manual Review for critical or complex documents, such as contracts or varied invoice formats, where accuracy is essential and automation may not catch everything.</p>
+
+            <h3>43. What does Skip Review mean?</h3>
+            <p>With Skip Review, the document skips validation and manual checks. It is automatically marked as Reviewed right after processing.</p>
+
+            <h3>44. Is it safe to use Skip Review?</h3>
+            <p>Skip Review is best used for low-risk documents where speed is a priority and accuracy checks are not mandatory. Use it cautiously, especially in workflows that involve sensitive or financial data.</p>
+
+            <h3>45. How do I configure the review method for a document type?</h3>
+            <ol>
+                <li>Go to your Document Type configuration page.</li>
+                <li>Scroll to the Review Method section.</li>
+                <li>Choose between Auto, Manual, or Skip.</li>
+                <li>Click Save to apply your changes.</li>
+            </ol>
+
+            <!-- Navigation buttons -->
+            <div class="nav-buttons">
+                <a href="#bestPractices">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z" />
+                    </svg>
+                    Previous: Best Practices
+                </a>
+                <div></div> <!-- Placeholder for next button on last page -->
             </div>
         </div>
     </div>
