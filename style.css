@@ -377,7 +377,7 @@ body {
 .main-content p {
   color: #5c5c5c;
   margin-bottom: 12px;
-  max-width: 700px;
+  max-width: 800px;
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -390,7 +390,7 @@ body {
   font-size: 0.85rem;
   color: #2d3748;
   margin-bottom: 20px;
-  max-width: 700px;
+  max-width: 800px;
 }
 .code-inline {
   background-color: #e5e7eb;
@@ -436,7 +436,7 @@ body {
   margin-left: 20px;
   color: #374151;
   margin-bottom: 16px;
-  max-width: 700px;
+  max-width: 800px;
   font-size: 0.95rem;
   line-height: 1.8;
 }
@@ -457,7 +457,7 @@ body {
 .nav-buttons {
   display: flex;
   justify-content: space-between;
-  max-width: 700px;
+  max-width: 800px;
   margin-top: 24px;
 }
 .nav-buttons a {
@@ -499,7 +499,7 @@ body {
   border-radius: 8px;
   align-items: center;
   gap: 12px;
-  max-width: 700px;
+  max-width: 800px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .feedback span {
@@ -555,10 +555,10 @@ body {
     font-size: 0.9rem;
   }
   .image-container {
-    width: 700px;
+    width: 800px;
   }
   .image-container img {
-    max-width: 700px;
+    max-width: 800px;
   }
 }
 @media (min-width: 1024px) {
