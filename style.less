@@ -10,18 +10,78 @@ body{
     font-family: 'inter', sans-serif;
 }
 
-.kb-homepage{
+.container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+@media (min-width: 576px) {
     .container {
-        max-width: 1280px;
-        /* min-height: 100vh; */
-        margin: 0 auto;
-        padding: 2.5rem 1rem;
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center; 
+        width: 540px;
+        max-width: 100%;
     }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 720px;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 960px;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+        max-width: 100%;
+    }
+}
+
+.kb-homepage{
+    header{
+        padding-top:16px ;
+        border-bottom: 1px solid #e5e7eb;
+        height: 60px;
+    }
+    
+    .title-wrapper {
+        background-color: #002b49;
+        // margin-bottom: 16px;
+
+        .title-container{
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 750px;
+            padding: 100px 20px;
+        }
+    }
+
+    .card-container{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    
+    // .container {
+    //     max-width: 1280px;
+    //     /* min-height: 100vh; */
+    //     margin: 0 auto;
+    //     padding: 2.5rem 1rem;
+    //     flex-grow: 1;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     justify-content: center; 
+    // }
 
     .main-logo {
         margin-bottom: 2.5rem; 
@@ -34,14 +94,9 @@ body{
     .main-title {
         font-size: 2rem; 
         font-weight: 800;
-        color: #1f2937;
+        color: #e6eaed;
         text-align: center;
-        margin-bottom: 3rem;
         line-height: 1.2; 
-    }
-
-    .main-title-highlight {
-        color: #002b49;
     }
 
     .card-grid {
@@ -160,7 +215,6 @@ body{
         }
     }
 }
-
 
 // guide styles
 /* Utility classes */
