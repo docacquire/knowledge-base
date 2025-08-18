@@ -73,9 +73,50 @@ body {
   }
 }
 .kb-homepage header {
-  padding-top: 16px ;
+  padding-top: 20px ;
   border-bottom: 1px solid #e5e7eb;
-  height: 60px;
+  height: 70px;
+}
+.kb-homepage header .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.kb-homepage header .header-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.kb-homepage header .free-trial {
+  background-color: #fd4539;
+  padding: 5px 7px;
+  border-radius: 6px;
+  border: 2px solid #fd4539;
+}
+.kb-homepage header .free-trial a {
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+}
+.kb-homepage header .request-demo {
+  padding: 5px 7px;
+  border-radius: 6px;
+  border: 2px solid #fd4539;
+}
+.kb-homepage header .request-demo:hover {
+  background-color: #fd4539;
+  border: 2px solid #fd4539;
+  transition: all 0.8s;
+}
+.kb-homepage header .request-demo:hover a {
+  color: white;
+}
+.kb-homepage header .request-demo a {
+  text-decoration: none;
+  color: #fd4539;
+  font-size: 12px;
+  font-weight: 400;
 }
 .kb-homepage .title-wrapper {
   background-color: #002b49;
@@ -91,7 +132,6 @@ body {
   margin-bottom: 20px;
 }
 .kb-homepage .main-logo {
-  margin-bottom: 2.5rem;
   max-width: 100px;
   height: auto;
   display: block;
@@ -188,6 +228,18 @@ body {
   color: #9ca3af;
 }
 @media (min-width: 768px) {
+  .kb-homepage .header-inner .free-trial {
+    padding: 7px 20px;
+  }
+  .kb-homepage .header-inner .free-trial a {
+    font-size: 14px;
+  }
+  .kb-homepage .header-inner .request-demo {
+    padding: 7px 20px;
+  }
+  .kb-homepage .header-inner .request-demo a {
+    font-size: 14px;
+  }
   .kb-homepage .main-logo {
     max-width: 150px;
   }
